@@ -1,0 +1,46 @@
+/* Reseteo de márgenes y rellenos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo para la primera sección */
+.principal {
+    position: relative;
+    background-image: url('../img/fondoprincipal.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Altura de la ventana del navegador */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+/* Contenido de la sección */
+.principal-content {
+    z-index: 1; /* Asegura que el contenido esté por encima de la imagen de fondo */
+}
+
+/* Estilos adicionales para el botón */
+.btn-primary {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.imagen-icono {
+    width: 5%;
+    height: 5%;
+}   
+
+ul {
+    list-style-type: none;
+    text-align: center
+}
+
+li {
+    display: inline;
+    margin-right: 10px;
+}
