@@ -32,3 +32,19 @@ li {
     display: inline;
     margin-right: 5px;
 }
+
+.div-info {
+    background-color: rgb(211, 116, 187);
+    width: 50%;
+    height: 200px;
+    position: relative;
+    z-index: 1;
+}
+
+.img-info {
+    border-radius: 50%;
+    width: 50%;
+    height: 300px;
+    position: absolute;
+    z-index: 2;
+}
