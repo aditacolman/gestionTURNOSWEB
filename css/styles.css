@@ -33,18 +33,38 @@ li {
     margin-right: 5px;
 }
 
-.div-info {
-    background-color: rgb(211, 116, 187);
-    width: 50%;
-    height: 200px;
-    position: relative;
+.img-info {
+    border-radius: 50%;
+    position: absolute;
+    width: 42%; /* Ajusta el tamaño según sea necesario */
+    height: 270px; /* Mantiene la relación de aspecto */
+    top: -16%;
+    left: 46%;
     z-index: 1;
 }
 
-.img-info {
-    border-radius: 50%;
-    width: 50%;
-    height: 300px;
+.contenedor-info {
+    position: relative;
+    height: 200px; /* Ajusta el tamaño según sea necesario */
+    background-color: rgb(211, 116, 187);
+}
+
+.contenedor-pos{
+    position: relative;
+}
+
+.card-info {
+    width: 74%;
+    height: 40%;
     position: absolute;
-    z-index: 2;
+    z-index: 1;
+    left: 14%;
+    top: -10%;
+    border-radius: 30px!important;
+}
+
+.margin {
+    margin-left: 0!important;
+    margin-right: 0!important;
+    padding: 0!important;
 }
