@@ -21,14 +21,14 @@
     font-size: 16px;
 }
 
-ul {
+.ul-icono {
     list-style-type: none;
     text-align: end;
     padding-left: 0!important;
     margin-bottom: 0!important;
 }
 
-li {
+.li-icono {
     display: inline;
     margin-right: 5px;
 }
@@ -67,4 +67,22 @@ li {
     margin-left: 0!important;
     margin-right: 0!important;
     padding: 0!important;
+}
+
+.titulo-footer{
+    text-align: center;
+}
+
+.ul-footer-servicios {
+    list-style: none;
+    display: flex;
+    gap: 12%;
+    justify-content: center;
+}
+
+.ul-footer-redes {
+    list-style: none;
+    display: flex;
+    gap: 5%;
+    justify-content: center;
 }
