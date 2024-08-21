@@ -4,11 +4,12 @@
     padding: 0;
 }
 
+/* WIDGET INSTAGRAM */
 .widget-container {
     width: 100%;
     overflow: hidden; /* Controla el desbordamiento */
-    padding: 0; /* Ajusta el padding si es necesario */
-    margin: 0; /* Ajusta el margin si es necesario */
+    padding: 0;
+    margin: 0;
     box-sizing: border-box; /* Asegura que el padding y el borde no afecten el ancho total */
 }
 
@@ -17,16 +18,17 @@
     max-width: 100%;
 }
 
-.imagen-icono {
-    width: 3%;
-    height: 3%;
-} 
-
-.contenedor {
+/* SECCIÓN PRINCIPAL */
+.contenedor { /* Imagen principal */
     background-image: url('../img/fondoprincipal.jpeg');
     background-position: center;
     height: 100vh; /* Altura de la ventana del navegador */
 }
+
+.imagen-icono { /* Iconos del 'NAV'*/
+    width: 3%;
+    height: 3%;
+} 
 
 .ul-icono {
     list-style: none;
@@ -37,18 +39,19 @@
     padding: 35px;
 }
 
-.img-info {
+.div-boton { /* Botón 'Sacar turno'*/
+    padding-top: 25%;
+}
+
+/* SECCIÓN INFORMACIÓN */
+.img-info { /* Iconos del 'NAV'*/
     border-radius: 50%;
     position: absolute;
-    width: 42%; /* Ajusta el tamaño según sea necesario */
-    height: 270px; /* Mantiene la relación de aspecto */
+    width: 42%; 
+    height: 270px; 
     top: -16%;
     left: 46%;
     z-index: 1;
-}
-
-.div-boton {
-    padding-top: 25%;
 }
 
 .contenedor-info {
@@ -77,10 +80,15 @@
     padding: 0!important;
 }
 
+/* FOOTER */
 footer{
     background-color: pink;
     padding-top: 30px;
     padding-bottom: 15px;
+}
+
+.padding {
+    padding-left: 5.5%!important;
 }
 
 .titulo-footer{
@@ -101,15 +109,20 @@ footer{
 }
 
 .parrafo-footer{
-    font-size: 12px;
-    margin-bottom: 2.5%;
+    font-size: 15px;
+    margin-bottom: 3.5%;
+}
+
+.listado-footer{
+    font-size: 15px;
+    margin-bottom: 1.5%;
 }
 
 .ul-footer-redes {
     list-style: none;
     display: flex;
     gap: 4%;
-    font-size: 20px;
+    font-size: 28px;
     padding: 0;
     margin-bottom: 0;
 }
@@ -118,3 +131,5 @@ footer{
     list-style: none;
     padding: 0;
 }
+
+/* AJUSTAR ESTILOS DEPENDIENDO DEL ANCHO DE LA PANTALLA, MEDIA QUERIES */
