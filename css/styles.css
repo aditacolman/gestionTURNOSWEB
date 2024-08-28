@@ -128,3 +128,8 @@ footer {
     border: 1px solid #fe59d7; }
 
 /* AJUSTAR ESTILOS DEPENDIENDO DEL ANCHO DE LA PANTALLA, MEDIA QUERIES */
+
+/*¡VENTANA TURNOS!*/
+.columnas {
+    height: 100vh;
+}
