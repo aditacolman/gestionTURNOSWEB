@@ -135,13 +135,14 @@ footer {
 }
 
 .scrollable-list {
-    max-height: 200px; /* Ajusta la altura máxima según tus necesidades */
+    max-height: 100px; /* Ajusta la altura máxima según tus necesidades */
     overflow-y: auto;  /* Habilita el scroll vertical */
+    padding: 3%;
 }
 
 .centered-container {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
-    height: 80%;            /* Ocupa todo el alto de la columna */
+    height: 100%;            /* Ocupa todo el alto de la columna */
 }
