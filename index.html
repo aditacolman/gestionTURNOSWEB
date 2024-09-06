@@ -19,24 +19,46 @@
         <div class="">
           <ul class="ul-icono">
             <li> <a href="#"><i class="bi bi-whatsapp"></i></a> </li>
-            <li> <a href="#"><i class="bi bi-person-circle"></i></a> </li>
+            <li> 
+              <a href="#" data-bs-toggle="dropdown"role="button"><i class="bi bi-person-circle"></i></a> 
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
+                <li><a class="dropdown-item" href="#">Registrarse</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
         <!-- DIV Botón -->
         <div class="text-center div-boton">
           <a href="./turno.html" class="btn btn-primary">Sacar turno</a>
         </div>
+        <div class="text-center align-text-bottom">
+          <a href="#Servicios"><i class="bi bi-arrow-bar-down"></i></a>
+        </div>
       </div>
     </section>
 
-    <section class="my-4">
+    <section class="my-4" id="Servicios">
       <h1 class="text-center">
         servicios
       </h1>
         <div class="container text-center">
           <div class="row">
             <div class="col-4">
-              <img src="./img/imagenservicio.png" alt="">
+              <a href="#exampleModal" role="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./img/imagenservicio.png" alt=""></a>
+                <div class="modal" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               <p>Nombre de servicio</p>
             </div>
             <div class="col-4">

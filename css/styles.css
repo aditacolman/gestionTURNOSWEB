@@ -137,7 +137,6 @@ footer {
 .scrollable-list {
     max-height: 100px; /* Ajusta la altura máxima según tus necesidades */
     overflow-y: auto;  /* Habilita el scroll vertical */
-    padding: 3%;
 }
 
 .centered-container {
@@ -145,4 +144,8 @@ footer {
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
     height: 100%;            /* Ocupa todo el alto de la columna */
+}
+
+label {
+    background-color: #fe59d7;
 }
