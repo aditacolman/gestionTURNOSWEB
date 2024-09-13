@@ -19,29 +19,58 @@
 }
 
 /* SECCIÓN PRINCIPAL */
-.contenedor { /* Imagen principal */
-    background-image: url('../img/fondoprincipal.jpeg');
-    background-position: center;
+.contenedor {
+    position: relative;
     height: 100vh; /* Altura de la ventana del navegador */
+    overflow: hidden; /* Para asegurarse de que los pseudo-elementos no se desborden */
+}
+
+.contenedor::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(70%);
+    z-index: -1; /* Envía el pseudo-elemento al fondo */
+}
+
+.ul-icono {
+    list-style: none;
+    display: flex;
+    gap: 1.4%;
+    justify-content: end;
+    font-size: 33px;
+    padding: 35px;
+}
+
+a {
+    color: #F2EFE9!important;
+}
+
+.boton-turnos {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 50vh;
+}
+
+.boton-servicios {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 35px;
+    height: 25vh;
 }
 
 .imagen-icono { /* Iconos del 'NAV'*/
     width: 3%;
     height: 3%;
 } 
-
-.ul-icono {
-    list-style: none;
-    display: flex;
-    gap: 1.5%;
-    justify-content: end;
-    font-size: 33px;
-    padding: 35px;
-}
-
-.div-boton { /* Botón 'Sacar turno'*/
-    padding-top: 25%;
-}
 
 /* SECCIÓN INFORMACIÓN */
 .img-info { /* Iconos del 'NAV'*/
