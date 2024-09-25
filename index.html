@@ -22,11 +22,85 @@
             <li> 
               <a href="#" data-bs-toggle="dropdown" role="button"><i class="bi bi-person-circle"></i></a> 
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item dropdown" href="#">Iniciar sesión</a></li>
+                <li><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#loginModal" >Iniciar sesión</a></li>
                 <li><a class="dropdown-item dropdown" href="#">Registrarse</a></li>
               </ul>
             </li>
           </ul>
+        </div>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+        <style>
+          .modal-header {
+            background-color: #ff66b2; 
+            color: white; 
+            text-align: center; 
+          }
+          .modal-title {
+            font-size: 1.5rem; 
+          }
+          .modal-body {
+            background-color: transparent; 
+          }
+          .form-label, .form-control {
+            background-color: transparent; 
+            border: none; 
+            color: #333; 
+          }
+          .form-control:focus {
+            box-shadow: none; 
+            border-color: #ff66b2;
+          }
+          .btn-primary {
+            background-color: #ff66b2;
+            border: none; 
+          }
+          .btn-primary:hover {
+            background-color: #e55a9b; 
+          }
+        </style>
+
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="row mb-3">
+                    <div class="col">
+                      <label for="firstName" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" id="firstName" required>
+                    </div>
+                    <div class="col">
+                      <label for="lastName" class="form-label">Apellido</label>
+                      <input type="text" class="form-control" id="lastName" required>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="email" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="dni" class="form-label">DNI</label>
+                    <input type="text" class="form-control" id="dni" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="phone" class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" id="phone" required>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="contenido-principal">
           <div class="div-logo"><img src="./img/image.png"></div>
