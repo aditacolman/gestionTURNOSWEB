@@ -111,6 +111,25 @@ a {
     z-index: 2;
 }
 
+.text-servicio {
+    font-family: "Montserrat", Sans-serif;
+    font-weight: 400;
+    color: #212529;
+    font-size: 100%;
+}
+
+.titulo-servicio {
+    font-family: "Montserrat", Sans-serif;
+    font-weight: 400;
+    color: #212529;
+    font-size: 150%;
+}
+
+.boton-servicio .btn{
+    --bs-btn-padding-x: 2.75rem;
+    --bs-btn-border-color: #d152c2;
+}
+
 .contenedor-info {
     position: relative;
     height: 200px; /* Ajusta el tamaño según sea necesario */
