@@ -40,3 +40,11 @@ h2 {
 		box-shadow: none;
 	}
 }
+
+.ul-icono li a {
+    transition: transform 0.3s ease; /* Transición suave */
+}
+
+.ul-icono li a:hover {
+    transform: scale(1.2); /* Cambia el tamaño al 120% */
+}

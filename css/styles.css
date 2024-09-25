@@ -35,36 +35,64 @@
     background-image: url('../img/fondo.jpg');
     background-size: cover;
     background-position: center;
-    filter: brightness(70%);
-    z-index: -1; /* Envía el pseudo-elemento al fondo */
+    filter: brightness(40%);
 }
 
 .ul-icono {
     list-style: none;
     display: flex;
-    gap: 1.4%;
+    gap: 30.4%;
     justify-content: end;
     font-size: 33px;
     padding: 35px;
+}
+
+.nav{
+    position: absolute; /* Mantiene el nav en la parte superior */
+    top: 0; /* Asegura que esté en la parte superior */
+    right: 0; /* Alinear a la derecha */
+    z-index: 3; 
 }
 
 a {
     color: #F2EFE9!important;
 }
 
-.boton-turnos {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    height: 50vh;
+.dropdown {
+    color: #212529!important;
 }
 
-.boton-servicios {
+.contenido-principal {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    font-size: 35px;
-    height: 25vh;
+    flex-direction: column; /* Alinear en columna */
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    height: 100%; /* Ocupa toda la altura de la ventana */
+    z-index: 2;
+    position: relative;
+    margin-top: 3rem;
+}
+
+.div-logo {
+    display: flex; /* Usar flexbox para centrar */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente, si es necesario */
+}
+
+.div-logo img {
+    max-width: 100%; /* Asegura que la imagen sea responsiva */
+    width: 80%;
+    height: auto; /* Cambiado a auto para mantener proporciones */
+}
+
+.boton-turnos, .boton-servicios {
+    margin: 10px 0; /* Margen vertical entre botones */
+    font-size: 30px;
+}
+
+.boton-turnos .btn {
+    --bs-btn-padding-x: 2.75rem;
+    --bs-btn-border-color: #F2EFE9;
 }
 
 .imagen-icono { /* Iconos del 'NAV'*/
@@ -80,7 +108,7 @@ a {
     height: 270px; 
     top: -16%;
     left: 46%;
-    z-index: 1;
+    z-index: 2;
 }
 
 .contenedor-info {
