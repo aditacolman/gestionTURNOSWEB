@@ -204,5 +204,10 @@ footer {
 }
 
 label {
-    background-color: #fe59d7;
+    background-color: #c2b6bf;
+    border-radius: 5px;
+}
+
+.checkBoxStyle {
+    margin-left: 6px;
 }
