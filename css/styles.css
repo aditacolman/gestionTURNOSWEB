@@ -54,10 +54,6 @@
     z-index: 3; 
 }
 
-a {
-    color: #F2EFE9!important;
-}
-
 .dropdown {
     color: #212529!important;
 }
@@ -88,17 +84,33 @@ a {
 .boton-turnos, .boton-servicios {
     margin: 10px 0; /* Margen vertical entre botones */
     font-size: 30px;
+    font-family: "Montserrat", sans-serif;
 }
 
-.boton-turnos .btn {
+.boton-turnos .btn{
     --bs-btn-padding-x: 2.75rem;
-    --bs-btn-border-color: #F2EFE9;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-color: #ffffff;
+}
+
+.boton-turnos .btn:hover{
+    color: #212529;
+    background-color: #F2C2C2;
+    border-color: #F2C2C2;
 }
 
 .imagen-icono { /* Iconos del 'NAV'*/
     width: 3%;
     height: 3%;
 } 
+
+.color-icono{
+    color: #ffffff;
+}
+
+.color-icono:hover{
+    color: #F2C2C2;
+}
 
 /* SECCIÓN INFORMACIÓN */
 .img-info { /* Iconos del 'NAV'*/
@@ -111,23 +123,44 @@ a {
     z-index: 2;
 }
 
+.servicio{
+    font-family: "Poppins", Arial, sans-serif;
+}
+
 .text-servicio {
     font-family: "Montserrat", Sans-serif;
     font-weight: 400;
     color: #212529;
     font-size: 100%;
+    margin-bottom: 0;
+    margin-top: 1rem;
 }
 
 .titulo-servicio {
     font-family: "Montserrat", Sans-serif;
     font-weight: 400;
-    color: #212529;
+    color: #8C1B2F;
     font-size: 150%;
 }
 
 .boton-servicio .btn{
     --bs-btn-padding-x: 2.75rem;
-    --bs-btn-border-color: #d152c2;
+    --bs-btn-border-color: #8C1B2F;
+    --bs-btn-color: black;
+}
+
+.boton-servicio .btn:hover{
+    color: #F2EFE9;
+    background-color: #F28891;
+    border-color: #F28891;
+}
+
+.margen {
+    margin-bottom: 1.5rem;
+}
+
+.mt{
+    margin-top: 6rem;
 }
 
 .contenedor-info {
