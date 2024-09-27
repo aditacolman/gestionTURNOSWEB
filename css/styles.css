@@ -211,3 +211,10 @@ label {
 .checkBoxStyle {
     margin-left: 6px;
 }
+
+.estiloImgaTrabajador{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 135%;
+    margin-bottom: 10px;
+}
