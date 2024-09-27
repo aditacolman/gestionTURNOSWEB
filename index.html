@@ -25,12 +25,146 @@
             <li> 
               <a href="#" data-bs-toggle="dropdown" role="button"><i class="bi bi-person-circle color-icono"></i></a> 
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item dropdown" href="#">Iniciar sesión</a></li>
-                <li><a class="dropdown-item dropdown" href="#">Registrarse</a></li>
+                <li><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a></li>
+                <li><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a></li>
               </ul>
             </li>
           </ul>
         </div>
+      
+        <div class="contenedor">
+          <!-- DIV Iconos -->
+          <div class="nav">
+            <ul class="ul-icono">
+              <li><a href="https://wa.me/541158639086"><i class="bi bi-whatsapp"></i></a></li>
+              <li>
+                <a href="#" data-bs-toggle="dropdown" role="button"><i class="bi bi-person-circle"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a></li>
+                  <li><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        
+          <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+          <style>
+            .modal-header {
+              background-color: #e55a9b; 
+              color: white; 
+              justify-content: center;
+            }
+            .modal-title {
+              text-align: center; 
+              font-family: 'Great Vibes', cursive; 
+              font-size: 1.3rem; 
+              margin: 0; 
+            }
+            .modal-body {
+              background-color: transparent; 
+            }
+            .form-label, .form-control {
+              background-color: transparent; 
+              border: none; 
+              color: #333; 
+            }
+            .form-control:focus {
+              box-shadow: none; 
+              border-color: #F28891;
+            }
+            .btn-primary {
+              background-color: #e55a9b;
+              border: none; 
+            }
+            .btn-primary:hover {
+              background-color: #F28891; 
+            }
+            .custom-modal-width {
+              max-width: 400px; /* Cambia el ancho según tu preferencia */
+            }
+          </style>
+        
+          <!-- Modal de Iniciar Sesión -->
+          <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog custom-modal-width">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="contact" class="form-label">Correo o Teléfono</label>
+                      <input type="text" class="form-control" id="contact" placeholder="Ingrese su correo o teléfono" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="loginPassword" class="form-label">Contraseña</label>
+                      <input type="password" class="form-control" id="loginPassword" placeholder="Ingrese su contraseña" required>
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Modal de Registro -->
+          <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+            <div class="modal-dialog custom-modal-width">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="firstName" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="Ingrese su Nombre" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="lastName" class="form-label">Apellido</label>
+                      <input type="text" class="form-control" id="lastName" placeholder="Ingrese su Apellido" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="dni" class="form-label">DNI</label>
+                      <input type="text" class="form-control" id="dni" placeholder="Ingrese su DNI" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Correo</label>
+                      <input type="text" class="form-control" id="contact" placeholder="Ingrese su correo" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="phone" class="form-label">Teléfono</label>
+                      <input type="text" class="form-control" id="contact" placeholder="Ingrese su teléfono" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="registerPassword" class="form-label">Contraseña</label>
+                      <input type="password" class="form-control" id="registerPassword" placeholder="Ingrese una contraseña" required>
+                    </div>
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Registrarse</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="contenido-principal">
+            <div class="div-logo"><img src="./img/image.png"></div>
+            <!-- DIV Botón -->
+            <div class="boton-turnos">
+              <a href="./turno.html" class="btn btn-outline-secondary">Sacar turno</a>
+            </div>
+            <div class="boton-servicios"><a href="#Servicios"><i class="bi bi-chevron-double-down"></i></a></div>
+          </div>
+        </div>
+        
+      
         <div class="contenido-principal">
           <div class="div-logo"><img src="./img/image.png"></div>
           <!-- DIV Botón -->
@@ -40,7 +174,7 @@
           <div class="boton-servicios"><a href="#Servicios"><i class="bi bi-chevron-double-down color-icono"></i></a></div>
         </div>
       </div>
-    </section>
+      
 
     <section class="my-4" id="Servicios">
       <h1 class="text-center servicio margen">SERVICIOS</h1>
