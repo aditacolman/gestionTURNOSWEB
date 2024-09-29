@@ -63,6 +63,23 @@
     max-width: 100%;
 }
 
+#eapps-instagram-feed-1 a.eapps-instagram-feed-header-follow-button {
+    background: #a12138!important; 
+
+}
+
+.eapps-instagram-feed-posts-grid-load-more-text {
+    background-color: #a12138; /* Cambia esto por el color que desees */
+    color: white; /* Cambia el color del texto si es necesario */
+}
+
+/* Opcional: estilos al pasar el mouse */
+.eapps-instagram-feed-posts-grid-load-more-text:hover {
+    background-color: #8C1B2F;
+    border-color: #a12138; /* Un color más oscuro para el hover */
+}
+
+
 /* SECCIÓN PRINCIPAL */
 .contenedor {
     position: relative;
@@ -144,11 +161,6 @@
     border-color: #a12138;
 }
 
-.imagen-icono { /* Iconos del 'NAV'*/
-    width: 3%;
-    height: 3%;
-} 
-
 .color-icono{
     color: #ffffff;
 }
@@ -224,18 +236,21 @@
     background-color: #8C1B2F;
 }
 
-.contenedor-pos{
-    position: relative;
-}
-
-.img-info { /* Iconos del 'NAV'*/
+.contenedor-circulo {
+    width: 300px; /* o el tamaño deseado */
+    height: 300px; /* debe ser igual a width */
+    overflow: hidden;
     border-radius: 50%;
     position: absolute;
-    width: 42%; 
-    height: 270px; 
-    top: -16%;
+    top: -25%;
     left: 46%;
     z-index: 2;
+}
+
+.contenedor-circulo img{
+    width: 100%; /* o 100% para ajustar */
+    height: 100%; /* para mantener el alto y evitar pixelación */
+    object-fit: cover; /* recorta la imagen para que encaje bien */
 }
 
 .card-info {
@@ -255,6 +270,29 @@
 }
 
 /* FOOTER */
+.contenedor-logo{
+    width: 125px; /* o el tamaño deseado */
+    height: 125px; /* debe ser igual a width */
+}
+
+.contenedor-logo img{
+    width: auto; /* o 100% para ajustar */
+    height: 100%; /* para mantener el alto y evitar pixelación */
+    object-fit: cover; /* recorta la imagen para que encaje bien */
+}
+
+.ul-footer{
+    gap: 4%;
+}
+
+.ul-item{
+    list-style: none;
+    display: flex;
+}
+
+.color-footer {
+    color: #8C1B2F;
+}
 
 /* AJUSTAR ESTILOS DEPENDIENDO DEL ANCHO DE LA PANTALLA, MEDIA QUERIES */
 
