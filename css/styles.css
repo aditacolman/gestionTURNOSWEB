@@ -4,6 +4,51 @@
     padding: 0;
 }
 
+/*MODAL REGISTRO DE SESIÓN E INICIO*/
+.modal-header {
+    background-color: #a12138; 
+    color: #ffffff; 
+    justify-content: center;
+  }
+
+.modal-title {
+    text-align: center; 
+    font-family: "Montserrat", sans-serif; 
+    font-size: 1.3rem; 
+    margin: 0; 
+}
+
+.modal-body {
+    background-color: transparent; 
+  }
+
+.form-label, .form-control {
+    background-color: transparent; 
+    border: none; 
+    color: #333; 
+  }
+
+.form-control:focus {
+    box-shadow: none; 
+    border-color: #F28891;
+  }
+
+.boton-sesion .btn{
+    --bs-btn-bg: #fff;
+    --bs-btn-color: #212529;
+    --bs-btn-border-color: #a12138;
+}
+
+.boton-sesion .btn:hover {
+    color: #ffffff;
+    background-color: #a12138;
+    border-color: #a12138;
+}
+
+.custom-modal-width {
+    max-width: 400px; /* Cambia el ancho según tu preferencia */
+  }
+  
 /* WIDGET INSTAGRAM */
 .widget-container {
     width: 100%;
@@ -94,9 +139,9 @@
 }
 
 .boton-turnos .btn:hover{
-    color: #212529;
-    background-color: #F2C2C2;
-    border-color: #F2C2C2;
+    color: #ffffff;
+    background-color: #a12138;
+    border-color: #a12138;
 }
 
 .imagen-icono { /* Iconos del 'NAV'*/
@@ -109,22 +154,22 @@
 }
 
 .color-icono:hover{
-    color: #F2C2C2;
+    color: #a12138;
 }
 
 /* SECCIÓN INFORMACIÓN */
-.img-info { /* Iconos del 'NAV'*/
-    border-radius: 50%;
-    position: absolute;
-    width: 42%; 
-    height: 270px; 
-    top: -16%;
-    left: 46%;
-    z-index: 2;
+.div-emprendimiento{
+    padding: 1rem;
 }
 
-.servicio{
-    font-family: "Poppins", Arial, sans-serif;
+.nombre-emprendimiento{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+.text-empredimiento{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
 }
 
 .text-servicio {
@@ -143,34 +188,54 @@
     font-size: 150%;
 }
 
+.img-servicio{
+    max-width: 280px;
+    max-height: 345px;
+}
+
 .boton-servicio .btn{
-    --bs-btn-padding-x: 2.75rem;
+    --bs-btn-padding-x: 2.25rem;
     --bs-btn-border-color: #8C1B2F;
     --bs-btn-color: black;
 }
 
 .boton-servicio .btn:hover{
     color: #F2EFE9;
-    background-color: #F28891;
-    border-color: #F28891;
+    background-color: #a12138;
+    border-color: #a12138;
 }
 
-.margen {
-    margin-bottom: 1.5rem;
+.mt-sobre-nosotros{
+    margin-top: 7rem;
 }
 
-.mt{
-    margin-top: 6rem;
+.card{
+    --bs-card-border-color: #8c1b2f!important;
+}
+
+.card-titulo{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
 }
 
 .contenedor-info {
     position: relative;
     height: 200px; /* Ajusta el tamaño según sea necesario */
-    background-color: rgb(211, 116, 187);
+    background-color: #8C1B2F;
 }
 
 .contenedor-pos{
     position: relative;
+}
+
+.img-info { /* Iconos del 'NAV'*/
+    border-radius: 50%;
+    position: absolute;
+    width: 42%; 
+    height: 270px; 
+    top: -16%;
+    left: 46%;
+    z-index: 2;
 }
 
 .card-info {
@@ -190,51 +255,6 @@
 }
 
 /* FOOTER */
-.parrafo-footer{
-    font-size: 15px;
-    margin-bottom: 3.5%;
-}
-
-.listado-footer{
-    font-size: 15px;
-    margin-bottom: 1.5%;
-}
-
-.ul-footer-redes {
-    list-style: none;
-    display: flex;
-    gap: 4%;
-    font-size: 28px;
-    padding: 0;
-    margin-bottom: 0;
-}
-
-h1, h2, h3, h4, h5 {
-    font-family: "Poppins", Arial, sans-serif; }
-  
-footer {
-    padding: 4rem 0; }
-  
-.footer-09 {
-    background: #c47ab2; /*Fondo*/
-   }
-  
-.footer-09 p {
-    color: rgba(255, 255, 255, 0.3); }
-  
-.footer-09 .footer-heading { 
-    color: #fff;
-    font-size: 22px;
-    margin-bottom: 30px; }
-      
-.footer-09 .footer-heading .icon {
-    width: 40px;
-    margin-right: 10px;
-    border-radius: 50%;
-    height: 40px;
-    display: block;
-    color: #fe59d7;
-    border: 1px solid #fe59d7; }
 
 /* AJUSTAR ESTILOS DEPENDIENDO DEL ANCHO DE LA PANTALLA, MEDIA QUERIES */
 
