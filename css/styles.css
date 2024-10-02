@@ -319,56 +319,8 @@ label {
 
 /*PREGUNTAS FRECUENTES*/
 /* Estilos para el acordeón */
-.u-accordion__header {
-    background-color: #f7f7f7; /* Color de fondo para el encabezado */
-    border-radius: 5px; /* Borde redondeado */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.accordion-button::after {
+    content: none;
 }
 
-.u-accordion__header:hover {
-    background-color: #e9ecef; /* Cambia el color al pasar el mouse */
-}
-
-.u-accordion__control-icon {
-    background-color: #007bff; /* Color del ícono de más/menos */
-    color: white;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.u-accordion__body {
-    background-color: #fff; /* Fondo de la sección colapsada */
-    padding: 20px;
-    border: 1px solid #e9ecef;
-    border-top: none;
-    border-radius: 0 0 5px 5px;
-    color: #6c757d; /* Color de texto */
-}
-
-/* Estilo para los enlaces dentro del contenido */
-.u-accordion__body a {
-    color: #007bff; /* Color de los enlaces */
-    text-decoration: underline;
-}
-
-.u-accordion__body a:hover {
-    text-decoration: none;
-}
-
-/* Estilo para el texto de las preguntas */
-.u-accordion__header h5 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #343a40;
-    margin: 0;
-}
-
-.u-accordion__header .g-color-primary {
-    color: #007bff; /* Color primario del icono */
-}
+/*font: "Open Sans", Helvetica, Arial, sans-serif*/

@@ -7,10 +7,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 1000); // Espera 2 segundos
 });
 
-$(document).ready(function () {
-    $('.collapse').on('shown.bs.collapse', function () {
-        $(this).parent().find(".fa-plus").removeClass("fa-plus").addClass("fa-minus");
-    }).on('hidden.bs.collapse', function () {
-        $(this).parent().find(".fa-minus").removeClass("fa-minus").addClass("fa-plus");
-    });
-});
+function toggleIcon(button) {
+    const icon = button.querySelector('i');
+    if (icon.classList.contains('bi-plus-lg')) {
+        icon.classList.remove('bi-plus-lg');
+        icon.classList.add('bi-dash-lg');
+    } else {
+        icon.classList.remove('bi-dash-lg');
+        icon.classList.add('bi-plus-lg');
+    }
+}
