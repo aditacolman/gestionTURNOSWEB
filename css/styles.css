@@ -203,6 +203,27 @@
 .img-servicio{
     max-width: 280px;
     max-height: 345px;
+    cursor: pointer;
+}
+
+.modal-img-servicio {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.imagen-ampliada {
+    margin: auto;
+    display: block;
+    max-width: 100%; /* Ajusta el máximo ancho */
+    max-height: 100%; /* Ajusta la máxima altura */
+    transition: transform 0.2s;
 }
 
 .boton-servicio .btn{
