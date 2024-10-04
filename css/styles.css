@@ -335,6 +335,7 @@
 }
 
 label {
+<<<<<<< HEAD
     background-color: #fe59d7;
 }
 
@@ -345,3 +346,19 @@ label {
 }
 
 /*font: "Open Sans", Helvetica, Arial, sans-serif*/
+=======
+    background-color: #c2b6bf;
+    border-radius: 5px;
+}
+
+.checkBoxStyle {
+    margin-left: 6px;
+}
+
+.estiloImgaTrabajador{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 135%;
+    margin-bottom: 10px;
+}
+>>>>>>> 03-xavi
