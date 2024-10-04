@@ -33,7 +33,7 @@
               <a href="#" data-bs-toggle="dropdown" role="button"><i class="bi bi-person-circle color-icono"></i></a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a></li>
-                <li><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a></li>
+                <li id="btnRegistrarse"><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a></li>
               </ul>
             </li>
           </ul>
@@ -60,14 +60,14 @@
               <form>
                 <div class="mb-3">
                   <label for="contact" class="form-label">Correo o Teléfono</label>
-                  <input type="text" class="form-control" id="contact" placeholder="Ingrese su correo o teléfono" required>
+                  <input type="text" class="form-control" id="valor" placeholder="Ingrese su correo o teléfono" required>
                 </div>
                 <div class="mb-3">
                   <label for="loginPassword" class="form-label">Contraseña</label>
-                  <input type="password" class="form-control" id="loginPassword" placeholder="Ingrese su contraseña" required>
+                  <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su contraseña" required>
                 </div>
                 <div class="text-center boton-sesion">
-                  <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                  <button onclick="iniciar_sesion(event)" class="btn btn-primary">Iniciar sesión</button>
                 </div>
               </form>
             </div>
@@ -86,31 +86,28 @@
             <div class="modal-body">
               <form>
                 <div class="mb-3">
-                  <label for="firstName" class="form-label">Nombre</label>
+                  <label for="nombre" class="form-label">Nombre</label>
                   <input type="text" class="form-control" id="nombre" placeholder="Ingrese su Nombre" required>
                 </div>
                 <div class="mb-3">
-                  <label for="lastName" class="form-label">Apellido</label>
+                  <label for="apellido" class="form-label">Apellido</label>
                   <input type="text" class="form-control" id="apellido" placeholder="Ingrese su Apellido" required>
                 </div>
+           
                 <div class="mb-3">
-                  <label for="dni" class="form-label">DNI</label>
-                  <input type="text" class="form-control" id="dni" placeholder="Ingrese su DNI" required>
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Correo</label>
+                  <label for="correo" class="form-label">Correo</label>
                   <input type="text" class="form-control" id="correo" placeholder="Ingrese su correo" required>
                 </div>
                 <div class="mb-3">
-                  <label for="phone" class="form-label">Teléfono</label>
+                  <label for="telefono" class="form-label">Teléfono</label>
                   <input type="text" class="form-control" id="telefono" placeholder="Ingrese su teléfono" required>
                 </div>
                 <div class="mb-3">
-                  <label for="registerPassword" class="form-label">Contraseña</label>
+                  <label for="contrasena" class="form-label">Contraseña</label>
                   <input type="password" class="form-control" id="contrasena" placeholder="Ingrese una contraseña" required>
                 </div>
                 <div class="text-center boton-sesion">
-                  <button onclick="registrarse()" class="btn btn-primary">Registrarse</button>
+                  <button onclick="registrarse(event)" class="btn btn-primary">Registrarse</button>
                 </div>
               </form>
             </div>

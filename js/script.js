@@ -50,22 +50,63 @@ function cerrarModal() {
     scale = 1; // Reiniciar el zoom al cerrar el modal
 }
 
-function registrarse() {
+//Función para registrar usuario WEB en la base de datos
+function registrarse(event) {
+    event.preventDefault()
+
     let nombre = document.getElementById("nombre").value;
     apellido =  document.getElementById("apellido").value;
-    dni= document.getElementById("dni").value;
     correo= document.getElementById("correo").value;
-    console.log(nombre)
+    telefono= document.getElementById("telefono").value;
+    contrasena= document.getElementById("contrasena").value;
+    let datos = {
+        "Nombre": nombre,
+        "Apellido": apellido,
+        "Correo": correo,
+        "Telefono": telefono,
+        "Contrasena": contrasena
+    }
+
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-       
+            console.log("datos: ", datos)
+        }
     }
-};
-
-//xhttp.open("POST", "https://gestionturnos.pythonanywhere.com", true);
-//xhttp.send();
+    xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/agregarClientes");
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(JSON.stringify(datos));
 }
+
+//Función para iniciar sesión en la WEB
+function iniciar_sesion(event) {
+    event.preventDefault()
+
+    let correo_telefono= document.getElementById("valor").value;
+    contrasena= document.getElementById("contrasena").value;
+    let datos = {
+        "Correo": correo_telefono,
+        "Contrasena": contrasena
+    }
+
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(e) {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log("datos: ", e.target.responseText)
+            let datos =  JSON.parse(e.target.responseText);
+            sessionStorage.setItem("id_sesion", datos[0]);
+            if (sessionStorage.getItem("id_sesion")!=null){
+                let btnRegistrarse =  document.getElementById("btnRegistrarse")
+                btnRegistrarse.style.setProperty("visibility", "hidden")
+            }
+            //console.log(sessionStorage.getItem("id_sesion"))
+        }
+    }
+    xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/login_web");
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(JSON.stringify(datos));
+}
+
 
 //Calendario
 const daysTag = document.querySelector(".days"),
