@@ -78,11 +78,11 @@ function registrarse() {
 //xhttp.send();
 }
 
-function crearListaHoras(turnos){
+function crearListaHoras(horas){
 
     let listaHtml = document.getElementById("lista_horas")
     
-    turnos.forEach(e => {
+    horas.forEach(e => {
         console.log(e)
         let check = document.createElement("input")
         check.setAttribute("type", "radio")
@@ -125,6 +125,9 @@ xhttp.onreadystatechange = function(e) {
 xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verTurnos", true);
 xhttp.send();
 }
+//
+
+
 
 //Calendario
 const daysTag = document.querySelector(".days"),
