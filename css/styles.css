@@ -466,7 +466,4 @@ label {
 
 /*PREGUNTAS FRECUENTES*/
 /* Estilos para el acordeón */
-.accordion-button::after {
-    content: none;
-}
 /*font: "Open Sans", Helvetica, Arial, sans-serif*/
