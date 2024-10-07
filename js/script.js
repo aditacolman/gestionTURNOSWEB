@@ -1,3 +1,5 @@
+var fechas = new Array();
+
 //Esconde widget de elfsight en la página principal
 document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => {
@@ -7,6 +9,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }, 1000); // Espera 2 segundos
 });
+
+window.addEventListener("load", function(){
+    this.localStorage.clear();
+    console.log("pagina cargada")
+    mostrarTurnosDisponibles()
+
+})
+
+
 
 //Cambiar icono en las preguntas frecuentes
 function toggleIcon(button) {
@@ -65,6 +76,54 @@ function registrarse() {
 
 //xhttp.open("POST", "https://gestionturnos.pythonanywhere.com", true);
 //xhttp.send();
+}
+
+function crearListaHoras(turnos){
+
+    let listaHtml = document.getElementById("lista_horas")
+    
+    turnos.forEach(e => {
+        console.log(e)
+        let check = document.createElement("input")
+        check.setAttribute("type", "radio")
+        check.setAttribute("name", "horario")
+        check.setAttribute("class", "checkBoxStyle")
+        let item = document.createElement("label")
+        let valor = e
+        //item.setAttribute("value", e)
+        item.appendChild(check)
+        item.append(valor)
+        //console.log(item)
+        listaHtml.appendChild(item)
+
+    });
+
+}
+
+
+//turnos disponibles
+function mostrarTurnosDisponibles(){//agregar como variable el dia
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function(e) {
+    if (this.readyState == 4 && this.status == 200) {
+        console.log(JSON.parse(xhttp.response))
+        let turnos = JSON.parse(xhttp.response)
+        let horas = new Array;
+        turnos.forEach(turno => {
+            console.log(turno)
+           //localStorage.setItem("fecha", turno["Fecha"])
+           horas.push(turno["Hora"]) 
+        });
+       // Typical action to be performed when the document is ready:
+       //document.getElementById("demo").innerHTML = xhttp.responseText;
+       
+       localStorage.setItem("horas", JSON.stringify(horas))
+
+       crearListaHoras(horas)
+    }
+};
+xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verTurnos", true);
+xhttp.send();
 }
 
 //Calendario
