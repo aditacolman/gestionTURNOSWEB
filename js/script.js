@@ -70,7 +70,7 @@ function registrarse() {
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-       
+
     }
 };
 
@@ -101,7 +101,7 @@ function crearListaHoras(horas){
 }
 
 
-//turnos disponibles
+//turnos disponibles, cargar los horarios disponibles dependiendo del dia y retarle la duraion de los tunos seleccionados
 function mostrarTurnosDisponibles(){//agregar como variable el dia
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function(e) {
@@ -112,7 +112,7 @@ xhttp.onreadystatechange = function(e) {
         turnos.forEach(turno => {
             console.log(turno)
            //localStorage.setItem("fecha", turno["Fecha"])
-           horas.push(turno["Hora"]) 
+            horas.push(turno["Hora"]) 
         });
        // Typical action to be performed when the document is ready:
        //document.getElementById("demo").innerHTML = xhttp.responseText;
