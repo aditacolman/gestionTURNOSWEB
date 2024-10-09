@@ -385,7 +385,6 @@ label {
     text-align: center;
     line-height: 38px;
     font-size: 1.9rem;
-    user-select: none;
     border-radius: 50%;
 }
 
@@ -466,4 +465,25 @@ label {
 
 /*PREGUNTAS FRECUENTES*/
 /* Estilos para el acordeón */
-/*font: "Open Sans", Helvetica, Arial, sans-serif*/
+.accordion-button{
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #464c5e;
+    height: 4.5rem;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #a12138;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.accordion-body{
+    background-color: #f7f7f7;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+.accordion-item {
+    border: none; /* Elimina el borde de cada ítem del acordeón */
+}

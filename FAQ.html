@@ -5,40 +5,233 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./css/styles.css">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <title>Preguntas Frecuentes</title>
 </head>
 <body>
     <div class="container">
         <div class="row"> 
             <div class="col m-5">
                 <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" onclick="toggleIcon(this)">
-                          ¿Cómo me registro?
-                        </button>
-                      </h2>
-                      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                        </div>
+                  <!--Acordeón 1-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" onclick="toggleIcon(this)">
+                        ¿Cómo me registro?
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                       </div>
                     </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Accordion Item #2
-                        </button>
-                      </h2>
-                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                        </div>
+                    </div>
+                  <!--Acordeón 2-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        ¿Cuánto tiempo dura un turno?
+                      </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        El tiempo de cada servicio varía: para esculpidas en gel, si son de largo 1 a 2, dura aproximadamente 1 hora, mientras que a partir del largo 3, puede durar alrededor de 2 horas. El esmaltado semipermanente y el kapping gel duran 1 hora cada uno. Además, el horario del service va a variar según el tipo de servicio y en caso de que sean esculpidas, según el largo. 
                       </div>
                     </div>
                   </div>
+                  <!--Acordeón 3-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" onclick="toggleIcon(this)">
+                        ¿Ofrecen servicios de diseño personalizado?
+                      </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        ¡Sí! Ofrecemos servicios de diseño personalizado. Para más detalles, te invitamos a contactarnos por WhatsApp así podemos charlar sobre el tipo de diseño que deseás y verificar la disponibilidad.
+                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 4-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" onclick="toggleIcon(this)">
+                        ¿Cómo tengo que preparar mis uñas antes del servicio?
+                      </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 5-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" onclick="toggleIcon(this)">
+                        ¿Cobran por tener un servicio de otro lugar?
+                      </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        Sí, cobramos por realizar un servicio en uñas que ya han sido tratadas en otro lugar.                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 6-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSix">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" onclick="toggleIcon(this)">
+                        ¿Tienen opciones de pago?
+                      </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        ¡Sí! Aceptamos efectivo y transferencias.
+                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 7-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeven">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven" onclick="toggleIcon(this)">
+                        ¿Hacen servicios a domicilio o solo en el local? 
+                      </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        Solo ofrecemos servicios en el local. ¡Te esperamos para atenderte!                      
+                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 8-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingEight">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight" onclick="toggleIcon(this)">
+                        ¿Puedo asistir con acompañante a la consulta?
+                      </button>
+                    </h2>
+                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        No, actualmente no se permite el acceso de acompañantes al local.                      
+                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 9-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingNine">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine" onclick="toggleIcon(this)">
+                        ¿Tiene garantía?
+                      </button>
+                    </h2>
+                    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        Sí, todos nuestros servicios tienen 1 semana de garantía.                      
+                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 10-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTen">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen" onclick="toggleIcon(this)">
+                        ¿La decoración de las uñas se cobra aparte?
+                      </button>
+                    </h2>
+                    <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        Todo servicio incluye 2 uñas decoradas, ya sea con decoraciones, dibujos o brillos. El resto de las decoraciones se cobra aparte. Si tenés un diseño específico en mente, te recomendamos consultar la disponibilidad.                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 11-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingEleven">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven" onclick="toggleIcon(this)">
+                        ¿Puedo cancelar el turno? ¿Puedo re-programarlo?
+                      </button>
+                    </h2>
+                    <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 12-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwelve">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve" onclick="toggleIcon(this)">
+                        ¿Tiempo de espera?
+                      </button>
+                    </h2>
+                    <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        El tiempo de espera es un máximo de 15 minutos. Sin embargo, ante cualquier percance, podés contactarte por WhatsApp para hablar sobre la demora.                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 13-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThirteen">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen" onclick="toggleIcon(this)">
+                        ¿Puedo llevar mis propios productos?
+                      </button>
+                    </h2>
+                    <div id="collapseThirteen" class="accordion-collapse collapse" aria-labelledby="headingThirteen" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        No, no aceptamos productos de otros lugares. Solo trabajamos con los que tenemos en el local.                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 14-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFourteen">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen" onclick="toggleIcon(this)">
+                        ¿Cuidados recomendados después del servicio?
+                      </button>
+                    </h2>
+                    <div id="collapseFourteen" class="accordion-collapse collapse" aria-labelledby="headingFourteen" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 15-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFifteen">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen" onclick="toggleIcon(this)">
+                        ¿Puedo hacer una cita para un evento especial?
+                      </button>
+                    </h2>
+                    <div id="collapseFifteen" class="accordion-collapse collapse" aria-labelledby="headingFifteen" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        ¡Sí! Podés hacer una cita para un evento especial. Te recomendamos contactarnos con anticipación para asegurarnos de que tengamos disponibilidad.                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 16-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSixteen">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen" onclick="toggleIcon(this)">
+                        ¿Ofrecen servicios para niños o adolescentes?
+                      </button>
+                    </h2>
+                    <div id="collapseSixteen" class="accordion-collapse collapse" aria-labelledby="headingSixteen" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        Sí, atendemos a adolescentes a partir de los 14 años. Para los más jóvenes, se requiere autorización de los padres.                      </div>
+                    </div>
+                  </div>
+                  <!--Acordeón 17-->
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingSeventeen">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeventeen" aria-expanded="false" aria-controls="collapseSeventeen" onclick="toggleIcon(this)">
+                        ¿Qué hago si tengo alguna pregunta después del turno?
+                      </button>
+                    </h2>
+                    <div id="collapseSeventeen" class="accordion-collapse collapse" aria-labelledby="headingSeventeen" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        Si tenés alguna pregunta después de tu turno, no dudés en contactarnos por WhatsApp. Estaremos encantados de ayudarte con cualquier duda que tengas.                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
     </div>
