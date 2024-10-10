@@ -127,6 +127,8 @@ xhttp.send();
 }
 //
 
+//creo la lista de horarios disponibles
+
 
 
 //Calendario
