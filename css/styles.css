@@ -444,7 +444,7 @@ label {
 }
   
 .days li.active{
-    color: #fff;
+    color: #0c0c0c;
 }
   
 .days li::before{
@@ -460,11 +460,24 @@ label {
 }
 
 .days li.active::before{
-    background: #9B59B6;
+    background: hwb(0 7% 93% / 0.384);
 }
   
 .days li:not(.active):hover::before{
+    background: #0000003a;
+}
+
+/*estilos del evento click  del calendario*/
+.days li.seleccionado::before{
+    background: #9B59B6;
+}
+  
+.days li:not(.seleccionado):hover::before{
     background: #f2f2f2;
+}
+
+.days li.seleccionado{
+    color: #000000;
 }
 
 .texto-t{

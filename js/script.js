@@ -31,6 +31,8 @@ function toggleIcon(button) {
     }
 }
 
+
+
 //Ampliar imagen de servicios
 let scale = 1;
 
@@ -160,7 +162,7 @@ const renderCalendar = () => {
         // adding active class to li if the current day, month, and year matched
         let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
                      && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${isToday}">${i}</li>`;
+        liTag += `<li id="dia_${i}" onmousedown="cambia_dia(${i})" class="${isToday}">${i}</li>`;
     }
 
     for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
@@ -170,6 +172,13 @@ const renderCalendar = () => {
     daysTag.innerHTML = liTag;
 }
 renderCalendar();
+
+function cambia_dia(dia) {
+    console.log(dia)
+    let li = document.getElementById("dia_"+dia)
+    li.setAttribute("class", "seleccionado")
+    
+}
 
 prevNextIcon.forEach(icon => { // getting prev and next icons
     icon.addEventListener("click", () => { // adding click event on both icons
