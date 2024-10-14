@@ -173,11 +173,17 @@ const renderCalendar = () => {
 }
 renderCalendar();
 
+/*acciones de los dias del calendario*/
 function cambia_dia(dia) {
-    console.log(dia)
-    let li = document.getElementById("dia_"+dia)
-    li.setAttribute("class", "seleccionado")
-    
+    // Primero, deseleccionamos cualquier día que esté actualmente seleccionado
+    let dias = document.querySelectorAll("li.seleccionado");
+    dias.forEach(function(li) {
+        li.setAttribute("class", ""); // Limpiamos la clase de los días seleccionados
+    });
+
+    // Luego, seleccionamos el nuevo día
+    let li = document.getElementById("dia_" + dia);
+    li.setAttribute("class", "seleccionado");
 }
 
 prevNextIcon.forEach(icon => { // getting prev and next icons
