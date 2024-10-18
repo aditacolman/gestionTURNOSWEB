@@ -106,7 +106,7 @@
     gap: 30.4%;
     justify-content: end;
     font-size: 33px;
-    padding: 35px;
+    padding: 30px;
 }
 
 .nav{
@@ -465,6 +465,31 @@ label {
 
 /*PREGUNTAS FRECUENTES*/
 /* Estilos para el acordeón */
+.turno-nav{
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    color: #8C1B2F;
+    font-weight: 500;
+    line-height: 1.4;
+    box-shadow: 0 5px 10px -6px rgba(7, 0, 0, 0.1);
+    font-size: 1.75rem;
+}
+
+.img-nav{
+    width: 7rem;
+    height: auto;
+}
+
+.icon-nav {
+    list-style: none;
+    display: flex;
+    gap: 30.4%;
+    justify-content: end;
+    font-size: 33px;
+    padding: 30px;
+    padding-left: 0;
+    margin-left: 15px;
+}
+
 .accordion-button{
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-weight: 700;
@@ -481,9 +506,18 @@ label {
 
 .accordion-body{
     background-color: #f7f7f7;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-family: "Montserrat", Sans-serif;
 }
 
 .accordion-item {
     border: none; /* Elimina el borde de cada ítem del acordeón */
+}
+
+.text-faq {
+    text-align: center;
+    padding: 30px;
+}
+
+.mt{
+    margin-top: -40px;
 }
