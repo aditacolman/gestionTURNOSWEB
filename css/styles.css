@@ -321,7 +321,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 .contenedor-general{
-    padding: 4rem 0; 
+    padding: 0rem 0; 
 }
 
 .container-fluid{
@@ -503,4 +503,26 @@ label {
     border: none; /* Elimina el borde de cada ítem del acordeón */
 }
 
+.flecha {
+    width: 0; 
+    height: 0; 
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 10px solid white;
+    margin-right: 5px;
+}
+
+.back {
+    width: 2.5rem; /* Ajusta el tamaño según sea necesario */
+    height: auto; /* Mantiene la proporción */
+    margin: 1rem;
+}
+
+.logo {
+    width: 5rem; /* Ajusta el tamaño según sea necesario */
+    height: auto; /* Mantiene la proporción */
+    margin: 0.5rem;
+    right: 0;
+    float: right;
+}
 /*font: "Open Sans", Helvetica, Arial, sans-serif*/
