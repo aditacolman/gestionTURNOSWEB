@@ -40,7 +40,7 @@
         </div>
         
         <div class="contenido-principal">
-          <div class="div-logo"><img src="./img/image.png" alt="Descripción de la imagen">></div>
+          <div class="div-logo"><img src="./img/image.png" alt="Descripción de la imagen"></div>
           <!-- DIV Botón -->
           <div class="boton-turnos">
             <a href="./turno.html" class="btn btn-outline-secondary">Sacar turno</a>
@@ -60,7 +60,7 @@
               <form>
                 <div class="mb-3">
                   <label for="contact" class="form-label">Correo o Teléfono</label>
-                  <input type="text" class="form-control" id="valor" placeholder="Ingrese su correo o teléfono" required>
+                  <input type="text" class="form-control" id="valor" placeholder="Ingrese su >correo o teléfono" required>
                 </div>
                 <div class="mb-3">
                   <label for="loginPassword" class="form-label">Contraseña</label>
@@ -252,13 +252,34 @@
             <div class="col-xs-12 col-sm-12 col-xl-6 text-center">
               <ul class="ul-item justify-content-center">
                 <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="./FAQ.html">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#!">Tutorial</a></li>
+                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#" data-bs-toggle="modal" data-bs-target="#localModal">Local</a></li>
                 <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#">Contacto</a></li>
-                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#">Advertise</a></li>
-                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#">Términos</a></li>
-                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#!">Privacidad</a></li>
               </ul>
             </div>
-      
+
+            <!-- Modal de local -->
+            <div class="modal fade" id="localModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered custom-modal-width">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Nuestro Local</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6562.2925133075705!2d-58.42929300000001!3d-34.676258!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccc70add5648b%3A0x7b1b94ac784a2f4b!2sPaseo%20De%20Compras%20Reina%20Del%20Mar%20Warnes%203788!5e0!3m2!1ses!2sar!4v1729253469700!5m2!1ses!2sar" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </div>
+                      <div class="d-flex justify-content-center"> 
+                        <a href="https://maps.app.goo.gl/CrLv64LwpXjdbeY9A" class="btn btn-primary" role="button">Ver Ubicación</a>                        
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             <!-- Columna de los íconos de redes sociales -->
             <div class="col-xs-12 col-sm-6 col-xl-3">
               <div class="social-media-wrapper text-center text-sm-end">
