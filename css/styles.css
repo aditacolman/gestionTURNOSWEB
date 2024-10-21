@@ -141,12 +141,8 @@
     max-width: 100%; /* Asegura que la imagen sea responsiva */
     width: 80%;
     height: auto; /* Cambiado a auto para mantener proporciones */
-    transition: filter 0.3s ease;
 }
 
-.div-logo:hover img {
-    color: #a12138;
-}
 
 .boton-turnos, .boton-servicios {
     margin: 10px 0; /* Margen vertical entre botones */
