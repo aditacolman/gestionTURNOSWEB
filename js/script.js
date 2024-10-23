@@ -100,7 +100,7 @@ function obtenerDia(fecha){
     viernes=["11:00", "12:00"]
     sabado=["11:00", "12:00"]
 
-    dias.push(domingo, lunes,martes,miercoles,jueves,viernes,sabado);
+    dias.push(lunes,martes,miercoles,jueves,viernes,sabado,domingo);
 
     //console.log(diaDeLaSemana)
     console.log("domingo",dias[0])
@@ -146,7 +146,7 @@ xhttp.onreadystatechange = function(e) {
        //document.getElementById("demo").innerHTML = xhttp.responseText;
        
        localStorage.setItem("horas", JSON.stringify(horas)); 
-       let diaSeleccionado = obtenerDia("2024-10-21");
+       let diaSeleccionado = obtenerDia("2024-10-20");
        let imagenSinTurnos= document.getElementById("imagenDeSinTurnos");
        let listaHoras = document.getElementById("lista_horas");
        let textoTurnos = document.getElementById("textoSinTurnos");
@@ -232,11 +232,28 @@ function cambia_dia(fecha) {
     formatear_fecha(fecha, currentDate.innerText)
 }
 
-function formatear_fecha(dia, mes_anio) {
-    let lista = mes_anio.split(" ")
-    console.log(lista)
-    let fecha = dia + "-" + lista[0] + "-" + lista[1]
-    console.log(fecha)
+function formatear_fecha(dia, mes_year) {
+    console.log("ingreso a formatear fecha:")
+    let lista = mes_year.split(" ")
+    let meses= [
+        {mes: "January", valor: "01"},
+        {mes: "February", valor: "02"},
+        {mes: "March", valor: "03"},
+        {mes: "April", valor: "04"},
+        {mes: "May", valor: "05"},
+        {mes: "June", valor: "06"},
+        {mes: "July", valor: "07"},
+        {mes: "August", valor: "08"},
+        {mes: "September", valor: "09"},
+        {mes: "October", valor: "10"},
+        {mes: "November", valor: "11"},
+        {mes: "December", valor: "12"}
+    ];
+    let numMes= meses.find(item => item.mes === lista[0]);
+    console.log("numeroDeMes",numMes);
+    let fecha = dia + "-" + numMes.valor + "-" + lista[1];
+    console.log("fecha formateada",fecha);
+    return fecha;
     
 }
 
