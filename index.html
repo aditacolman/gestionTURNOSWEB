@@ -29,10 +29,13 @@
         <div class="nav">
           <ul class="ul-icono">
             <li><a href="https://wa.me/541161710049" title="Visita nuestro sitio web"><i class="bi bi-whatsapp color-icono"></i></a></li>
+            <li><a href="https://wa.me/541161710049" title="Visita nuestro sitio web"><i class="bi bi-whatsapp color-icono"></i></a></li>
             <li>
+              <a href="#" data-bs-toggle="dropdown" role="button" title="Visita nuestro sitio web"><i class="bi bi-person-circle color-icono"></i></a>
               <a href="#" data-bs-toggle="dropdown" role="button" title="Visita nuestro sitio web"><i class="bi bi-person-circle color-icono"></i></a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a></li>
+                <li id="btnRegistrarse"><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a></li>
                 <li id="btnRegistrarse"><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a></li>
               </ul>
             </li>
@@ -61,12 +64,17 @@
                 <div class="mb-3">
                   <label for="contact" class="form-label">Correo o Teléfono</label>
                   <input type="text" class="form-control" id="valor" placeholder="Ingrese su correo o teléfono" required>
+                  <input type="text" class="form-control" id="valor" placeholder="Ingrese su correo o teléfono" required>
                 </div>
                 <div class="mb-3">
                   <label for="loginPassword" class="form-label">Contraseña</label>
                   <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su contraseña" required>
                 </div>
+                <div>
+                  <p>¿No tienes una cuenta? <a class="modal-title" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrate</a></p>
+                </div>
                 <div class="text-center boton-sesion">
+                  <button onclick="iniciar_sesion(event)" class="btn btn-primary">Iniciar sesión</button>
                   <button onclick="iniciar_sesion(event)" class="btn btn-primary">Iniciar sesión</button>
                 </div>
               </form>
@@ -74,6 +82,7 @@
           </div>
         </div>
       </div>
+
 
       <!-- Modal de Registro -->
       <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
@@ -87,26 +96,33 @@
               <form>
                 <div class="mb-3">
                   <label for="nombre" class="form-label">Nombre</label>
+                  <label for="nombre" class="form-label">Nombre</label>
                   <input type="text" class="form-control" id="nombre" placeholder="Ingrese su Nombre" required>
                 </div>
                 <div class="mb-3">
                   <label for="apellido" class="form-label">Apellido</label>
+                  <label for="apellido" class="form-label">Apellido</label>
                   <input type="text" class="form-control" id="apellido" placeholder="Ingrese su Apellido" required>
                 </div>
            
+           
                 <div class="mb-3">
+                  <label for="correo" class="form-label">Correo</label>
                   <label for="correo" class="form-label">Correo</label>
                   <input type="text" class="form-control" id="correo" placeholder="Ingrese su correo" required>
                 </div>
                 <div class="mb-3">
                   <label for="telefono" class="form-label">Teléfono</label>
+                  <label for="telefono" class="form-label">Teléfono</label>
                   <input type="text" class="form-control" id="telefono" placeholder="Ingrese su teléfono" required>
                 </div>
                 <div class="mb-3">
                   <label for="contrasena" class="form-label">Contraseña</label>
+                  <label for="contrasena" class="form-label">Contraseña</label>
                   <input type="password" class="form-control" id="contrasena" placeholder="Ingrese una contraseña" required>
                 </div>
                 <div class="text-center boton-sesion">
+                  <button onclick="registrarse(event)" class="btn btn-primary">Registrarse</button>
                   <button onclick="registrarse(event)" class="btn btn-primary">Registrarse</button>
                 </div>
               </form>
@@ -127,6 +143,8 @@
             <div id="modal" class="modal-img-servicio" onclick="cerrarModal()">
                 <img class="imagen-ampliada" id="imagen-ampliada" alt="Descripción de la imagen">>
             </div> 
+                <img class="imagen-ampliada" id="imagen-ampliada" alt="Descripción de la imagen">>
+            </div> 
             <p class="text-servicio"> SERVICIO DE </p>
             <p class="titulo-servicio">ESCULPIDAS EN GEL</p>
             <div class="boton-servicio">
@@ -142,6 +160,7 @@
                       <p>Las uñas esculpidas son extensiones que se construyen a partir de la uña natural con material acrílico o gel. 
                         Estas permiten restaurar y reconstruir uñas mordidas o simplemente, lucir uñas más largas. Algo que las hace sumamente atractivas, ya que se puede moldear la forma y longitud para obtener varios estilos.
                       </p>
+                      <a href="./turno.html" class="btn btn-outline-secondary">Quiero pedir un turno</a>
                     </div>
                   </div>
                 </div>
@@ -151,6 +170,7 @@
           <div class="col-4">
             <img class="img-servicio" src="./img/semi.jpg" alt="" onclick="ampliarImagen(this)">
             <div id="modal" class="modal-img-servicio" onclick="cerrarModal()">
+                <img class="imagen-ampliada" id="imagen-ampliada" alt="Descripción de la imagen">>
                 <img class="imagen-ampliada" id="imagen-ampliada" alt="Descripción de la imagen">>
             </div>
             <p class="text-servicio"> SERVICIO DE </p>
@@ -175,6 +195,7 @@
           <div class="col-4">
             <img class="img-servicio" src="./img/kapping.jpg" alt="" onclick="ampliarImagen(this)">
             <div id="modal" class="modal-img-servicio" onclick="cerrarModal()">
+              <img class="imagen-ampliada" id="imagen-ampliada" alt="Descripción de la imagen">>
               <img class="imagen-ampliada" id="imagen-ampliada" alt="Descripción de la imagen">>
             </div>
             <p class="text-servicio"> SERVICIO DE </p>
@@ -248,13 +269,34 @@
             <div class="col-xs-12 col-sm-12 col-xl-6 text-center">
               <ul class="ul-item justify-content-center">
                 <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="./FAQ.html">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#!">Tutorial</a></li>
+                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#" data-bs-toggle="modal" data-bs-target="#localModal">Local</a></li>
                 <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#">Contacto</a></li>
-                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#">Advertise</a></li>
-                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#">Términos</a></li>
-                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#!">Privacidad</a></li>
               </ul>
             </div>
-      
+
+            <!-- Modal de local -->
+            <div class="modal fade" id="localModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered custom-modal-width">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Nuestro Local</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6562.2925133075705!2d-58.42929300000001!3d-34.676258!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccc70add5648b%3A0x7b1b94ac784a2f4b!2sPaseo%20De%20Compras%20Reina%20Del%20Mar%20Warnes%203788!5e0!3m2!1ses!2sar!4v1729253469700!5m2!1ses!2sar" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </div>
+                      <div class="d-flex justify-content-center"> 
+                        <a href="https://maps.app.goo.gl/CrLv64LwpXjdbeY9A" class="btn btn-primary" role="button">Ver Ubicación</a>                        
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             <!-- Columna de los íconos de redes sociales -->
             <div class="col-xs-12 col-sm-6 col-xl-3">
               <div class="social-media-wrapper text-center text-sm-end">
