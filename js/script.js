@@ -312,9 +312,6 @@ xhttp.send();
 //
 
 //creo la lista de horarios disponibles
-
-
-
 //Calendario
 const daysTag = document.querySelector(".days");
 currentDate = document.querySelector(".current-date");
