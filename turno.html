@@ -24,92 +24,86 @@
             <fieldset class="centered-container">
             <!--card de trabajador
 
-              <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img class="estiloImgaTrabajador" src="./img/imagendemuestra.png" class="img-fluid rounded-start" alt="...">
-                    <img class="estiloImgaTrabajador" src="./img/imagendemuestra.png" class="img-fluid rounded-start" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">nombre</h5>
-                      <p class="card-text" style="color: black !important;">servicio que realiza</p>
-                    </div>
-                  </div>
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img class="estiloImgaTrabajador" src="./img/imagendemuestra.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">nombre</h5>
+                  <p class="card-text" style="color: black !important;">servicio que realiza</p>
                 </div>
               </div>
-              fin de la card-->
+            </div>
+          </div>
+          -->
+          <!--fin de la card-->
+          <label><input class="checkBoxStyle" type="radio" name="servicio" value="Kapping"> Kapping</label>
+          <label> <input class="checkBoxStyle" type="radio" name="servicio" value="Esculpidas"> Esculpidas </label>
+          <label> <input class="checkBoxStyle" type="radio" name="servicio" value="Servicio"> Servicio </label>
+          <label> <input class="checkBoxStyle" type="radio" name="servicio" value="Servicio"> Servicio </label>
+          <label> <input class="checkBoxStyle" type="radio" name="servicio" value="Servicio"> Servicio </label>
+        </fieldset>
+      </div>
 
-              <label><input class="checkBoxStyle" type="radio" name="servicio" value="Kapping"> Kapping</label>
-              <label> <input class="checkBoxStyle" type="radio" name="servicio" value="Esculpidas"> Esculpidas </label>
-              <label> <input class="checkBoxStyle" type="radio" name="servicio" value="Servicio"> Servicio </label>
-              <label> <input class="checkBoxStyle" type="radio" name="servicio" value="Servicio"> Servicio </label>
-              <label> <input class="checkBoxStyle" type="radio" name="servicio" value="Servicio"> Servicio </label>
-            </fieldset>
-          </div>
-        </div>
-        <div class="col-6 columnas">
-          <!--inicio calendario--> 
-          <div class="content">
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-md-10 text-center">
-                  <form action="#" class="row">
-                    <div class="col-md-12">
-                      <div class="contenedor-calendario">
-                        <div class="wrapper">
-                          <header class="header">
-                            <p class="current-date"></p>
-                            <div class="icons">
-                              <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                              <span id="next" class="material-symbols-rounded">chevron_right</span>
-                            </div>
-                          </header>
-                          <div class="calendar">
-                            <ul class="weeks">
-                              <li>Sun</li>
-                              <li>Mon</li>
-                              <li>Tue</li>
-                              <li>Wed</li>
-                              <li>Thu</li>
-                              <li>Fri</li>
-                              <li>Sat</li>
-                            </ul>
-                            <ul class="days"></ul>
+      <div class="col-6 columnas" style="background-color: rgb(42, 165, 63);">
+        <!--inicio calendario--> 
+        <div class="content">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-md-10 text-center">
+                <form action="#" class="row">
+                  <div class="col-md-12">
+                    <div class="contenedor-calendario">
+                      <div class="wrapper">
+                        <header class="header">
+                          <p class="current-date"></p>
+                          <div class="icons">
+                            <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                            <span id="next" class="material-symbols-rounded">chevron_right</span>
                           </div>
+                        </header>
+                        <div class="calendar" >
+                          <ul class="weeks">
+                            <li>Sun</li>
+                            <li>Mon</li>
+                            <li>Tue</li>
+                            <li>Wed</li>
+                            <li>Thu</li>
+                            <li>Fri</li>
+                            <li>Sat</li>
+                          </ul>
+                          <ul class="days" ></ul>
                         </div>
-                      </div>  
-                    </div>
-                  </form>
-                </div>
+                      </div>
+                    </div>  
+                  
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-          <!--fin del calendario-->
         </div>
-        <div class="col-3 columnas columnas-laterales">
-            <legend style="margin-top: 2rem;">Horarios disponibles:</legend>
+        <!--fin del calendario-->
+      </div>
+      <!--en este div meter la imagen o la lista dependiendo de lo que haga falta-->
+      <div class="col-3 columnas columnas-laterales">
+          <legend style="margin-top: 2rem;">Horarios disponibles:</legend>
             <div style="display: flex; justify-content: center;">
-              <img src="./img/calendario.png" alt="" style="width: 170px; height: auto; margin-top:6rem">
+              <img  id="imagenDeSinTurnos" src="./img/calendario.png" alt="imagenHorarios" style="width: 170px; height: auto; margin-top:6rem">
             </div>
-            <div class= "texto-t">
+            <div id="textoSinTurnos" class= "texto-t">
               <p>No hay turnos disponibles para el día seleccionado</p>
             </div>
-
-          <fieldset id="lista_horas" class="centered-container">
-            <!--label> <input class="checkBoxStyle" type="radio" name="horario" value="09:00"> 09:00 AM </label>
-            <label> <input class="checkBoxStyle" type="radio" name="horario" value="10:00"> 10:00 AM </label>
-            <label> <input class="checkBoxStyle" type="radio" name="horario" value="11:00"> 11:00 AM </label>
-            <label> <input class="checkBoxStyle" type="radio" name="horario" value="12:00"> 12:00 PM </label>
-            <label> <input class="checkBoxStyle" type="radio" name="horario" value="13:00"> 01:00 PM </label-->
+<!--lista de horarios-->
+            <fieldset id="lista_horas" class="centered-container">
             </fieldset>
-          
-        </div>
+        
       </div>
     </div>
-    <script src="js/script.js"></script>
-    <script src="js/script.js"></script>
   </div>
+  <script src="js/script.js"></script>
 </body>
 </html>
 
