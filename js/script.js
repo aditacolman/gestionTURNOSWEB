@@ -62,121 +62,6 @@ function cerrarModal() {
     scale = 1; // Reiniciar el zoom al cerrar el modal
 }
 
-//Función para registrar usuario WEB en la base de datos
-function registrarse(event) {
-    event.preventDefault()
-
-    let nombre = document.getElementById("nombre").value;
-    apellido =  document.getElementById("apellido").value;
-    correo= document.getElementById("correo").value;
-    telefono= document.getElementById("telefono").value;
-    contrasena= document.getElementById("contrasena").value;
-    let datos = {
-        "Nombre": nombre,
-        "Apellido": apellido,
-        "Correo": correo,
-        "Telefono": telefono,
-        "Contrasena": contrasena
-    }
-
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            console.log("datos: ", datos)
-        }
-    }
-    xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/agregarClientes");
-    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhttp.send(JSON.stringify(datos));
-}
-
-//Función para iniciar sesión en la WEB
-function iniciar_sesion(event) {
-    event.preventDefault()
-
-    let correo_telefono= document.getElementById("valor").value;
-    contrasena= document.getElementById("contrasena").value;
-    let datos = {
-        "Correo": correo_telefono,
-        "Contrasena": contrasena
-    }
-
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function(e) {
-        if (this.readyState == 4 && this.status == 200) {
-            console.log("datos: ", e.target.responseText)
-            let datos =  JSON.parse(e.target.responseText);
-            sessionStorage.setItem("id_sesion", datos[0]);
-            if (sessionStorage.getItem("id_sesion")!=null){
-                let btnRegistrarse =  document.getElementById("btnRegistrarse")
-                btnRegistrarse.style.setProperty("visibility", "hidden")
-            }
-            //console.log(sessionStorage.getItem("id_sesion"))
-        }
-    }
-    xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/login_web");
-    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xhttp.send(JSON.stringify(datos));
-}
-
-
-//Calendario
-const daysTag = document.querySelector(".days"),
-currentDate = document.querySelector(".current-date"),
-prevNextIcon = document.querySelectorAll(".icons span");
-
-// getting new date, current year and month
-let date = new Date();
-currYear = date.getFullYear();
-currMonth = date.getMonth();
-
-// storing full name of all months in array
-const months = ["January", "February", "March", "April", "May", "June", "July",
-              "August", "September", "October", "November", "December"];
-
-const renderCalendar = () => {
-    let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
-    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
-    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
-    lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
-    let liTag = "";
-
-    for (let i = firstDayofMonth; i > 0; i--) { // creating li of previous month last days
-        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-    }
-
-    for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
-        // adding active class to li if the current day, month, and year matched
-        let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
-                     && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${isToday}">${i}</li>`;
-    }
-
-    for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
-        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
-    }
-    currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
-    daysTag.innerHTML = liTag;
-}
-renderCalendar();
-
-prevNextIcon.forEach(icon => { // getting prev and next icons
-    icon.addEventListener("click", () => { // adding click event on both icons
-        // if clicked icon is previous icon then decrement current month by 1 else increment it by 1
-        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
-
-        if(currMonth < 0 || currMonth > 11) { // if current month is less than 0 or greater than 11
-            // creating a new date of current year & month and pass it as date value
-            date = new Date(currYear, currMonth, new Date().getDate());
-            currYear = date.getFullYear(); // updating current year with new date year
-            currMonth = date.getMonth(); // updating current month with new date month
-        } else {
-            date = new Date(); // pass the current date as date value
-        }
-        renderCalendar(); // calling renderCalendar function
-    });
-});
-
 function registrarse() {
     let nombre = document.getElementById("nombre").value;
     apellido =  document.getElementById("apellido").value;
@@ -312,6 +197,9 @@ xhttp.send();
 //
 
 //creo la lista de horarios disponibles
+
+
+
 //Calendario
 const daysTag = document.querySelector(".days");
 currentDate = document.querySelector(".current-date");
