@@ -1,4 +1,4 @@
-var fechas = new Array();
+
 
 //Esconde widget de elfsight en la página principal
 document.addEventListener('DOMContentLoaded', function () {
@@ -43,7 +43,7 @@ function ampliarImagen(imagen) {
     imagenAmpliada.src = imagen.src;
     scale = 1; // Reiniciar el zoom al abrir la imagen
     imagenAmpliada.style.transform = `scale(${scale})`; // Aplicar el zoom inicial
-
+    var
     // Agregar el evento de rueda del mouse para zoom
     imagenAmpliada.onwheel = (event) => {
         event.preventDefault(); // Prevenir el desplazamiento de la página
@@ -116,6 +116,7 @@ function crearListaHorarios(dia){
         let check = document.createElement("input")
         check.setAttribute("type", "radio")
         check.setAttribute("name", "horario")
+        check.setAttribute("id", "horarioSeleccionado")
         check.setAttribute("class", "checkBoxStyle")
         let item = document.createElement("label")
         let valor = e
@@ -126,6 +127,7 @@ function crearListaHorarios(dia){
         listaHtml.appendChild(item)
 
     });
+    registrarTurno()
 
 }
 
@@ -278,3 +280,7 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
         renderCalendar(); // calling renderCalendar function
     });
 });
+
+habilitarRegistroTurno(){
+    
+}
