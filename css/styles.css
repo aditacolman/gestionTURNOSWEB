@@ -361,7 +361,8 @@ label {
   align-items: center;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
-  height: 600px;
+  margin: 0.5rem;
+
 }
 
 .wrapper{
@@ -539,4 +540,27 @@ label {
     right: 0;
     float: right;
 }
+
+label{
+    background-color: transparent;
+}
+
+.estilo-horarios{
+    background-color: #F28891;
+}
+
+.service-option {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #9c3438;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+
+#seleccionar-servicios{
+    color: #9c3438;
+}
+
 /*font: "Open Sans", Helvetica, Arial, sans-serif*/

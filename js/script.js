@@ -118,6 +118,7 @@ function crearListaHorarios(dia){
         check.setAttribute("name", "horario")
         check.setAttribute("class", "checkBoxStyle")
         let item = document.createElement("label")
+        item.setAttribute("class", "estilo-horarios")
         let valor = e
         //item.setAttribute("value", e)
         item.appendChild(check)
