@@ -563,4 +563,8 @@ label{
     color: #9c3438;
 }
 
+.days li.seleccionado::before{
+    background: #9c3438;
+}
+
 /*font: "Open Sans", Helvetica, Arial, sans-serif*/
