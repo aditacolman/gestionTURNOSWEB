@@ -26,7 +26,7 @@
   <div class="contenedor-general">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-3">
+        <div class="col-3 columnas columnas-laterales">
           <legend style="margin-top: 2rem;">Seleccione una opción</legend>
             <div class="accordion" id="accordionExample">
               <div class="card">
@@ -154,7 +154,28 @@
 <!--lista de horarios-->
             <fieldset id="lista_horas" class="centered-container">
             </fieldset>
-          
+                    <!-- Botón de Confirmar Turno -->
+          <div class="text-center my-4">
+            <button id="confirmar-turno-btn" class="btn btn-primary" disabled>Confirmar Turno</button>
+          </div>
+
+          <!-- Modal de Confirmación -->
+          <div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="confirmacionModalLabel">Turno Confirmado</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  ¡Tu turno ha sido confirmado exitosamente!
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

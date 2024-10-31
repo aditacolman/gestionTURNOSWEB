@@ -279,3 +279,43 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
         renderCalendar(); // calling renderCalendar function
     });
 });
+
+
+//confirmar boton
+document.addEventListener('DOMContentLoaded', function() {
+    const confirmarTurnoBtn = document.getElementById('confirmar-turno-btn');
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    let diaSeleccionado = false;
+    let horarioSeleccionado = false;
+
+    // Función para verificar si se cumplen las condiciones para habilitar el botón
+    function verificarCondiciones() {
+      const servicioSeleccionado = Array.from(checkboxes).some(checkbox => checkbox.checked);
+      if (servicioSeleccionado && diaSeleccionado && horarioSeleccionado) {
+        confirmarTurnoBtn.disabled = false;
+      } else {
+        confirmarTurnoBtn.disabled = true;
+      }
+    }
+
+    // Simulación de selección de día y horario (implementa la lógica real en tu código)
+    document.querySelector('.calendar').addEventListener('click', function() {
+      diaSeleccionado = true;
+      verificarCondiciones();
+    });
+
+    document.getElementById('lista_horas').addEventListener('click', function() {
+      horarioSeleccionado = true;
+      verificarCondiciones();
+    });
+
+    // Evento para activar el modal de confirmación
+    confirmarTurnoBtn.addEventListener('click', function() {
+      $('#confirmacionModal').modal('show');
+    });
+
+    // Evento para actualizar el estado del botón al seleccionar un servicio
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', verificarCondiciones);
+    });
+  });
