@@ -80,16 +80,21 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-3 columnas">
-        <fieldset class="centered-container">
-          <legend>Horarios disponibles:</legend>
-          <label> <input class="checkBoxStyle" type="radio" name="horario" value="09:00"> 09:00 AM </label>
-          <label> <input class="checkBoxStyle" type="radio" name="horario" value="10:00"> 10:00 AM </label>
-          <label> <input class="checkBoxStyle" type="radio" name="horario" value="11:00"> 11:00 AM </label>
-          <label> <input class="checkBoxStyle" type="radio" name="horario" value="12:00"> 12:00 PM </label>
-          <label> <input class="checkBoxStyle" type="radio" name="horario" value="13:00"> 01:00 PM </label>
-        </fieldset>
+      <!--en este div meter la imagen o la lista dependiendo de lo que haga falta-->
+      <div class="col-3 columnas columnas-laterales">
+          <legend style="margin-top: 2rem;">Horarios disponibles:</legend>
+            <div style="display: flex; justify-content: center;">
+              <img  id="imagenDeSinTurnos" src="./img/calendario.png" alt="imagenHorarios" style="width: 170px; height: auto; margin-top:6rem">
+            </div>
+            <div id="textoSinTurnos" class= "texto-t">
+              <p>No hay turnos disponibles para el día seleccionado</p>
+            </div>
+<!--lista de horarios-->
+            <fieldset id="lista_horas" class="centered-container">
+            </fieldset>
+            <!--boton de registrarse-->
+            <button type="button" id="botonRegistrarse" class="btn btn-primary" disabled>Primary button</button>
+        </div>
       </div>
     </div>
   </div>
