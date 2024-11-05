@@ -143,6 +143,7 @@
     height: auto; /* Cambiado a auto para mantener proporciones */
 }
 
+
 .boton-turnos, .boton-servicios {
     margin: 10px 0; /* Margen vertical entre botones */
     font-size: 30px;
@@ -319,13 +320,14 @@
 
 /*¡VENTANA TURNOS!*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-.columnas {
-    height: 100vh;
-}
-.columnas-laterales{
-    padding: 1rem;
+
+.contenedor-general{
+    padding: 0rem 0; 
 }
 
+.container-fluid{
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
 
 .scrollable-list {
     max-height: 100px; /* Ajusta la altura máxima según tus necesidades */
@@ -359,6 +361,7 @@ label {
   align-items: center;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
+  height: 600px;
 }
 
 .wrapper{
@@ -366,6 +369,7 @@ label {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    width: 100%;
   }
 
 .wrapper .header{
@@ -490,7 +494,49 @@ label {
 
 /*PREGUNTAS FRECUENTES*/
 /* Estilos para el acordeón */
-.accordion-button::after {
-    content: none;
+.accordion-button{
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #464c5e;
+    height: 4.5rem;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #a12138;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.accordion-body{
+    background-color: #f7f7f7;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+.accordion-item {
+    border: none; /* Elimina el borde de cada ítem del acordeón */
+}
+
+.flecha {
+    width: 0; 
+    height: 0; 
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 10px solid white;
+    margin-right: 5px;
+}
+
+.back {
+    width: 2.5rem; /* Ajusta el tamaño según sea necesario */
+    height: auto; /* Mantiene la proporción */
+    margin: 1rem;
+}
+
+.logo {
+    width: 5rem; /* Ajusta el tamaño según sea necesario */
+    height: auto; /* Mantiene la proporción */
+    margin: 0.5rem;
+    right: 0;
+    float: right;
 }
 /*font: "Open Sans", Helvetica, Arial, sans-serif*/

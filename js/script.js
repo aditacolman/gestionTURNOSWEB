@@ -1,4 +1,4 @@
-var fechas = new Array();
+
 
 //Esconde widget de elfsight en la página principal
 document.addEventListener('DOMContentLoaded', function () {
@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
 window.addEventListener("load", function(){
     this.localStorage.clear();
     console.log("pagina cargada")
-    mostrarTurnosDisponibles()
 
 })
 
@@ -92,7 +91,7 @@ function obtenerDia(fecha){
     // Crear un arreglo para los nombres de los días
     const dias =  new Array()//, Lunes[""], Martes[""], Miércoles[""], Jueves[""], Viernes[""], Sábado[""]];
     console.log("numindex",diaDeLaSemana)
-    domingo=[]
+    domingo=[""]
     lunes=["11:00", "12:00"]
     martes=["11:00", "12:00"]
     miercoles=["11:00", "12:00"]
@@ -110,11 +109,14 @@ function obtenerDia(fecha){
 function crearListaHorarios(dia){
 
     let listaHtml = document.getElementById("lista_horas")
+
+    listaHtml.innerHTML = ""; // Esto elimina todos los elementos anteriores
     
     dia.forEach(e => {
         let check = document.createElement("input")
         check.setAttribute("type", "radio")
         check.setAttribute("name", "horario")
+        check.setAttribute("id", "horarioSeleccionado")
         check.setAttribute("class", "checkBoxStyle")
         let item = document.createElement("label")
         let valor = e
@@ -126,11 +128,37 @@ function crearListaHorarios(dia){
 
     });
 
+
 }
 
+function formatear_fecha(dia, mes_year) {
+    console.log("ingreso a formatear fecha:")
+    let lista = mes_year.split(" ")
+    let meses= [
+        {mes: "January", valor: "01"},
+        {mes: "February", valor: "02"},
+        {mes: "March", valor: "03"},
+        {mes: "April", valor: "04"},
+        {mes: "May", valor: "05"},
+        {mes: "June", valor: "06"},
+        {mes: "July", valor: "07"},
+        {mes: "August", valor: "08"},
+        {mes: "September", valor: "09"},
+        {mes: "October", valor: "10"},
+        {mes: "November", valor: "11"},
+        {mes: "December", valor: "12"}
+    ];
+    let numMes= meses.find(item => item.mes === lista[0]);
+    console.log("numeroDeMes",numMes);
+    let diaFormateado = String(dia).padStart(2, '0');
+    let fecha = lista[1] + "-" + numMes.valor + "-" + diaFormateado;
+    console.log("fecha formateada",fecha);
+    return fecha;
+    
+}
 
 //turnos disponibles, cargar los horarios disponibles dependiendo del dia y retarle la duraion de los tunos seleccionados
-function mostrarTurnosDisponibles(){//agregar como variable el dia
+function mostrarTurnosDisponibles(fechaSeleccionada){//agregar como variable el dia
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function(e) {
     if (this.readyState == 4 && this.status == 200) {
@@ -145,13 +173,13 @@ xhttp.onreadystatechange = function(e) {
        // Typical action to be performed when the document is ready:
        //document.getElementById("demo").innerHTML = xhttp.responseText;
        
-       localStorage.setItem("horas", JSON.stringify(horas));
-    // En esta linea traer cambabiar lo hardcodeado de "dia seleccionado" por "fecha formateada" 
-       let diaSeleccionado = obtenerDia("2024-10-20");
+       localStorage.setItem("horas", JSON.stringify(horas)); 
+       let diaSeleccionado = obtenerDia(fechaSeleccionada);
        let imagenSinTurnos= document.getElementById("imagenDeSinTurnos");
        let listaHoras = document.getElementById("lista_horas");
        let textoTurnos = document.getElementById("textoSinTurnos");
        console.log("diasquequierover",diaSeleccionado)
+       //si hay turnos en el dia seleccionado me los muestra sino me muestra que no hay
         if (diaSeleccionado.some(elemento => /\d/.test(elemento))) {
             imagenSinTurnos.style.display = 'none';
             textoTurnos.style.display = 'none';
@@ -214,6 +242,7 @@ const renderCalendar = () => {
 }
 renderCalendar();
 
+
 /*acciones de los dias del calendario*/
 function cambia_dia(fecha) {
     
@@ -229,35 +258,10 @@ function cambia_dia(fecha) {
     let li = document.getElementById("dia_" + fecha);
     console.log(fecha)
     li.setAttribute("class", "seleccionado");
-
-    formatear_fecha(fecha, currentDate.innerText)
-}
-
-function formatear_fecha(dia, mes_year) {
-    console.log("ingreso a formatear fecha:")
-    let lista = mes_year.split(" ")
-    let meses= [
-        {mes: "January", valor: "01"},
-        {mes: "February", valor: "02"},
-        {mes: "March", valor: "03"},
-        {mes: "April", valor: "04"},
-        {mes: "May", valor: "05"},
-        {mes: "June", valor: "06"},
-        {mes: "July", valor: "07"},
-        {mes: "August", valor: "08"},
-        {mes: "September", valor: "09"},
-        {mes: "October", valor: "10"},
-        {mes: "November", valor: "11"},
-        {mes: "December", valor: "12"}
-    ];
-    let numMes= meses.find(item => item.mes === lista[0]);
-    console.log("numeroDeMes",numMes);
-    let fecha = dia + "-" + numMes.valor + "-" + lista[1];
-    console.log("fecha formateada",fecha);
-    return fecha;
+    let fechaSeleccionada= formatear_fecha(fecha, currentDate.innerText);
+    mostrarTurnosDisponibles(fechaSeleccionada);
     
 }
-
 
 
 prevNextIcon.forEach(icon => { // getting prev and next icons
