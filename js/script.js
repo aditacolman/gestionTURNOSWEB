@@ -145,7 +145,8 @@ xhttp.onreadystatechange = function(e) {
        // Typical action to be performed when the document is ready:
        //document.getElementById("demo").innerHTML = xhttp.responseText;
        
-       localStorage.setItem("horas", JSON.stringify(horas)); 
+       localStorage.setItem("horas", JSON.stringify(horas));
+    // En esta linea traer cambabiar lo hardcodeado de "dia seleccionado" por "fecha formateada" 
        let diaSeleccionado = obtenerDia("2024-10-20");
        let imagenSinTurnos= document.getElementById("imagenDeSinTurnos");
        let listaHoras = document.getElementById("lista_horas");
