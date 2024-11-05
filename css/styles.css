@@ -356,6 +356,8 @@ label {
   align-items: center;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
+  margin: 0.5rem;
+
 }
 
 .wrapper{
@@ -521,3 +523,47 @@ label {
 .mt{
     margin-top: -40px;
 }
+
+label{
+    background-color: transparent;
+}
+
+.estilo-horarios{
+    background-color: #F28891;
+}
+
+.service-option {
+    font-size: 1.3rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    color: #9c3438;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+
+#seleccionar-servicios{
+    color: #9c3438;
+}
+
+.days li.seleccionado::before{
+    background: #9c3438;
+}
+
+.columnas-laterales {
+    border: 1px solid #cfcfcf; /* Cambia el color y grosor según prefieras */
+    border-radius: 5px; /* Opcional: redondea las esquinas */
+}
+
+#confirmar-turno-btn {
+    background-color: #9c3438;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+/*font: "Open Sans", Helvetica, Arial, sans-serif*/

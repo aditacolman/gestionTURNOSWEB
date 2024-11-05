@@ -15,76 +15,136 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 </head>
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-3 columnas ">
-        <!--card de trabajador-->
-        <fieldset class="centered-container">
-          <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img class="estiloImgaTrabajador" src="./img/imagendemuestra.png" class="img-fluid rounded-start" alt="...">
+  <nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12"><a href="./index.html"><img class="back" src="img/back.png"></a><img class="logo" src="img/flanails.png" alt=""></div></div>
+      </div> 
+    </div>
+  </nav>
+  <div class="contenedor-general">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3 columnas columnas-laterales">
+          <legend style="margin-top: 2rem;">Seleccione una opción</legend>
+            <div class="accordion" id="accordionExample">
+              <div class="card">
+                  <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                          <button id="seleccionar-servicios" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              Esculpidas en gel
+                          </button>
+                      </h2>
+                  </div>
+          
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body">
+                        <label><input type="checkbox" id="checkbox1" name="option1"> Opcion</label><br>
+                        <label><input type="checkbox" id="checkbox2" name="option2"> Opcion</label>
+                      </div>
+                  </div>
               </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">nombre</h5>
-                  <p class="card-text" style="color: black !important;">servicio que realiza</p>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button id="seleccionar-servicios" class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            Semipermanente
+                        </button>
+                    </h2>
+                </div>
+        
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <label><input type="checkbox" id="checkbox3" name="option3"> Opcion</label><br>
+                      <label><input type="checkbox" id="checkbox4" name="option4"> Opcion</label>
+                    </div>
+                </div>
+            </div>
+              <div class="card">
+                  <div class="card-header" id="headingThree">
+                      <h2 class="mb-0">
+                          <button id="seleccionar-servicios" class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              Kapping gel
+                          </button>
+                      </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                      <div class="card-body">
+                          <label><input type="checkbox" id="checkbox5" name="option5"> Opcion</label><br>
+                          <label><input type="checkbox" id="checkbox6" name="option6"> Opcion</label>
+                      </div>
+                  </div>
+              </div>
+              <div class="card">
+                  <div class="card-header" id="headingFour">
+                      <h2 class="service-option">
+                          <label><input type="checkbox" id="checkbox7" name="option7"> Service</label>
+                      </h2>
+                  </div>
+              </div>
+          </div>    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        </div>
+
+                    <!--card de trabajador
+
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img class="estiloImgaTrabajador" src="./img/imagendemuestra.png" class="img-fluid rounded-start" alt="...">
+                    <img class="estiloImgaTrabajador" src="./img/imagendemuestra.png" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">nombre</h5>
+                      <p class="card-text" style="color: black !important;">servicio que realiza</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <!--fin de la card-->
-          <legend>Selecciona un servicio:</legend>
-          <label><input class="checkBoxStyle" type="radio" name="servicio" value="Kapping"> Kapping</label>
-          <label> <input class="checkBoxStyle" type="radio" name="servicio" value="Esculpidas"> Esculpidas </label>
-          <label> <input class="checkBoxStyle" type="radio" name="servicio" value="Servicio"> Servicio </label>
-          <label> <input class="checkBoxStyle" type="radio" name="servicio" value="Servicio"> Servicio </label>
-          <label> <input class="checkBoxStyle" type="radio" name="servicio" value="Servicio"> Servicio </label>
-        </fieldset>
-      </div>
-
-      <div class="col-6 columnas" style="background-color: rgb(42, 165, 63);">
-        <div class="content">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-md-10 text-center">
-                <form action="#" class="row">
-                  <div class="col-md-12">
-                    <div class="contenedor-calendario">
-                      <div class="wrapper">
-                        <header class="header">
-                          <p class="current-date"></p>
-                          <div class="icons">
-                            <span id="prev" class="material-symbols-rounded">chevron_left</span>
-                            <span id="next" class="material-symbols-rounded">chevron_right</span>
+              fin de la card-->
+        <div class="col-md-6 columnas">
+          <!--inicio calendario--> 
+          <div class="content">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-10 text-center">
+                  <form action="#" class="row">
+                    <div class="col-md-12">
+                      <div class="contenedor-calendario">
+                        <div class="wrapper">
+                          <header class="header">
+                            <p class="current-date"></p>
+                            <div class="icons">
+                              <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                              <span id="next" class="material-symbols-rounded">chevron_right</span>
+                            </div>
+                          </header>
+                          <div class="calendar">
+                            <ul class="weeks">
+                              <li>Sun</li>
+                              <li>Mon</li>
+                              <li>Tue</li>
+                              <li>Wed</li>
+                              <li>Thu</li>
+                              <li>Fri</li>
+                              <li>Sat</li>
+                            </ul>
+                            <ul class="days"></ul>
                           </div>
-                        </header>
-                        <div class="calendar">
-                          <ul class="weeks">
-                            <li>Sun</li>
-                            <li>Mon</li>
-                            <li>Tue</li>
-                            <li>Wed</li>
-                            <li>Thu</li>
-                            <li>Fri</li>
-                            <li>Sat</li>
-                          </ul>
-                          <ul class="days"></ul>
                         </div>
-                      </div>
-                    </div>  
-                  
-                  </div>
-                </form>
+                      </div>  
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
       <!--en este div meter la imagen o la lista dependiendo de lo que haga falta-->
-      <div class="col-3 columnas columnas-laterales">
+      <div class="col-md-3 columnas columnas-laterales">
           <legend style="margin-top: 2rem;">Horarios disponibles:</legend>
             <div style="display: flex; justify-content: center;">
-              <img  id="imagenDeSinTurnos" src="./img/calendario.png" alt="imagenHorarios" style="width: 170px; height: auto; margin-top:6rem">
+              <img  id="imagenDeSinTurnos" src="./img/calendario.png" alt="imagenHorarios" style="width: 170px; height: auto; margin-top:5rem">
             </div>
             <div id="textoSinTurnos" class= "texto-t">
               <p>No hay turnos disponibles para el día seleccionado</p>
@@ -92,8 +152,28 @@
 <!--lista de horarios-->
             <fieldset id="lista_horas" class="centered-container">
             </fieldset>
-            <!--boton de registrarse-->
-            <button type="button" id="botonRegistrarse" class="btn btn-primary" disabled>Primary button</button>
+                    <!-- Botón de Confirmar Turno -->
+          <div class="text-center my-4">
+            <button id="confirmar-turno-btn" class="btn btn-primary" disabled>Confirmar Turno</button>
+          </div>
+
+          <!-- Modal de Confirmación -->
+          <div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="confirmacionModalLabel">Turno Confirmado</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  ¡Tu turno ha sido confirmado exitosamente!
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
