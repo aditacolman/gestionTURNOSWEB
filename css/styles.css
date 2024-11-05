@@ -143,7 +143,6 @@
     height: auto; /* Cambiado a auto para mantener proporciones */
 }
 
-
 .boton-turnos, .boton-servicios {
     margin: 10px 0; /* Margen vertical entre botones */
     font-size: 30px;
@@ -320,13 +319,8 @@
 
 /*¡VENTANA TURNOS!*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
-.contenedor-general{
-    padding: 0rem 0; 
-}
-
-.container-fluid{
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+.columnas {
+    height: 100vh;
 }
 
 .scrollable-list {
@@ -338,6 +332,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
+    height: 100%;            /* Ocupa todo el alto de la columna */
 }
 
 label {
@@ -361,7 +356,6 @@ label {
   align-items: center;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
-  height: 600px;
 }
 
 .wrapper{
@@ -369,7 +363,6 @@ label {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-    width: 100%;
   }
 
 .wrapper .header{
@@ -447,7 +440,7 @@ label {
 }
   
 .days li.active{
-    color: #0c0c0c;
+    color: #fff;
 }
   
 .days li::before{
@@ -463,32 +456,11 @@ label {
 }
 
 .days li.active::before{
-    background: hwb(0 7% 93% / 0.384);
-}
-  
-.days li:not(.active):hover::before{
-    background: #0000003a;
-}
-
-/*estilos del evento click  del calendario*/
-.days li.seleccionado::before{
     background: #9B59B6;
 }
   
-.days li:not(.seleccionado):hover::before{
+.days li:not(.active):hover::before{
     background: #f2f2f2;
-}
-
-.days li.seleccionado{
-    color: #000000;
-}
-
-.texto-t{
-    display: flex;
-    justify-content: center;
-    font-size: 14px;
-    text-align: center;
-    color:#A6A6A6
 }
 
 /*PREGUNTAS FRECUENTES*/

@@ -1,5 +1,3 @@
-var fechas = new Array();
-
 //Esconde widget de elfsight en la página principal
 document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => {
@@ -9,14 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }, 1000); // Espera 2 segundos
 });
-
-window.addEventListener("load", function(){
-    this.localStorage.clear();
-    console.log("pagina cargada")
-
-})
-
-
 
 //Cambiar icono en las preguntas frecuentes
 function toggleIcon(button) {
@@ -29,8 +19,6 @@ function toggleIcon(button) {
         icon.classList.add('bi-plus-lg');
     }
 }
-
-
 
 //Ampliar imagen de servicios
 let scale = 1;
@@ -119,131 +107,10 @@ function iniciar_sesion(event) {
     xhttp.send(JSON.stringify(datos));
 }
 
-//window.addEventListener("load", ()=>{
-//    obtenerDia("2024-10-21")
-//})
-//dice el dia actual
-function obtenerDia(fecha){
-    const fechaObj = new Date(fecha);
-
-    // Obtener el día de la semana
-    const diaDeLaSemana = fechaObj.getDay();
-    
-    // Crear un arreglo para los nombres de los días
-    const dias =  new Array()//, Lunes[""], Martes[""], Miércoles[""], Jueves[""], Viernes[""], Sábado[""]];
-    console.log("numindex",diaDeLaSemana)
-    domingo=[""]
-    lunes=["11:00", "12:00"]
-    martes=["11:00", "12:00"]
-    miercoles=["11:00", "12:00"]
-    jueves=["11:00", "12:00"]
-    viernes=["11:00", "12:00"]
-    sabado=["11:00", "12:00"]
-
-    dias.push(lunes,martes,miercoles,jueves,viernes,sabado,domingo);
-
-    //console.log(diaDeLaSemana)
-    console.log("domingo",dias[0])
-    return dias[diaDeLaSemana]
-}
-
-function crearListaHorarios(dia){
-
-    let listaHtml = document.getElementById("lista_horas")
-
-    listaHtml.innerHTML = ""; // Esto elimina todos los elementos anteriores
-    
-    dia.forEach(e => {
-        let check = document.createElement("input")
-        check.setAttribute("type", "radio")
-        check.setAttribute("name", "horario")
-        check.setAttribute("class", "checkBoxStyle")
-        let item = document.createElement("label")
-        let valor = e
-        //item.setAttribute("value", e)
-        item.appendChild(check)
-        item.append(valor)
-        //console.log(item)
-        listaHtml.appendChild(item)
-
-    });
-
-}
-
-function formatear_fecha(dia, mes_year) {
-    console.log("ingreso a formatear fecha:")
-    let lista = mes_year.split(" ")
-    let meses= [
-        {mes: "January", valor: "01"},
-        {mes: "February", valor: "02"},
-        {mes: "March", valor: "03"},
-        {mes: "April", valor: "04"},
-        {mes: "May", valor: "05"},
-        {mes: "June", valor: "06"},
-        {mes: "July", valor: "07"},
-        {mes: "August", valor: "08"},
-        {mes: "September", valor: "09"},
-        {mes: "October", valor: "10"},
-        {mes: "November", valor: "11"},
-        {mes: "December", valor: "12"}
-    ];
-    let numMes= meses.find(item => item.mes === lista[0]);
-    console.log("numeroDeMes",numMes);
-    let diaFormateado = String(dia).padStart(2, '0');
-    let fecha = lista[1] + "-" + numMes.valor + "-" + diaFormateado;
-    console.log("fecha formateada",fecha);
-    return fecha;
-    
-}
-
-//turnos disponibles, cargar los horarios disponibles dependiendo del dia y retarle la duraion de los tunos seleccionados
-function mostrarTurnosDisponibles(fechaSeleccionada){//agregar como variable el dia
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function(e) {
-    if (this.readyState == 4 && this.status == 200) {
-        //console.log(JSON.parse(xhttp.response))
-        let turnos = JSON.parse(xhttp.response)
-        let horas = new Array;
-        fecha = new Array;
-        turnos.forEach(turno => {
-           //localStorage.setItem("fecha", turno["Fecha"])
-            horas.push(turno["Hora"]) 
-        });
-       // Typical action to be performed when the document is ready:
-       //document.getElementById("demo").innerHTML = xhttp.responseText;
-       
-       localStorage.setItem("horas", JSON.stringify(horas)); 
-       let diaSeleccionado = obtenerDia(fechaSeleccionada);
-       let imagenSinTurnos= document.getElementById("imagenDeSinTurnos");
-       let listaHoras = document.getElementById("lista_horas");
-       let textoTurnos = document.getElementById("textoSinTurnos");
-       console.log("diasquequierover",diaSeleccionado)
-       //si hay turnos en el dia seleccionado me los muestra sino me muestra que no hay
-        if (diaSeleccionado.some(elemento => /\d/.test(elemento))) {
-            imagenSinTurnos.style.display = 'none';
-            textoTurnos.style.display = 'none';
-            listaHoras.style.display = 'block';
-        }else{
-            imagenSinTurnos.style.display = 'block';
-            textoTurnos.style.display = 'block';
-            listaHoras.style.display = 'none';
-        }
-        
-       crearListaHorarios(diaSeleccionado)
-    }
-};
-xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verTurnos", true);
-xhttp.send();
-}
-//
-
-//creo la lista de horarios disponibles
-
-
 
 //Calendario
-const daysTag = document.querySelector(".days");
-currentDate = document.querySelector(".current-date");
+const daysTag = document.querySelector(".days"),
+currentDate = document.querySelector(".current-date"),
 prevNextIcon = document.querySelectorAll(".icons span");
 
 // getting new date, current year and month
@@ -270,7 +137,7 @@ const renderCalendar = () => {
         // adding active class to li if the current day, month, and year matched
         let isToday = i === date.getDate() && currMonth === new Date().getMonth() 
                      && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li id="dia_${i}" onmousedown="cambia_dia(${i})" class="${isToday}">${i}</li>`;
+        liTag += `<li class="${isToday}">${i}</li>`;
     }
 
     for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
@@ -280,28 +147,6 @@ const renderCalendar = () => {
     daysTag.innerHTML = liTag;
 }
 renderCalendar();
-
-
-/*acciones de los dias del calendario*/
-function cambia_dia(fecha) {
-    
-    currentDate = document.querySelector(".current-date");
-    console.log(currentDate.innerText)
-    // Primero, deseleccionamos cualquier día que esté actualmente seleccionado
-    let dias = document.querySelectorAll("li.seleccionado");
-    dias.forEach(function(li) {
-        li.setAttribute("class", ""); // Limpiamos la clase de los días seleccionados
-    });
-
-    // Luego, seleccionamos el nuevo día
-    let li = document.getElementById("dia_" + fecha);
-    console.log(fecha)
-    li.setAttribute("class", "seleccionado");
-    let fechaSeleccionada= formatear_fecha(fecha, currentDate.innerText);
-    mostrarTurnosDisponibles(fechaSeleccionada);
-    
-}
-
 
 prevNextIcon.forEach(icon => { // getting prev and next icons
     icon.addEventListener("click", () => { // adding click event on both icons
