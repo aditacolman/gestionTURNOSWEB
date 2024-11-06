@@ -4,7 +4,53 @@
     padding: 0;
 }
 
-/* WIDGET INSTAGRAM */
+/*¡PANTALLA PRINCIPAL!*/
+/*MODAL REGISTRO DE SESIÓN E INICIO*/
+.modal-header {
+    background-color: #a12138; 
+    color: #ffffff; 
+    justify-content: center;
+  }
+
+.modal-title {
+    text-align: center; 
+    font-family: "Montserrat", sans-serif; 
+    font-size: 1.3rem; 
+    margin: 0; 
+}
+
+.modal-body {
+    background-color: transparent; 
+  }
+
+.form-label, .form-control {
+    background-color: transparent; 
+    border: none; 
+    color: #333; 
+  }
+
+.form-control:focus {
+    box-shadow: none; 
+    border-color: #F28891;
+  }
+
+.boton-sesion .btn{
+    --bs-btn-bg: #fff;
+    --bs-btn-color: #212529;
+    --bs-btn-border-color: #a12138;
+}
+
+.boton-sesion .btn:hover {
+    color: #ffffff;
+    background-color: #a12138;
+    border-color: #a12138;
+}
+
+.custom-modal-width {
+    max-width: 400px; /* Cambia el ancho según tu preferencia */
+  }
+  
+/*WIDGET INSTAGRAM*/
 .widget-container {
     width: 100%;
     overflow: hidden; /* Controla el desbordamiento */
@@ -18,7 +64,23 @@
     max-width: 100%;
 }
 
-/* SECCIÓN PRINCIPAL */
+#eapps-instagram-feed-1 a.eapps-instagram-feed-header-follow-button {
+    background: #a12138!important; 
+
+}
+
+.eapps-instagram-feed-posts-grid-load-more-text {
+    background-color: #a12138; /* Cambia esto por el color que desees */
+    color: white; /* Cambia el color del texto si es necesario */
+}
+
+/* Opcional: estilos al pasar el mouse */
+.eapps-instagram-feed-posts-grid-load-more-text:hover {
+    background-color: #8C1B2F;
+    border-color: #a12138; /* Un color más oscuro para el hover */
+}
+
+/*SECCIÓN PRINCIPAL*/
 .contenedor {
     position: relative;
     height: 100vh; /* Altura de la ventana del navegador */
@@ -54,10 +116,6 @@
     z-index: 3; 
 }
 
-a {
-    color: #F2EFE9!important;
-}
-
 .dropdown {
     color: #212529!important;
 }
@@ -85,40 +143,136 @@ a {
     height: auto; /* Cambiado a auto para mantener proporciones */
 }
 
+
 .boton-turnos, .boton-servicios {
     margin: 10px 0; /* Margen vertical entre botones */
     font-size: 30px;
+    font-family: "Montserrat", sans-serif;
 }
 
-.boton-turnos .btn {
+.boton-turnos .btn{
     --bs-btn-padding-x: 2.75rem;
-    --bs-btn-border-color: #F2EFE9;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-color: #ffffff;
 }
 
-.imagen-icono { /* Iconos del 'NAV'*/
-    width: 3%;
-    height: 3%;
-} 
+.boton-turnos .btn:hover{
+    color: #ffffff;
+    background-color: #a12138;
+    border-color: #a12138;
+}
 
-/* SECCIÓN INFORMACIÓN */
-.img-info { /* Iconos del 'NAV'*/
-    border-radius: 50%;
-    position: absolute;
-    width: 42%; 
-    height: 270px; 
-    top: -16%;
-    left: 46%;
-    z-index: 2;
+.color-icono{
+    color: #ffffff;
+}
+
+.color-icono:hover{
+    color: #a12138;
+}
+
+/*SECCIÓN INFORMACIÓN*/
+.div-emprendimiento{
+    padding: 1rem;
+}
+
+.nombre-emprendimiento{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+.text-empredimiento{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+
+.text-servicio {
+    font-family: "Montserrat", Sans-serif;
+    font-weight: 400;
+    color: #212529;
+    font-size: 100%;
+    margin-bottom: 0;
+    margin-top: 1rem;
+}
+
+.titulo-servicio {
+    font-family: "Montserrat", Sans-serif;
+    font-weight: 400;
+    color: #8C1B2F;
+    font-size: 150%;
+}
+
+.img-servicio{
+    max-width: 280px;
+    max-height: 345px;
+    cursor: pointer;
+}
+
+.modal-img-servicio {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.imagen-ampliada {
+    margin: auto;
+    display: block;
+    max-width: 100%; /* Ajusta el máximo ancho */
+    max-height: 100%; /* Ajusta la máxima altura */
+    transition: transform 0.2s;
+}
+
+.boton-servicio .btn{
+    --bs-btn-padding-x: 2.25rem;
+    --bs-btn-border-color: #8C1B2F;
+    --bs-btn-color: black;
+}
+
+.boton-servicio .btn:hover{
+    color: #F2EFE9;
+    background-color: #a12138;
+    border-color: #a12138;
+}
+
+.mt-sobre-nosotros{
+    margin-top: 7rem;
+}
+
+.card{
+    --bs-card-border-color: #8c1b2f!important;
+}
+
+.card-titulo{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
 }
 
 .contenedor-info {
     position: relative;
     height: 200px; /* Ajusta el tamaño según sea necesario */
-    background-color: rgb(211, 116, 187);
+    background-color: #8C1B2F;
 }
 
-.contenedor-pos{
-    position: relative;
+.contenedor-circulo {
+    width: 300px; /* o el tamaño deseado */
+    height: 300px; /* debe ser igual a width */
+    overflow: hidden;
+    border-radius: 50%;
+    position: absolute;
+    top: -25%;
+    left: 46%;
+    z-index: 2;
+}
+
+.contenedor-circulo img{
+    width: 100%; /* o 100% para ajustar */
+    height: 100%; /* para mantener el alto y evitar pixelación */
+    object-fit: cover; /* recorta la imagen para que encaje bien */
 }
 
 .card-info {
@@ -138,57 +292,39 @@ a {
 }
 
 /* FOOTER */
-.parrafo-footer{
-    font-size: 15px;
-    margin-bottom: 3.5%;
+.contenedor-logo{
+    width: 125px; /* o el tamaño deseado */
+    height: 125px; /* debe ser igual a width */
 }
 
-.listado-footer{
-    font-size: 15px;
-    margin-bottom: 1.5%;
+.contenedor-logo img{
+    width: auto; /* o 100% para ajustar */
+    height: 100%; /* para mantener el alto y evitar pixelación */
+    object-fit: cover; /* recorta la imagen para que encaje bien */
 }
 
-.ul-footer-redes {
+.ul-footer{
+    gap: 4%;
+}
+
+.ul-item{
     list-style: none;
     display: flex;
-    gap: 4%;
-    font-size: 28px;
-    padding: 0;
-    margin-bottom: 0;
 }
 
-h1, h2, h3, h4, h5 {
-    font-family: "Poppins", Arial, sans-serif; }
-  
-footer {
-    padding: 4rem 0; }
-  
-.footer-09 {
-    background: #c47ab2; /*Fondo*/
-   }
-  
-.footer-09 p {
-    color: rgba(255, 255, 255, 0.3); }
-  
-.footer-09 .footer-heading { 
-    color: #fff;
-    font-size: 22px;
-    margin-bottom: 30px; }
-      
-.footer-09 .footer-heading .icon {
-    width: 40px;
-    margin-right: 10px;
-    border-radius: 50%;
-    height: 40px;
-    display: block;
-    color: #fe59d7;
-    border: 1px solid #fe59d7; }
-
-/* AJUSTAR ESTILOS DEPENDIENDO DEL ANCHO DE LA PANTALLA, MEDIA QUERIES */
+.color-footer {
+    color: #8C1B2F;
+}
 
 /*¡VENTANA TURNOS!*/
-.columnas {
-    height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.contenedor-general{
+    padding: 0rem 0; 
+}
+
+.container-fluid{
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .scrollable-list {
@@ -200,9 +336,279 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centra verticalmente */
-    height: 100%;            /* Ocupa todo el alto de la columna */
 }
 
 label {
-    background-color: #fe59d7;
+    background-color: #c2b6bf;
+    border-radius: 5px;
 }
+
+.checkBoxStyle {
+    margin-left: 6px;
+}
+
+.estiloImgaTrabajador{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 135%;
+    margin-bottom: 10px;
+}
+
+.contenedor-calendario{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  margin: 0.5rem;
+
+}
+
+.wrapper{
+    width: 450px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    width: 100%;
+  }
+
+.wrapper .header{
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+
+.header .icons{
+    display: flex;
+  }
+
+.header .icons span{
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    cursor: pointer;
+    color: #878787;
+    text-align: center;
+    line-height: 38px;
+    font-size: 1.9rem;
+    user-select: none;
+    border-radius: 50%;
+}
+
+.icons span:last-child{
+    margin-right: -10px;
+}
+
+.header .icons span:hover{
+    background: #f2f2f2;
+}
+
+.header .current-date{
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+
+.calendar{
+    padding: 20px;
+}
+
+.calendar ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+    padding: 0;
+  }
+
+.calendar .days{
+    margin-bottom: 20px;
+  }
+
+.calendar li{
+    color: #333;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+}
+  
+.calendar .weeks li{
+    font-weight: 500;
+    cursor: default;
+  }
+  
+.calendar .days li{
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 30px; 
+}
+
+.days li.inactive{
+    color: #aaa;
+}
+  
+.days li.active{
+    color: #0c0c0c;
+}
+  
+.days li::before{
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.days li.active::before{
+    background: hwb(0 7% 93% / 0.384);
+}
+  
+.days li:not(.active):hover::before{
+    background: #0000003a;
+}
+
+/*estilos del evento click  del calendario*/
+.days li.seleccionado::before{
+    background: #9B59B6;
+}
+  
+.days li:not(.seleccionado):hover::before{
+    background: #f2f2f2;
+}
+
+.days li.seleccionado{
+    color: #000000;
+}
+
+.days li.seleccionado::before{
+    background: #9c3438;
+}
+
+.texto-t{
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    text-align: center;
+    color:#A6A6A6
+}
+
+.estilo-horarios{
+    background-color: #F28891;
+}
+
+.service-option {
+    font-size: 1.3rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    color: #9c3438;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+
+#seleccionar-servicios{
+    color: #9c3438;
+}
+
+.columnas-laterales {
+    border: 1px solid #cfcfcf; /* Cambia el color y grosor según prefieras */
+    border-radius: 5px; /* Opcional: redondea las esquinas */
+}
+
+#confirmar-turno-btn {
+    background-color: #9c3438;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .flecha {
+    width: 0; 
+    height: 0; 
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 10px solid white;
+    margin-right: 5px;
+}
+
+.back {
+    width: 2.5rem; /* Ajusta el tamaño según sea necesario */
+    height: auto; /* Mantiene la proporción */
+    margin: 1rem;
+}
+
+.logo {
+    width: 5rem; /* Ajusta el tamaño según sea necesario */
+    height: auto; /* Mantiene la proporción */
+    margin: 0.5rem;
+    right: 0;
+    float: right;
+}
+
+label{
+    background-color: transparent;
+}
+
+/*¡PREGUNTAS FRECUENTES!*/
+.text-faq {
+    text-align: center;
+    padding: 1.2rem;
+    margin-bottom: 0;
+}
+
+.turno-nav{
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    color: #8C1B2F;
+    font-weight: 500;
+    line-height: 1.4;
+    box-shadow: 0 5px 10px -6px rgba(7, 0, 0, 0.1);
+    font-size: 1.35rem;
+}
+
+.img-nav{
+    width: 6.3rem;
+    height: auto;
+    margin-left: 1rem;
+}
+
+.icon-nav {
+    list-style: none;
+    display: flex;
+    gap: 30.4%;
+    justify-content: end;
+    font-size: 33px;
+    padding: 0.9rem;
+}
+
+/* Estilos para el acordeón */
+.accordion-button{
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #464c5e;
+    height: 4.5rem;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #a12138;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.accordion-body{
+    background-color: #f7f7f7;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+.accordion-item {
+    border: none; /* Elimina el borde de cada ítem del acordeón */
+}
+
+/*font: "Open Sans", Helvetica, Arial, sans-serif*/
