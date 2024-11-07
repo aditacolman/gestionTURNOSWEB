@@ -48,7 +48,7 @@ function registrarse(event) {
     apellido =  document.getElementById("apellido").value;
     correo= document.getElementById("correo").value;
     telefono= document.getElementById("telefono").value;
-    contrasena= document.getElementById("contrasena").value;
+    contrasena= document.getElementById("contrasena2").value;
     let datos = {
         "Nombre": nombre,
         "Apellido": apellido,
@@ -82,9 +82,9 @@ function iniciar_sesion(event) {
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function(e) {
       if (this.readyState == 4 && this.status == 200) {
-          console.log("datos: ", e.target.responseText)
-          let datos =  JSON.parse(e.target.responseText);
-          sessionStorage.setItem("id_sesion", datos[0]);
+          console.log("datos: ", xhttp.responseText)
+          let datos =  JSON.parse(xhttp.responseText);
+          sessionStorage.setItem("id_sesion", datos["ID"]);
           if (sessionStorage.getItem("id_sesion")!=null){
               let btnRegistrarse =  document.getElementById("btnRegistrarse")
               btnRegistrarse.style.setProperty("visibility", "hidden")
