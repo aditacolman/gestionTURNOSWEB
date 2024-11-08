@@ -101,6 +101,107 @@ function iniciar_sesion(event) {
 //xhttp.open("POST", "https://gestionturnos.pythonanywhere.com", true);
 //xhttp.send();
 
+function crearListaServicios(servicios) {
+    let listaHtml = document.getElementById("accordionExample");  // Contenedor del acordeón
+    listaHtml.innerHTML = "";  // Limpiar los elementos anteriores
+    
+    servicios.forEach((servicio, index) => {
+        // Crear una nueva card para cada servicio
+        let card = document.createElement("div");
+        card.classList.add("card");
+
+        // Crear el encabezado de la card
+        let cardHeader = document.createElement("div");
+        cardHeader.classList.add("card-header");
+        cardHeader.id = "heading" + index;
+
+        let h2 = document.createElement("h2");
+        h2.classList.add("mb-0");
+
+        let button = document.createElement("button");
+        button.classList.add("btn", "btn-link");
+        button.setAttribute("type", "button");
+        button.setAttribute("data-toggle", "collapse");
+        button.setAttribute("data-target", "#collapse" + index);
+        button.setAttribute("aria-expanded", "false");
+        button.setAttribute("aria-controls", "collapse" + index);
+        button.textContent = servicio.nombre;  // Nombre del servicio
+
+        h2.appendChild(button);
+        cardHeader.appendChild(h2);
+        
+        // Crear el cuerpo del acordeón (contenedor de los checkboxes)
+        let cardBody = document.createElement("div");
+        cardBody.classList.add("collapse");
+        cardBody.id = "collapse" + index;
+        cardBody.setAttribute("aria-labelledby", "heading" + index);
+        cardBody.setAttribute("data-parent", "#accordionExample");
+
+        let bodyContent = document.createElement("div");
+        bodyContent.classList.add("card-body");
+
+        // Crear los checkboxes de opciones para cada servicio
+        servicio.opciones.forEach((opcion, optIndex) => {
+            let label = document.createElement("label");
+            label.classList.add("d-block");
+
+            let check = document.createElement("input");
+            check.setAttribute("type", "checkbox");
+            check.setAttribute("name", "opcion_" + index + "_" + optIndex);  // Nombre único por servicio y opción
+            check.setAttribute("id", "checkbox_" + index + "_" + optIndex);
+            check.classList.add("checkBoxStyle");
+
+            label.appendChild(check);
+            label.appendChild(document.createTextNode(" " + opcion));  // Agregar la opción
+
+            bodyContent.appendChild(label);
+        });
+
+        // Añadir el contenido al cuerpo de la card
+        cardBody.appendChild(bodyContent);
+
+        // Añadir el encabezado y cuerpo a la card
+        card.appendChild(cardHeader);
+        card.appendChild(cardBody);
+
+        // Añadir la card al acordeón
+        listaHtml.appendChild(card);
+    });
+}
+
+function mostrarServicios() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(e) {
+      if (this.readyState == 4 && this.status == 200) {
+          // Obtener los datos de la respuesta
+          let servicios = JSON.parse(xhttp.responseText);
+          
+          // Crear un array para almacenar la información de los servicios
+          let serviciosArray = [];
+          
+          // Recorremos los servicios y los preparamos para pasarlos a la función crearListaServicios
+          servicios.forEach(servicio => {
+             // Asumimos que el servicio tiene nombre, tipo_servicio y opciones
+             let opciones = servicio.opciones || [];  // Aseguramos que exista la propiedad "opciones"
+             
+             // Añadir el servicio al array con sus opciones
+             serviciosArray.push({
+                 nombre: servicio.Nombre,           // Nombre del servicio
+                 opciones: opciones                // Opciones de ese servicio
+             });
+          });
+
+          // Llamar a la función que crea el acordeón con los servicios
+          crearListaServicios(serviciosArray);
+      }
+    };
+
+    // Realizar la solicitud GET
+    xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verServicios", true);
+    xhttp.send();
+}
+
+
 //window.addEventListener("load", ()=>{
 //    obtenerDia("2024-10-21")
 //})
@@ -150,8 +251,6 @@ function crearListaHorarios(dia){
       listaHtml.appendChild(item)
 
   });
-
-
 }
 
 function formatear_fecha(dia, mes_year) {
@@ -177,7 +276,6 @@ function formatear_fecha(dia, mes_year) {
   let fecha = lista[1] + "-" + numMes.valor + "-" + diaFormateado;
   console.log("fecha formateada",fecha);
   return fecha;
-  
 }
 
 //turnos disponibles, cargar los horarios disponibles dependiendo del dia y retarle la duraion de los tunos seleccionados
@@ -236,8 +334,8 @@ currYear = date.getFullYear(),
 currMonth = date.getMonth();
 
 // storing full name of all months in array
-const months = ["January", "February", "March", "April", "May", "June", "July",
-            "August", "September", "October", "November", "December"];
+const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+            "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
 const renderCalendar = () => {
   let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
