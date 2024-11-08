@@ -91,10 +91,11 @@ function iniciar_sesion(event) {
           }
           //console.log(sessionStorage.getItem("id_sesion"))
       }
-  }
-  xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/login_web");
-  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xhttp.send(JSON.stringify(datos));
+    }
+
+    xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/login_web");
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(JSON.stringify(datos));
 }
 
 //xhttp.open("POST", "https://gestionturnos.pythonanywhere.com", true);
