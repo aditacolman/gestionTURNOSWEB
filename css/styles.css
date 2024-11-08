@@ -4,10 +4,7 @@
     padding: 0;
 }
 
-<<<<<<< HEAD
-=======
 /*¡PANTALLA PRINCIPAL!*/
->>>>>>> main
 /*MODAL REGISTRO DE SESIÓN E INICIO*/
 .modal-header {
     background-color: #a12138; 
@@ -53,11 +50,7 @@
     max-width: 400px; /* Cambia el ancho según tu preferencia */
   }
   
-<<<<<<< HEAD
-/* WIDGET INSTAGRAM */
-=======
 /*WIDGET INSTAGRAM*/
->>>>>>> main
 .widget-container {
     width: 100%;
     overflow: hidden; /* Controla el desbordamiento */
@@ -87,12 +80,7 @@
     border-color: #a12138; /* Un color más oscuro para el hover */
 }
 
-<<<<<<< HEAD
-
-/* SECCIÓN PRINCIPAL */
-=======
 /*SECCIÓN PRINCIPAL*/
->>>>>>> main
 .contenedor {
     position: relative;
     height: 100vh; /* Altura de la ventana del navegador */
@@ -166,25 +154,6 @@
     --bs-btn-padding-x: 2.75rem;
     --bs-btn-border-color: #ffffff;
     --bs-btn-color: #ffffff;
-<<<<<<< HEAD
-}
-
-.boton-turnos .btn:hover{
-    color: #ffffff;
-    background-color: #a12138;
-    border-color: #a12138;
-}
-
-.color-icono{
-    color: #ffffff;
-}
-
-.color-icono:hover{
-    color: #a12138;
-}
-
-/* SECCIÓN INFORMACIÓN */
-=======
 }
 
 .boton-turnos .btn:hover{
@@ -202,7 +171,6 @@
 }
 
 /*SECCIÓN INFORMACIÓN*/
->>>>>>> main
 .div-emprendimiento{
     padding: 1rem;
 }
@@ -333,7 +301,6 @@
     width: auto; /* o 100% para ajustar */
     height: 100%; /* para mantener el alto y evitar pixelación */
     object-fit: cover; /* recorta la imagen para que encaje bien */
-<<<<<<< HEAD
 }
 
 .ul-footer{
@@ -343,21 +310,6 @@
 .ul-item{
     list-style: none;
     display: flex;
-}
-
-.color-footer {
-    color: #8C1B2F;
-=======
-}
-
-.ul-footer{
-    gap: 4%;
-}
-
-.ul-item{
-    list-style: none;
-    display: flex;
->>>>>>> main
 }
 
 .color-footer {
@@ -407,12 +359,8 @@ label {
   align-items: center;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
-<<<<<<< HEAD
-  height: 600px;
-=======
   margin: 0.5rem;
 
->>>>>>> main
 }
 
 .wrapper{
@@ -535,13 +483,10 @@ label {
     color: #000000;
 }
 
-<<<<<<< HEAD
-=======
 .days li.seleccionado::before{
     background: #9c3438;
 }
 
->>>>>>> main
 .texto-t{
     display: flex;
     justify-content: center;
@@ -550,34 +495,6 @@ label {
     color:#A6A6A6
 }
 
-<<<<<<< HEAD
-/*PREGUNTAS FRECUENTES*/
-/* Estilos para el acordeón */
-.accordion-button{
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #464c5e;
-    height: 4.5rem;
-}
-
-.accordion-button:not(.collapsed) {
-    color: #a12138;
-    background-color: transparent;
-    box-shadow: none;
-}
-
-.accordion-body{
-    background-color: #f7f7f7;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-}
-
-.accordion-item {
-    border: none; /* Elimina el borde de cada ítem del acordeón */
-}
-
-.flecha {
-=======
 .estilo-horarios{
     background-color: #F28891;
 }
@@ -613,7 +530,6 @@ label {
   }
 
   .flecha {
->>>>>>> main
     width: 0; 
     height: 0; 
     border-top: 5px solid transparent;
@@ -635,8 +551,6 @@ label {
     right: 0;
     float: right;
 }
-<<<<<<< HEAD
-=======
 
 label{
     background-color: transparent;
@@ -697,5 +611,4 @@ label{
     border: none; /* Elimina el borde de cada ítem del acordeón */
 }
 
->>>>>>> main
 /*font: "Open Sans", Helvetica, Arial, sans-serif*/
