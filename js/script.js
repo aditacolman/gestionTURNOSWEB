@@ -341,3 +341,4 @@ document.addEventListener('DOMContentLoaded', function() {
       checkbox.addEventListener('change', verificarCondiciones);
     });
   });
+  ///
