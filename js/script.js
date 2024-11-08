@@ -48,7 +48,7 @@ function registrarse(event) {
     apellido =  document.getElementById("apellido").value;
     correo= document.getElementById("correo").value;
     telefono= document.getElementById("telefono").value;
-    contrasena= document.getElementById("contrasena").value;
+    contrasena= document.getElementById("contrasena2").value;
     let datos = {
         "Nombre": nombre,
         "Apellido": apellido,
@@ -82,9 +82,9 @@ function iniciar_sesion(event) {
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function(e) {
       if (this.readyState == 4 && this.status == 200) {
-          console.log("datos: ", e.target.responseText)
-          let datos =  JSON.parse(e.target.responseText);
-          sessionStorage.setItem("id_sesion", datos[0]);
+          console.log("datos: ", xhttp.responseText)
+          let datos =  JSON.parse(xhttp.responseText);
+          sessionStorage.setItem("id_sesion", datos["ID"]);
           if (sessionStorage.getItem("id_sesion")!=null){
               let btnRegistrarse =  document.getElementById("btnRegistrarse")
               btnRegistrarse.style.setProperty("visibility", "hidden")
@@ -303,3 +303,43 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
       renderCalendar(); // calling renderCalendar function
   });
 });
+
+//confirmar boton
+document.addEventListener('DOMContentLoaded', function() {
+    const confirmarTurnoBtn = document.getElementById('confirmar-turno-btn');
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    let diaSeleccionado = false;
+    let horarioSeleccionado = false;
+
+    // Función para verificar si se cumplen las condiciones para habilitar el botón
+    function verificarCondiciones() {
+      const servicioSeleccionado = Array.from(checkboxes).some(checkbox => checkbox.checked);
+      if (servicioSeleccionado && diaSeleccionado && horarioSeleccionado) {
+        confirmarTurnoBtn.disabled = false;
+      } else {
+        confirmarTurnoBtn.disabled = true;
+      }
+    }
+
+    // Simulación de selección de día y horario (implementa la lógica real en tu código)
+    document.querySelector('.calendar').addEventListener('click', function() {
+      diaSeleccionado = true;
+      verificarCondiciones();
+    });
+
+    document.getElementById('lista_horas').addEventListener('click', function() {
+      horarioSeleccionado = true;
+      verificarCondiciones();
+    });
+
+    // Evento para activar el modal de confirmación
+    confirmarTurnoBtn.addEventListener('click', function() {
+      $('#confirmacionModal').modal('show');
+    });
+
+    // Evento para actualizar el estado del botón al seleccionar un servicio
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', verificarCondiciones);
+    });
+  });
+  ///
