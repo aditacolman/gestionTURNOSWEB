@@ -180,7 +180,7 @@ function formatear_fecha(dia, mes_year) {
   
 }
 
-//turnos disponibles, cargar los horarios disponibles dependiendo del dia y retarle la duraion de los tunos seleccionados
+//turnos disponibles, cargar los horarios disponibles dependiendo del dia y retarle la duraion de los turnos seleccionados
 function mostrarTurnosDisponibles(fechaSeleccionada){//agregar como variable el dia
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function(e) {
