@@ -168,8 +168,9 @@ xhttp.onreadystatechange = function(e) {
         fecha = new Array;
         turnos.forEach(turno => {
            //localStorage.setItem("fecha", turno["Fecha"])
-            horas.push(turno["Hora"]) 
+            horas.push(turno["Hora"])
         });
+        console.log("horaaaas",horas)
        // Typical action to be performed when the document is ready:
        //document.getElementById("demo").innerHTML = xhttp.responseText;
        
