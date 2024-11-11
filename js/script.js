@@ -101,12 +101,107 @@ xhttp.onreadystatechange = function(e) {
 //xhttp.open("POST", "https://gestionturnos.pythonanywhere.com", true);
 //xhttp.send();
 
+function cargarServicios() {
+    let xhttp = new XMLHttpRequest();
+
+    // Configuramos la solicitud GET
+    xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verServicios", true);
+
+    // Configuramos la función a ejecutar cuando la respuesta esté lista
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                // Parseamos la respuesta JSON
+                let servicios = JSON.parse(this.responseText);
+
+                // Agrupar los servicios por su nombre
+                const serviciosAgrupados = servicios.reduce((acc, servicio) => {
+                    if (!acc[servicio.Nombre]) {
+                        acc[servicio.Nombre] = [];
+                    }
+                    acc[servicio.Nombre].push(servicio);
+                    return acc;
+                }, {});
+
+                // Seleccionamos el contenedor donde vamos a insertar los servicios
+                const contenedorServicios = document.getElementById("contenedor_servicios");
+
+                contenedorServicios.innerHTML = "";  // Limpiamos el contenedor
+
+                // Iteramos sobre los servicios agrupados
+                for (let nombre in serviciosAgrupados) {
+                    // Crear el grupo de servicios para ese nombre
+                    const grupoDiv = document.createElement("div");
+                    grupoDiv.classList.add("card");
+
+                    // Crear la cabecera del grupo (nombre del servicio)
+                    const cardHeader = document.createElement("div");
+                    cardHeader.classList.add("card-header");
+
+                    const h2 = document.createElement("h2");
+                    h2.classList.add("mb-0");
+
+                    const button = document.createElement("button");
+                    button.classList.add("btn", "btn-link");
+                    button.setAttribute("type", "button");
+                    button.setAttribute("data-toggle", "collapse");
+                    button.setAttribute("data-target", `#collapse-${nombre}`);
+                    button.setAttribute("aria-expanded", "true");
+                    button.setAttribute("aria-controls", `collapse-${nombre}`);
+                    button.innerText = nombre;
+
+                    h2.appendChild(button);
+                    cardHeader.appendChild(h2);
+                    grupoDiv.appendChild(cardHeader);
+
+                    // Crear el cuerpo del grupo (tipos de servicio)
+                    const cardBody = document.createElement("div");
+                    cardBody.id = `collapse-${nombre}`;
+                    cardBody.classList.add("collapse");
+
+                    // Iteramos sobre los servicios del mismo nombre (por ejemplo, diferentes tipos de "Esculpidas en gel")
+                    serviciosAgrupados[nombre].forEach((servicio, index) => {
+                        const tipoServicioDiv = document.createElement("div");
+
+                        // Crear el tipo de servicio
+                        const tipoLabel = document.createElement("label");
+                        tipoLabel.innerHTML = `${servicio.Tipo_servicio} - $${servicio.Precio}`;
+
+                        // Crear el checkbox para este servicio
+                        const checkbox = document.createElement("input");
+                        checkbox.type = "checkbox";
+                        checkbox.id = `checkbox-${nombre}-${index}`;
+                        checkbox.name = `option-${nombre}-${index}`;
+
+                        tipoServicioDiv.appendChild(checkbox);
+                        tipoServicioDiv.appendChild(tipoLabel);
+                        cardBody.appendChild(tipoServicioDiv);
+                    });
+
+                    grupoDiv.appendChild(cardBody);
+                    contenedorServicios.appendChild(grupoDiv);
+                }
+            } else {
+                console.error("Error en la solicitud. Estado:", this.status);
+            }
+        }
+    };
+
+    // Enviamos la solicitud
+    xhttp.send();
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    cargarServicios();
+});
+
+
 //window.addEventListener("load", ()=>{
 //    obtenerDia("2024-10-21")
 //})
 //dice el dia actual
 function obtenerDia(fecha){
-const fechaObj = new Date(fecha);
+  const fechaObj = new Date(fecha);
 
 // Obtener el día de la semana
 const diaDeLaSemana = fechaObj.getDay();
@@ -124,9 +219,9 @@ sabado=["11:00", "12:00"]
 
 dias.push(lunes,martes,miercoles,jueves,viernes,sabado,domingo);
 
-//console.log(diaDeLaSemana)
-console.log("domingo",dias[0])
-return dias[diaDeLaSemana]
+  //console.log(diaDeLaSemana)
+  console.log("domingo",dias[0])
+  return dias[diaDeLaSemana]
 }
 
 function crearListaHorarios(dia) {
@@ -156,18 +251,18 @@ function formatear_fecha(dia, mes_year) {
 console.log("ingreso a formatear fecha:")
 let lista = mes_year.split(" ")
 let meses= [
-    {mes: "January", valor: "01"},
-    {mes: "February", valor: "02"},
-    {mes: "March", valor: "03"},
-    {mes: "April", valor: "04"},
-    {mes: "May", valor: "05"},
-    {mes: "June", valor: "06"},
-    {mes: "July", valor: "07"},
-    {mes: "August", valor: "08"},
-    {mes: "September", valor: "09"},
-    {mes: "October", valor: "10"},
-    {mes: "November", valor: "11"},
-    {mes: "December", valor: "12"}
+    {mes: "Enero", valor: "01"},
+    {mes: "Febrero", valor: "02"},
+    {mes: "Marzo", valor: "03"},
+    {mes: "Abril", valor: "04"},
+    {mes: "Mayo", valor: "05"},
+    {mes: "Junio", valor: "06"},
+    {mes: "Julio", valor: "07"},
+    {mes: "Agosto", valor: "08"},
+    {mes: "Septiembre", valor: "09"},
+    {mes: "Octubre", valor: "10"},
+    {mes: "Noviembre", valor: "11"},
+    {mes: "Diciembre", valor: "12"}
 ];
 let numMes= meses.find(item => item.mes === lista[0]);
 console.log("numeroDeMes",numMes);
@@ -235,8 +330,8 @@ currYear = date.getFullYear(),
 currMonth = date.getMonth();
 
 // storing full name of all months in array
-const months = ["January", "February", "March", "April", "May", "June", "July",
-          "August", "September", "October", "November", "December"];
+const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+            "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
 const renderCalendar = () => {
 let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(), // getting first day of month
