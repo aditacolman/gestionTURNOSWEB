@@ -397,46 +397,65 @@ icon.addEventListener("click", () => { // adding click event on both icons
 });
 });
 
-//confirmar boton
+//VERIFICAR CONDICIONES PARA HABILITAR BOTÓN  
 document.addEventListener('DOMContentLoaded', function() {
-  const confirmarTurnoBtn = document.getElementById('confirmar-turno-btn');
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  let diaSeleccionado = false;
-  let horarioSeleccionado = false;
-
-  // Función para verificar si se cumplen las condiciones para habilitar el botón
-  function verificarCondiciones() {
-    const servicioSeleccionado = Array.from(checkboxes).some(checkbox => checkbox.checked);
-    if (servicioSeleccionado && diaSeleccionado && horarioSeleccionado) {
-      confirmarTurnoBtn.disabled = false;
-    } else {
-      confirmarTurnoBtn.disabled = true;
+    const confirmarTurnoBtn = document.getElementById('confirmar-turno-btn');
+    const calendar = document.querySelector('.calendar');  // Calendario de los días
+    const listaHoras = document.getElementById('lista_horas');  // Lista de los horarios
+    const acordeon = document.querySelector('#accordionExample'); // Contenedor del acordeón
+  
+    let diaSeleccionado = false;  // Verificar si se seleccionó un día
+    let horarioSeleccionado = false;  // Verificar si se seleccionó un horario
+    let servicioSeleccionado = false;  // Verificar si se seleccionó un servicio
+  
+    // Función para verificar si se cumplen todas las condiciones para habilitar el botón
+    function verificarCondiciones() {
+      console.log(`servicioSeleccionado: ${servicioSeleccionado}, diaSeleccionado: ${diaSeleccionado}, horarioSeleccionado: ${horarioSeleccionado}`);
+      if (servicioSeleccionado && diaSeleccionado && horarioSeleccionado) {
+        confirmarTurnoBtn.disabled = false;  // Habilitar el botón si todo está seleccionado
+      } else {
+        confirmarTurnoBtn.disabled = true;  // Deshabilitar el botón si falta algún elemento
+      }
     }
-  }
-
-  // Simulación de selección de día y horario (implementa la lógica real en tu código)
-  document.querySelector('.calendar').addEventListener('click', function() {
-    diaSeleccionado = true;
-    verificarCondiciones();
+  
+    // Delegar el evento change para los radio buttons dentro del acordeón
+    acordeon.addEventListener('change', function(event) {
+      if (event.target.type === 'radio') {
+        servicioSeleccionado = document.querySelector('input[name="servicio"]:checked') !== null;  // Verifica si al menos un radio está seleccionado
+        console.log(`Servicio seleccionado: ${servicioSeleccionado}`);
+        verificarCondiciones();  // Verificar las condiciones
+      }
+    });
+  
+    // Evento para seleccionar un día en el calendario
+    calendar.addEventListener('click', function(event) {
+      if (event.target.tagName === 'LI' && !event.target.classList.contains('inactive')) {
+        diaSeleccionado = true;  // Se seleccionó un día
+        console.log(`Día seleccionado: ${diaSeleccionado}`);
+        verificarCondiciones();  // Verificar las condiciones
+      }
+    });
+  
+    // Evento para seleccionar un horario
+    listaHoras.addEventListener('click', function(event) {
+      if (event.target.tagName === 'LABEL') {  // Verifica si el usuario hace clic en el horario
+        horarioSeleccionado = true;  // Se seleccionó un horario
+        console.log(`Horario seleccionado: ${horarioSeleccionado}`);
+        verificarCondiciones();  // Verificar las condiciones
+      }
+    });
+  
+    // Evento para confirmar el turno
+    confirmarTurnoBtn.addEventListener('click', function() {
+      // Aquí puedes agregar la lógica para abrir el modal de confirmación
+      $('#confirmacionModal').modal('show');
+    });
+  
+    // Inicialmente, aseguramos que el botón está deshabilitado
+    verificarCondiciones();  // Se ejecuta inmediatamente cuando se carga la página
   });
 
-  document.getElementById('lista_horas').addEventListener('click', function() {
-    horarioSeleccionado = true;
-    verificarCondiciones();
-  });
-
-  // Evento para activar el modal de confirmación
-  confirmarTurnoBtn.addEventListener('click', function() {
-    $('#confirmacionModal').modal('show');
-  });
-
-  // Evento para actualizar el estado del botón al seleccionar un servicio
-  checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', verificarCondiciones);
-  });
-});
-///
-
+  
 
 //obtener datos de los checkbox 
 function ObtenerDatosTurno(fecha) {
@@ -463,27 +482,17 @@ function ObtenerDatosTurno(fecha) {
     "Confirmado":"Confirmado",
 
   }
-  return datos
+  sessionStorage.setItem("Datos Cliente", JSON.stringify(datos));
 }
 
 
 function registrarTurno(event) {
   event.preventDefault()
 
-  let nombre = document.getElementById("nombre").value;
-  apellido =  document.getElementById("apellido").value;
-  correo= document.getElementById("correo").value;
-  telefono= document.getElementById("telefono").value;
-  contrasena= document.getElementById("contrasena2").value;
-  let datos = {
-      "Nombre": nombre,
-      "Apellido": apellido,
-      "Correo": correo,
-      "Telefono": telefono,
-      "Contrasena": contrasena
-  }
+  let datos =  JSON.parse(sessionStorage.getItem("Datos Cliente"))
+  console.log("DatosCliente",datos);
 
-  let xhttp = new XMLHttpRequest();
+  /*let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           console.log("datos: ", datos)
@@ -492,4 +501,4 @@ function registrarTurno(event) {
   xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/agregarTurno");
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(JSON.stringify(datos));
-}
+*/}
