@@ -103,17 +103,17 @@ xhttp.onreadystatechange = function(e) {
 
 function cargarServicios() {
     let xhttp = new XMLHttpRequest();
-
+  
     // Configuramos la solicitud GET
     xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verServicios", true);
-
+  
     // Configuramos la función a ejecutar cuando la respuesta esté lista
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4) {
             if (this.status === 200) {
                 // Parseamos la respuesta JSON
                 let servicios = JSON.parse(this.responseText);
-
+  
                 // Agrupar los servicios por su nombre
                 const serviciosAgrupados = servicios.reduce((acc, servicio) => {
                     if (!acc[servicio.Nombre]) {
@@ -122,25 +122,25 @@ function cargarServicios() {
                     acc[servicio.Nombre].push(servicio);
                     return acc;
                 }, {});
-
+  
                 // Seleccionamos el contenedor donde vamos a insertar los servicios
                 const contenedorServicios = document.getElementById("contenedor_servicios");
-
+  
                 contenedorServicios.innerHTML = "";  // Limpiamos el contenedor
-
+  
                 // Iteramos sobre los servicios agrupados
                 for (let nombre in serviciosAgrupados) {
                     // Crear el grupo de servicios para ese nombre
                     const grupoDiv = document.createElement("div");
                     grupoDiv.classList.add("card");
-
+  
                     // Crear la cabecera del grupo (nombre del servicio)
                     const cardHeader = document.createElement("div");
                     cardHeader.classList.add("card-header");
-
+  
                     const h2 = document.createElement("h2");
                     h2.classList.add("mb-0");
-
+  
                     const button = document.createElement("button");
                     button.classList.add("btn", "btn-link");
                     button.setAttribute("type", "button");
@@ -149,35 +149,36 @@ function cargarServicios() {
                     button.setAttribute("aria-expanded", "true");
                     button.setAttribute("aria-controls", `collapse-${nombre}`);
                     button.innerText = nombre;
-
+  
                     h2.appendChild(button);
                     cardHeader.appendChild(h2);
                     grupoDiv.appendChild(cardHeader);
-
+  
                     // Crear el cuerpo del grupo (tipos de servicio)
                     const cardBody = document.createElement("div");
                     cardBody.id = `collapse-${nombre}`;
                     cardBody.classList.add("collapse");
-
+  
                     // Iteramos sobre los servicios del mismo nombre (por ejemplo, diferentes tipos de "Esculpidas en gel")
                     serviciosAgrupados[nombre].forEach((servicio, index) => {
                         const tipoServicioDiv = document.createElement("div");
-
+  
                         // Crear el tipo de servicio
                         const tipoLabel = document.createElement("label");
                         tipoLabel.innerHTML = `${servicio.Tipo_servicio} - $${servicio.Precio}`;
-
-                        // Crear el checkbox para este servicio
-                        const checkbox = document.createElement("input");
-                        checkbox.type = "checkbox";
-                        checkbox.id = `checkbox-${nombre}-${index}`;
-                        checkbox.name = `option-${nombre}-${index}`;
-
-                        tipoServicioDiv.appendChild(checkbox);
+  
+                        // Crear el radio para este servicio
+                        const radio = document.createElement("input");
+                        radio.type = "radio";
+                        radio.id = `radio-${nombre}-${index}`;
+                        radio.name = "servicio";  // TODOS los radios tendrán el mismo nombre
+                        radio.value = servicio.Nombre;  // Esto es opcional, puedes guardar el nombre o ID del servicio
+  
+                        tipoServicioDiv.appendChild(radio);
                         tipoServicioDiv.appendChild(tipoLabel);
                         cardBody.appendChild(tipoServicioDiv);
                     });
-
+  
                     grupoDiv.appendChild(cardBody);
                     contenedorServicios.appendChild(grupoDiv);
                 }
@@ -186,14 +187,14 @@ function cargarServicios() {
             }
         }
     };
-
+  
     // Enviamos la solicitud
     xhttp.send();
-}
-
-document.addEventListener("DOMContentLoaded", function() {
+  }
+  
+  document.addEventListener("DOMContentLoaded", function() {
     cargarServicios();
-});
+  });
 
 
 //window.addEventListener("load", ()=>{
@@ -461,7 +462,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function ObtenerDatosTurno(fecha) {
   let listaHoras = document.getElementById("lista_horas");  // Contenedor de los checkboxes
   let checkboxes = listaHoras.querySelectorAll("input[type='radio']");  // Selecciona todos los checkboxes
-  let horario = "";
+  let hora = "";
   IDcliente= JSON.parse(sessionStorage.getItem("id_sesion"));
 
   // Agregar el evento para capturar el valor cuando se selecciona un checkbox
@@ -482,7 +483,7 @@ function ObtenerDatosTurno(fecha) {
     "Confirmado":"Confirmado",
 
   }
-  sessionStorage.setItem("Datos Cliente", JSON.stringify(datos));
+  sessionStorage.setItem("DatosCliente", JSON.stringify(datos));
 }
 
 
