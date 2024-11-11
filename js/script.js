@@ -129,29 +129,27 @@ console.log("domingo",dias[0])
 return dias[diaDeLaSemana]
 }
 
-function crearListaHorarios(dia){
+function crearListaHorarios(dia) {
+  let listaHtml = document.getElementById("lista_horas");
 
-let listaHtml = document.getElementById("lista_horas")
+  listaHtml.innerHTML = ""; // Esto elimina todos los elementos anteriores
 
-listaHtml.innerHTML = ""; // Esto elimina todos los elementos anteriores
+  dia.forEach(e => {
+    let check = document.createElement("input");
+    check.setAttribute("type", "radio");
+    check.setAttribute("name", "horario");  // Asegúrate de que todos tengan el mismo nombre
+    check.setAttribute("id", "horario_" + e); // Asignar ID único
+    check.setAttribute("class", "checkBoxStyle");
+    check.setAttribute("value", e); // Asignamos el valor del horario
 
-dia.forEach(e => {
-    let check = document.createElement("input")
-    check.setAttribute("type", "radio")
-    check.setAttribute("name", "horario")
-    check.setAttribute("id", "horarioSeleccionado")
-    check.setAttribute("class", "checkBoxStyle")
-    let item = document.createElement("label")
-    let valor = e
-    //item.setAttribute("value", e)
-    item.appendChild(check)
-    item.append(valor)
-    //console.log(item)
-    listaHtml.appendChild(item)
+    let item = document.createElement("label");
+    item.setAttribute("for", check.id); // Esto asocia el label con el input
+    item.appendChild(check);
+    item.append(e); // Agrega el valor (hora) como texto al label
 
-});
+    listaHtml.appendChild(item);
 
-
+  });
 }
 
 function formatear_fecha(dia, mes_year) {
@@ -214,6 +212,7 @@ if (this.readyState == 4 && this.status == 200) {
     }
     
    crearListaHorarios(diaSeleccionado)
+   ObtenerDatosTurno()
 }
 };
 xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verTurnos", true);
@@ -283,7 +282,7 @@ console.log(fecha)
 li.setAttribute("class", "seleccionado");
 let fechaSeleccionada= formatear_fecha(fecha, currentDate.innerText);
 mostrarTurnosDisponibles(fechaSeleccionada);
-
+ObtenerDatosTurno(fechaSeleccionada)
 }
 
 
@@ -343,3 +342,61 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 ///
+
+
+//obtener datos de los checkbox 
+function ObtenerDatosTurno(fecha) {
+  let listaHoras = document.getElementById("lista_horas");  // Contenedor de los checkboxes
+  let checkboxes = listaHoras.querySelectorAll("input[type='radio']");  // Selecciona todos los checkboxes
+  let horario = ""
+  IDcliente=
+
+
+  // Agregar el evento para capturar el valor cuando se selecciona un checkbox
+  checkboxes.forEach(function(checkbox) {
+    checkbox.addEventListener("change", function() {
+      // Verifica si el checkbox está seleccionado
+      if (checkbox.checked) {
+        hora = checkbox.value  // Imprime el valor del checkbox seleccionado
+      }
+    });
+  });
+  datos= {
+    "ID_Trabajador": 1,
+    "ID_Cliente" : request.json["ID_Cliente"],
+    "ID_Servicio" : 8,
+    "Fecha": fecha,
+    "Hora" : hora,
+    "Confirmado":"Confirmado",
+
+  }
+
+}
+
+
+/*function registrarTurno(event) {
+  event.preventDefault()
+
+  let nombre = document.getElementById("nombre").value;
+  apellido =  document.getElementById("apellido").value;
+  correo= document.getElementById("correo").value;
+  telefono= document.getElementById("telefono").value;
+  contrasena= document.getElementById("contrasena2").value;
+  let datos = {
+      "Nombre": nombre,
+      "Apellido": apellido,
+      "Correo": correo,
+      "Telefono": telefono,
+      "Contrasena": contrasena
+  }
+
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          console.log("datos: ", datos)
+      }
+  }
+  xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/agregarTurno");
+  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhttp.send(JSON.stringify(datos));
+}*/
