@@ -1,4 +1,4 @@
-var fecha_seleccion;
+var fecha_seleccion=[];
 
 //Esconde widget de elfsight en la página principal
 document.addEventListener('DOMContentLoaded', function () {
@@ -102,6 +102,7 @@ xhttp.onreadystatechange = function(e) {
 //xhttp.open("POST", "https://gestionturnos.pythonanywhere.com", true);
 //xhttp.send();
 
+
 function cargarServicios() {
     let xhttp = new XMLHttpRequest();
   
@@ -173,13 +174,15 @@ function cargarServicios() {
                         radio.type = "radio";
                         radio.id = `radio-${nombre}-${index}`;
                         radio.name = "servicio";  // TODOS los radios tendrán el mismo nombre
-                        radio.value = servicio.Nombre;  // Esto es opcional, puedes guardar el nombre o ID del servicio
-  
+                        radio.value = servicio.ID;  // Esto es opcional, puedes guardar el nombre o ID del servicio
+                        radio.addEventListener("change",function(){ fecha_seleccion.splice(1,1,radio.value);
+                          listenerRadioFecha();
+                          
+                        });
                         tipoServicioDiv.appendChild(radio);
                         tipoServicioDiv.appendChild(tipoLabel);
                         cardBody.appendChild(tipoServicioDiv);
                     });
-  
                     grupoDiv.appendChild(cardBody);
                     contenedorServicios.appendChild(grupoDiv);
                 }
@@ -384,7 +387,7 @@ console.log(fecha)
 li.setAttribute("class", "seleccionado");
 let fechaSeleccionada= formatear_fecha(fecha, currentDate.innerText);
 mostrarTurnosDisponibles(fechaSeleccionada);
-fecha_seleccion = fechaSeleccionada
+fecha_seleccion.splice(0,1,fechaSeleccionada)
 }
 
 
@@ -467,8 +470,8 @@ document.addEventListener('DOMContentLoaded', function() {
   
 
 //obtener datos de los checkbox 
-function ObtenerDatosTurno(fecha) {
-    console.log(fecha)
+function ObtenerDatosTurno(fechaYservicio) {
+    console.log(fechaYservicio)
     let listaHoras = document.getElementById("lista_horas");  // Contenedor de los checkboxes
     let checkboxes = listaHoras.querySelectorAll("input[type='radio']");  // Selecciona todos los checkboxes
     console.log(checkboxes);
@@ -491,8 +494,8 @@ function ObtenerDatosTurno(fecha) {
     let datos = {
       "ID_Trabajador": 1,  // Puedes cambiar esto según sea necesario
       "ID_Cliente": IDcliente,
-      "ID_Servicio": 8,  // Asume que el servicio es 8, ajusta si es necesario
-      "Fecha": fecha,
+      "ID_Servicio": fechaYservicio[1],  // Asume que el servicio es 8, ajusta si es necesario
+      "Fecha": fechaYservicio[0],
       "Hora": hora,
       "Confirmado": "Confirmado",  // Ajusta el estado según corresponda
     };
