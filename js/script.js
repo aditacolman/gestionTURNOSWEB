@@ -398,7 +398,8 @@ icon.addEventListener("click", () => { // adding click event on both icons
 });
 });
 
-//VERIFICAR CONDICIONES PARA HABILITAR BOTÓN  
+//VERIFICAR CONDICIONES PARA HABILITAR BOTÓN 
+ 
 document.addEventListener('DOMContentLoaded', function() {
     const confirmarTurnoBtn = document.getElementById('confirmar-turno-btn');
     const calendar = document.querySelector('.calendar');  // Calendario de los días
@@ -454,43 +455,56 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // Inicialmente, aseguramos que el botón está deshabilitado
     verificarCondiciones();  // Se ejecuta inmediatamente cuando se carga la página
+    ObtenerDatosTurno()
   });
 
   
 
 //obtener datos de los checkbox 
 function ObtenerDatosTurno(fecha) {
-  let listaHoras = document.getElementById("lista_horas");  // Contenedor de los checkboxes
-  let checkboxes = listaHoras.querySelectorAll("input[type='radio']");  // Selecciona todos los checkboxes
-  let hora = "";
-  IDcliente= JSON.parse(sessionStorage.getItem("id_sesion"));
-
-  // Agregar el evento para capturar el valor cuando se selecciona un checkbox
-  checkboxes.forEach(function(checkbox) {
-    checkbox.addEventListener("change", function() {
-      // Verifica si el checkbox está seleccionado
+    let listaHoras = document.getElementById("lista_horas");  // Contenedor de los checkboxes
+    let checkboxes = listaHoras.querySelectorAll("input[type='radio']");  // Selecciona todos los checkboxes
+    console.log(checkboxes);
+    
+    let hora = "";  // Aquí almacenaremos la hora seleccionada
+    let IDcliente = JSON.parse(sessionStorage.getItem("id_sesion"));
+    console.log("seleccionada hora");
+  
+    // Recorrer todos los checkboxes (radio buttons)
+    checkboxes.forEach(function(checkbox) {
       if (checkbox.checked) {
-        hora = checkbox.value  // Imprime el valor del checkbox seleccionado
+        console.log("Hora seleccionada: ", checkbox.value);  // Muestra el valor de la hora seleccionada
+        hora = checkbox.value;  // Asignamos el valor de la hora seleccionada
+        return hora
       }
     });
-  });
-  let datos= {
-    "ID_Trabajador": 1,
-    "ID_Cliente" : IDcliente,
-    "ID_Servicio" : 8,
-    "Fecha": fecha,
-    "Hora" : hora,
-    "Confirmado":"Confirmado",
 
+    if (!hora) {
+      console.log("No se ha seleccionado una hora");
+      return;  // Si no hay ninguna hora seleccionada, podemos salir de la función.
+    }
+  
+    // Crear el objeto de datos con la información relevante
+    let datos = {
+      "ID_Trabajador": 1,  // Puedes cambiar esto según sea necesario
+      "ID_Cliente": IDcliente,
+      "ID_Servicio": 8,  // Asume que el servicio es 8, ajusta si es necesario
+      "Fecha": fecha,
+      "Hora": hora,
+      "Confirmado": "Confirmado",  // Ajusta el estado según corresponda
+    };
+  
+    // Almacenar los datos en sessionStorage para su posterior uso
+    sessionStorage.setItem("DatosCliente", JSON.stringify(datos));
+    console.log("Datos cliente almacenados en sessionStorage:", datos);
   }
-  sessionStorage.setItem("DatosCliente", JSON.stringify(datos));
-}
+  
 
 
 function registrarTurno(event) {
   event.preventDefault()
 
-  let datos =  JSON.parse(sessionStorage.getItem("Datos Cliente"))
+  let datos =  JSON.parse(sessionStorage.getItem("DatosCliente"))
   console.log("DatosCliente",datos);
 
   /*let xhttp = new XMLHttpRequest();
