@@ -84,7 +84,7 @@ xhttp.onreadystatechange = function(e) {
     if (this.readyState == 4 && this.status == 200) {
         console.log("datos: ", xhttp.responseText)
         let datos =  JSON.parse(xhttp.responseText);
-        sessionStorage.setItem("id_sesion", datos["ID"]);
+        sessionStorage.setItem("id_sesion", JSON.stringify(datos["ID"]));
         if (sessionStorage.getItem("id_sesion")!=null){
             let btnRegistrarse =  document.getElementById("btnRegistrarse")
             btnRegistrarse.style.setProperty("visibility", "hidden")
@@ -442,9 +442,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function ObtenerDatosTurno(fecha) {
   let listaHoras = document.getElementById("lista_horas");  // Contenedor de los checkboxes
   let checkboxes = listaHoras.querySelectorAll("input[type='radio']");  // Selecciona todos los checkboxes
-  let horario = ""
-  IDcliente=
-
+  let horario = "";
+  IDcliente= JSON.parse(sessionStorage.getItem("id_sesion"));
 
   // Agregar el evento para capturar el valor cuando se selecciona un checkbox
   checkboxes.forEach(function(checkbox) {
@@ -455,20 +454,20 @@ function ObtenerDatosTurno(fecha) {
       }
     });
   });
-  datos= {
+  let datos= {
     "ID_Trabajador": 1,
-    "ID_Cliente" : request.json["ID_Cliente"],
+    "ID_Cliente" : IDcliente,
     "ID_Servicio" : 8,
     "Fecha": fecha,
     "Hora" : hora,
     "Confirmado":"Confirmado",
 
   }
-
+  return datos
 }
 
 
-/*function registrarTurno(event) {
+function registrarTurno(event) {
   event.preventDefault()
 
   let nombre = document.getElementById("nombre").value;
@@ -493,4 +492,4 @@ function ObtenerDatosTurno(fecha) {
   xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/agregarTurno");
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(JSON.stringify(datos));
-}*/
+}
