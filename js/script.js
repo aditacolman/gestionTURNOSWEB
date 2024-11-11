@@ -101,105 +101,99 @@ function iniciar_sesion(event) {
 //xhttp.open("POST", "https://gestionturnos.pythonanywhere.com", true);
 //xhttp.send();
 
-function crearListaServicios(servicios) {
-    let listaHtml = document.getElementById("accordionExample");  // Contenedor del acordeón
-    listaHtml.innerHTML = "";  // Limpiar los elementos anteriores
-    
-    servicios.forEach((servicio, index) => {
-        // Crear una nueva card para cada servicio
-        let card = document.createElement("div");
-        card.classList.add("card");
+function cargarServicios() {
+    let xhttp = new XMLHttpRequest();
 
-        // Crear el encabezado de la card
-        let cardHeader = document.createElement("div");
-        cardHeader.classList.add("card-header");
-        cardHeader.id = "heading" + index;
+    // Configuramos la solicitud GET
+    xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verServicios", true);
 
-        let h2 = document.createElement("h2");
-        h2.classList.add("mb-0");
+    // Configuramos la función a ejecutar cuando la respuesta esté lista
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                // Parseamos la respuesta JSON
+                let servicios = JSON.parse(this.responseText);
 
-        let button = document.createElement("button");
-        button.classList.add("btn", "btn-link");
-        button.setAttribute("type", "button");
-        button.setAttribute("data-toggle", "collapse");
-        button.setAttribute("data-target", "#collapse" + index);
-        button.setAttribute("aria-expanded", "false");
-        button.setAttribute("aria-controls", "collapse" + index);
-        button.textContent = servicio.nombre;  // Nombre del servicio
+                // Agrupar los servicios por su nombre
+                const serviciosAgrupados = servicios.reduce((acc, servicio) => {
+                    if (!acc[servicio.Nombre]) {
+                        acc[servicio.Nombre] = [];
+                    }
+                    acc[servicio.Nombre].push(servicio);
+                    return acc;
+                }, {});
 
-        h2.appendChild(button);
-        cardHeader.appendChild(h2);
-        
-        // Crear el cuerpo del acordeón (contenedor de los checkboxes)
-        let cardBody = document.createElement("div");
-        cardBody.classList.add("collapse");
-        cardBody.id = "collapse" + index;
-        cardBody.setAttribute("aria-labelledby", "heading" + index);
-        cardBody.setAttribute("data-parent", "#accordionExample");
+                // Seleccionamos el contenedor donde vamos a insertar los servicios
+                const contenedorServicios = document.getElementById("contenedor_servicios");
 
-        let bodyContent = document.createElement("div");
-        bodyContent.classList.add("card-body");
+                contenedorServicios.innerHTML = "";  // Limpiamos el contenedor
 
-        // Crear los checkboxes de opciones para cada servicio
-        servicio.opciones.forEach((opcion, optIndex) => {
-            let label = document.createElement("label");
-            label.classList.add("d-block");
+                // Iteramos sobre los servicios agrupados
+                for (let nombre in serviciosAgrupados) {
+                    // Crear el grupo de servicios para ese nombre
+                    const grupoDiv = document.createElement("div");
+                    grupoDiv.classList.add("card");
 
-            let check = document.createElement("input");
-            check.setAttribute("type", "checkbox");
-            check.setAttribute("name", "opcion_" + index + "_" + optIndex);  // Nombre único por servicio y opción
-            check.setAttribute("id", "checkbox_" + index + "_" + optIndex);
-            check.classList.add("checkBoxStyle");
+                    // Crear la cabecera del grupo (nombre del servicio)
+                    const cardHeader = document.createElement("div");
+                    cardHeader.classList.add("card-header");
 
-            label.appendChild(check);
-            label.appendChild(document.createTextNode(" " + opcion));  // Agregar la opción
+                    const h2 = document.createElement("h2");
+                    h2.classList.add("mb-0");
 
-            bodyContent.appendChild(label);
-        });
+                    const button = document.createElement("button");
+                    button.classList.add("btn", "btn-link");
+                    button.setAttribute("type", "button");
+                    button.setAttribute("data-toggle", "collapse");
+                    button.setAttribute("data-target", `#collapse-${nombre}`);
+                    button.setAttribute("aria-expanded", "true");
+                    button.setAttribute("aria-controls", `collapse-${nombre}`);
+                    button.innerText = nombre;
 
-        // Añadir el contenido al cuerpo de la card
-        cardBody.appendChild(bodyContent);
+                    h2.appendChild(button);
+                    cardHeader.appendChild(h2);
+                    grupoDiv.appendChild(cardHeader);
 
-        // Añadir el encabezado y cuerpo a la card
-        card.appendChild(cardHeader);
-        card.appendChild(cardBody);
+                    // Crear el cuerpo del grupo (tipos de servicio)
+                    const cardBody = document.createElement("div");
+                    cardBody.id = `collapse-${nombre}`;
+                    cardBody.classList.add("collapse");
 
-        // Añadir la card al acordeón
-        listaHtml.appendChild(card);
-    });
-}
+                    // Iteramos sobre los servicios del mismo nombre (por ejemplo, diferentes tipos de "Esculpidas en gel")
+                    serviciosAgrupados[nombre].forEach((servicio, index) => {
+                        const tipoServicioDiv = document.createElement("div");
 
-function mostrarServicios() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function(e) {
-      if (this.readyState == 4 && this.status == 200) {
-          // Obtener los datos de la respuesta
-          let servicios = JSON.parse(xhttp.responseText);
-          
-          // Crear un array para almacenar la información de los servicios
-          let serviciosArray = [];
-          
-          // Recorremos los servicios y los preparamos para pasarlos a la función crearListaServicios
-          servicios.forEach(servicio => {
-             // Asumimos que el servicio tiene nombre, tipo_servicio y opciones
-             let opciones = servicio.opciones || [];  // Aseguramos que exista la propiedad "opciones"
-             
-             // Añadir el servicio al array con sus opciones
-             serviciosArray.push({
-                 nombre: servicio.Nombre,           // Nombre del servicio
-                 opciones: opciones                // Opciones de ese servicio
-             });
-          });
+                        // Crear el tipo de servicio
+                        const tipoLabel = document.createElement("label");
+                        tipoLabel.innerHTML = `${servicio.Tipo_servicio} - $${servicio.Precio}`;
 
-          // Llamar a la función que crea el acordeón con los servicios
-          crearListaServicios(serviciosArray);
-      }
+                        // Crear el checkbox para este servicio
+                        const checkbox = document.createElement("input");
+                        checkbox.type = "checkbox";
+                        checkbox.id = `checkbox-${nombre}-${index}`;
+                        checkbox.name = `option-${nombre}-${index}`;
+
+                        tipoServicioDiv.appendChild(checkbox);
+                        tipoServicioDiv.appendChild(tipoLabel);
+                        cardBody.appendChild(tipoServicioDiv);
+                    });
+
+                    grupoDiv.appendChild(cardBody);
+                    contenedorServicios.appendChild(grupoDiv);
+                }
+            } else {
+                console.error("Error en la solicitud. Estado:", this.status);
+            }
+        }
     };
 
-    // Realizar la solicitud GET
-    xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verServicios", true);
+    // Enviamos la solicitud
     xhttp.send();
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    cargarServicios();
+});
 
 
 //window.addEventListener("load", ()=>{
