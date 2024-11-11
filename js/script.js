@@ -307,7 +307,6 @@ if (this.readyState == 4 && this.status == 200) {
     }
     
    crearListaHorarios(diaSeleccionado)
-   ObtenerDatosTurno()
 }
 };
 xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verTurnos", true);
