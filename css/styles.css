@@ -117,13 +117,15 @@
     filter: brightness(40%);
 }
 
-.ul-icono {
+.icon {
     list-style: none;
     display: flex;
     gap: 30.4%;
     justify-content: end;
     font-size: 33px;
-    padding: 30px;
+    align-items: center;
+    padding: 18px;
+    margin: 0;
 }
 
 .nav{
@@ -576,8 +578,7 @@ label{
 /*¡PREGUNTAS FRECUENTES!*/
 .text-faq {
     text-align: center;
-    padding: 1.2rem;
-    margin-bottom: 0;
+    margin-top: 1.5rem;
 }
 
 .turno-nav{
@@ -590,18 +591,11 @@ label{
 }
 
 .img-nav{
-    width: 6.3rem;
-    height: auto;
-    margin-left: 1rem;
-}
-
-.icon-nav {
-    list-style: none;
+    width: 7.5rem;
+    height: 100%;
     display: flex;
-    gap: 30.4%;
-    justify-content: end;
-    font-size: 33px;
-    padding: 0.9rem;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Estilos para el acordeón */
