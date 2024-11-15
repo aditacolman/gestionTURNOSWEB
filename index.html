@@ -26,26 +26,44 @@
         <!-- DIV Iconos -->
         <div class="nav">
           <ul class="icon">
-            <li><a href="https://wa.me/541161710049" title="Visita nuestro sitio web"><i class="bi bi-whatsapp color-icono"></i></a></li>
             <li>
-              <a href="#" data-bs-toggle="dropdown" role="button" title="Visita nuestro sitio web"><i class="bi bi-person-circle color-icono"></i></a>
+              <a href="https://wa.me/541161710049" title="Visita nuestro sitio web">
+                <i class="bi bi-whatsapp color-icono"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" data-bs-toggle="dropdown" role="button" title="Iniciá sesión">
+                <i class="bi bi-person-circle color-icono"></i>
+              </a>
+              <!-- Dropdown para iniciar sesión o registrarse -->
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a></li>
-                <li id="btnRegistrarse"><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a></li>
+                <li id="btnSesion">
+                  <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
+                </li>
+                <li id="btnRegistrarse">
+                  <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a>
+                </li>
               </ul>
             </li>
           </ul>
         </div>
-        
+
+        <!-- Contenido principal -->
         <div class="contenido-principal">
-          <div class="div-logo"><img src="./img/image.png" alt="Descripción de la imagen"></div>
-          <!-- DIV Botón -->
+          <div class="div-logo">
+            <img src="./img/image.png" alt="Descripción de la imagen">
+          </div>
+          <!-- Botón para sacar turno -->
           <div class="boton-turnos">
             <a href="./turno.html" class="btn btn-outline-secondary">Sacar turno</a>
           </div>
-          <div class="boton-servicios"><a href="#Servicios"><i class="bi bi-chevron-double-down color-icono"></i></a></div>
+          <!-- Botón para ir a los servicios -->
+          <div class="boton-servicios">
+            <a href="#Servicios"><i class="bi bi-chevron-double-down color-icono"></i></a>
+          </div>
         </div>
       </div>
+
       <!-- Modal de Iniciar Sesión -->
       <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered custom-modal-width">
@@ -55,7 +73,8 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form>
+              <!-- Formulario de inicio de sesión -->
+              <form id="loginForm">
                 <div class="mb-3">
                   <label for="contact" class="form-label">Correo o Teléfono</label>
                   <input type="text" class="form-control" id="valor" placeholder="Ingrese su correo o teléfono" required>
@@ -68,14 +87,17 @@
                   <p>¿No tienes una cuenta? <a class="modal-title" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrate</a></p>
                 </div>
                 <div class="text-center boton-sesion">
-                  <button onclick="iniciar_sesion(event)" class="btn btn-primary">Iniciar sesión</button>
+                  <button type="button" onclick="iniciar_sesion(event)" class="btn btn-primary">Iniciar sesión</button>
                 </div>
               </form>
+              <!-- Mensaje de éxito -->
+              <div id="successMessage" style="display: none;">
+                <p>Inicio de sesión exitoso. ¡Bienvenido!</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
 
       <!-- Modal de Registro -->
       <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
@@ -86,6 +108,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+              <!-- Formulario de registro -->
               <form>
                 <div class="mb-3">
                   <label for="nombre" class="form-label">Nombre</label>
@@ -95,7 +118,6 @@
                   <label for="apellido" class="form-label">Apellido</label>
                   <input type="text" class="form-control" id="apellido" placeholder="Ingrese su Apellido" required>
                 </div>
-           
                 <div class="mb-3">
                   <label for="correo" class="form-label">Correo</label>
                   <input type="text" class="form-control" id="correo" placeholder="Ingrese su correo" required>
@@ -116,6 +138,26 @@
           </div>
         </div>
       </div>
+
+      <!-- Modal de Confirmación para cerrar sesión -->
+      <div class="modal fade" id="confirmLogoutModal" tabindex="-1" aria-labelledby="confirmLogoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmLogoutModalLabel">¿Está seguro de que desea cerrar sesión?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Al cerrar sesión, se perderá cualquier información no guardada.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" onclick="cancelarCerrarSesion()">No</button>
+              <button type="button" class="btn btn-danger" onclick="cerrarSesion()">Sí</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
     <section class="my-4" id="Servicios">
       <div class="div-emprendimiento">
