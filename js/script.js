@@ -522,4 +522,33 @@ function registrarTurno(event) {
   xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/agregarTurno");
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(JSON.stringify(datos));
+  enviarCorreo()
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function enviarCorreo(){
+  // Función para enviar correo cuando el formulario es enviado
+    // Obtén los valores del formulario
+    const nombre = "Andres";
+    const email = "acomlan@sagradoalcal.edu.ar";
+    const fechaAgendada = fecha_seleccion[0]
+    const mensaje = 'Tu tuno esta agendado para el'
+
+    // Configura los parámetros del correo
+    Email.send({
+        SecureToken: "7f59ace6-a9f4-4606-a441-50580b96a8a6.",  // Aquí colocas tu Secure Token
+        To: 'gestionturnos2005@gmail.com',       // Dirección de correo destino
+        From: email,                          // Dirección de correo del remitente
+        Subject: 'Turno agendado', // Asunto del correo
+        Body: `Nombre: ${nombre}<br>Email: ${email}<br>Mensaje: ${mensaje}${fechaAgendada} Saludos`  // Cuerpo del correo
+    }).then(function(response) {
+        if (response === "OK") {
+            alert('¡Correo enviado con éxito!');
+        } else {
+            alert('Hubo un error al enviar el correo: ' + response);
+        }
+    });
+  };
