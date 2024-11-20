@@ -86,6 +86,7 @@ xhttp.onreadystatechange = function(e) {
         console.log("datos: ", xhttp.responseText)
         let datos =  JSON.parse(xhttp.responseText);
         sessionStorage.setItem("id_sesion", JSON.stringify(datos["ID"]));
+        sessionStorage.setItem("email_sesion", correo_telefono);
         if (sessionStorage.getItem("id_sesion")!=null){
             let btnRegistrarse =  document.getElementById("btnRegistrarse")
             btnRegistrarse.style.setProperty("visibility", "hidden")
@@ -530,25 +531,23 @@ function registrarTurno(event) {
 
 
 function enviarCorreo(){
-  // Función para enviar correo cuando el formulario es enviado
-    // Obtén los valores del formulario
-    const nombre = "Andres";
-    const email = "acomlan@sagradoalcal.edu.ar";
-    const fechaAgendada = fecha_seleccion[0]
-    const mensaje = 'Tu tuno esta agendado para el'
+  let correo = sessionStorage.getItem("email_sesion")
+  let datos = JSON.parse(sessionStorage.getItem("DatosCliente"))
+  let fecha = datos["Fecha"]
+  let horario= datos["Hora"]
+  let datos_bd={
+    "fecha":fecha,
+    "horario":horario
+  }
 
-    // Configura los parámetros del correo
-    Email.send({
-        SecureToken: "7f59ace6-a9f4-4606-a441-50580b96a8a6.",  // Aquí colocas tu Secure Token
-        To: 'gestionturnos2005@gmail.com',       // Dirección de correo destino
-        From: email,                          // Dirección de correo del remitente
-        Subject: 'Turno agendado', // Asunto del correo
-        Body: `Nombre: ${nombre}<br>Email: ${email}<br>Mensaje: ${mensaje}${fechaAgendada} Saludos`  // Cuerpo del correo
-    }).then(function(response) {
-        if (response === "OK") {
-            alert('¡Correo enviado con éxito!');
-        } else {
-            alert('Hubo un error al enviar el correo: ' + response);
-        }
-    });
-  };
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          console.log("datos: ", datos)
+      }
+  }
+  xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/confirmacion/"+ correo);
+  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhttp.send(JSON.stringify(datos_bd));
+
+}
