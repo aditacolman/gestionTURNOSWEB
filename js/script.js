@@ -69,39 +69,165 @@ function registrarse(event) {
   xhttp.send(JSON.stringify(datos));
 }
 
-//Función para iniciar sesión en la WEB
+// Función para iniciar sesión en la WEB
 function iniciar_sesion(event) {
-event.preventDefault()
+  event.preventDefault();
 
-let correo_telefono= document.getElementById("valor").value;
-contrasena= document.getElementById("contrasena").value;
-let datos = {
+  let correo_telefono = document.getElementById("valor").value;
+  let contrasena = document.getElementById("contrasena").value;
+  let datos = {
     "Correo": correo_telefono,
     "Contrasena": contrasena
-}
+  };
 
-let xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function(e) {
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function(e) {
     if (this.readyState == 4 && this.status == 200) {
-        console.log("datos: ", xhttp.responseText)
-        let datos =  JSON.parse(xhttp.responseText);
+      console.log("datos: ", xhttp.responseText);
+      let datos = JSON.parse(xhttp.responseText);
+
+      // Verificar si la respuesta contiene un ID válido y guardarlo en sessionStorage
+      if (datos["ID"] !== undefined && datos["ID"] !== null) {
+        sessionStorage.setItem("id_sesion", JSON.stringify(datos["ID"]));
         sessionStorage.setItem("Datos_Cliente", JSON.stringify(datos));
         sessionStorage.setItem("email_sesion", correo_telefono);
-        if (sessionStorage.getItem("id_sesion")!=null){
-            let btnRegistrarse =  document.getElementById("btnRegistrarse")
-            btnRegistrarse.style.setProperty("visibility", "hidden")
+      } else {
+        console.log("Error: 'ID' no encontrado en la respuesta.");
+      }
+
+      // Verificar si la sesión está activa
+      if (sessionStorage.getItem("id_sesion") !== null) {
+        // Cambiar el contenido del modal de "Iniciar sesión" a "Inicio de sesión exitoso"
+        let loginModal = document.getElementById("loginModal");
+
+        // Ocultar el formulario de login y mostrar el mensaje de éxito
+        document.getElementById("loginForm").style.display = "none";  // Ocultar el formulario
+        document.getElementById("successMessage").style.display = "block"; // Mostrar el mensaje de éxito
+
+        // Cambiar el título del modal a "Bienvenido"
+        loginModal.querySelector(".modal-title").textContent = "Bienvenido";
+
+        // Ocultar los botones de "Iniciar sesión" y "Registrarse" en el dropdown
+        let btnSesion = document.getElementById("btnSesion");
+        let btnRegistrarse = document.getElementById("btnRegistrarse");
+
+        if (btnSesion && btnRegistrarse) {
+          btnSesion.style.display = "none";  // Ocultar el botón de Iniciar sesión
+          btnRegistrarse.style.display = "none";  // Ocultar el botón de Registrarse
         }
-        //console.log(sessionStorage.getItem("id_sesion"))
+
+        // Mostrar las opciones de "Mi perfil" y "Cerrar sesión" en el dropdown
+        let dropdownMenu = document.querySelector(".dropdown-menu");
+
+        if (dropdownMenu) {
+          // Crear elementos nuevos
+          let perfilItem = document.createElement("li");
+          perfilItem.innerHTML = '<a class="dropdown-item" href="/perfil">Mi perfil</a>';
+
+          let cerrarSesionItem = document.createElement("li");
+          cerrarSesionItem.innerHTML = '<a class="dropdown-item" href="javascript:void(0)" onclick="confirmarCerrarSesion()">Cerrar sesión</a>';
+
+          // Agregar los nuevos elementos al dropdown
+          dropdownMenu.appendChild(perfilItem);
+          dropdownMenu.appendChild(cerrarSesionItem);
+        }
+      }
     }
-  }
+  };
 
   xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/login_web");
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(JSON.stringify(datos));
 }
 
-//xhttp.open("POST", "https://gestionturnos.pythonanywhere.com", true);
-//xhttp.send();
+// Función para abrir el modal de confirmación de cierre de sesión
+function confirmarCerrarSesion() {
+  // Muestra el modal de confirmación de cierre de sesión
+  let modal = new bootstrap.Modal(document.getElementById('confirmLogoutModal'));
+  modal.show();
+}
+
+// Función para cerrar sesión
+function cerrarSesion() {
+  // Eliminar la sesión del sessionStorage
+  sessionStorage.removeItem("id_sesion");
+  sessionStorage.removeItem("Datos_Cliente");
+  sessionStorage.removeItem("email_sesion");
+
+  // Cerrar el modal de confirmación
+  let modal = bootstrap.Modal.getInstance(document.getElementById('confirmLogoutModal'));
+  modal.hide();  // Esto cierra el modal de confirmación
+
+  // Recargar la página para restaurar los elementos del dropdown
+  location.reload();  // Esto recarga la página para restaurar el estado original
+}
+
+// Función para cancelar el cierre de sesión
+function cancelarCerrarSesion() {
+  // Cerrar el modal de confirmación sin hacer nada
+  let modal = bootstrap.Modal.getInstance(document.getElementById('confirmLogoutModal'));
+  modal.hide();
+}
+
+
+
+// Función para verificar si hay sesión activa y actualizar el dropdown
+function checkSession() {
+  // Verificar si existe la sesión activa
+  let idSesion = sessionStorage.getItem("id_sesion");
+
+  if (idSesion !== null) {
+    // Si la sesión está activa, actualizar el dropdown
+    let dropdownMenu = document.querySelector(".dropdown-menu");
+
+    if (dropdownMenu) {
+      // Limpiar el dropdown
+      dropdownMenu.innerHTML = '';
+
+      // Crear y añadir los elementos "Mi perfil" y "Cerrar sesión"
+      let perfilItem = document.createElement("li");
+      perfilItem.innerHTML = '<a class="dropdown-item" href="/perfil">Mi perfil</a>';
+
+      let cerrarSesionItem = document.createElement("li");
+      cerrarSesionItem.innerHTML = '<a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmLogoutModal">Cerrar sesión</a>';
+
+      // Añadir los nuevos elementos al dropdown
+      dropdownMenu.appendChild(perfilItem);
+      dropdownMenu.appendChild(cerrarSesionItem);
+    }
+
+    // Ocultar los botones de "Iniciar sesión" y "Registrarse"
+    let btnSesion = document.getElementById("btnSesion");
+    let btnRegistrarse = document.getElementById("btnRegistrarse");
+
+    if (btnSesion && btnRegistrarse) {
+      btnSesion.style.display = "none";
+      btnRegistrarse.style.display = "none";
+    }
+  } else {
+    // Si no hay sesión activa, mostrar los botones de "Iniciar sesión" y "Registrarse"
+    let btnSesion = document.getElementById("btnSesion");
+    let btnRegistrarse = document.getElementById("btnRegistrarse");
+
+    if (btnSesion && btnRegistrarse) {
+      btnSesion.style.display = "block";
+      btnRegistrarse.style.display = "block";
+    }
+
+    // Restaurar el dropdown a su estado original
+    let dropdownMenu = document.querySelector(".dropdown-menu");
+
+    if (dropdownMenu) {
+      dropdownMenu.innerHTML = `
+        <li id="btnSesion"><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a></li>
+        <li id="btnRegistrarse"><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a></li>
+      `;
+    }
+  }
+}
+
+// Llamar a checkSession() cuando se cargue la página
+window.onload = checkSession;
 
 
 function cargarServicios() {
@@ -458,12 +584,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   
-    // Evento para confirmar el turno
-    confirmarTurnoBtn.addEventListener('click', function() {
-      // Aquí puedes agregar la lógica para abrir el modal de confirmación
-      $('#confirmacionModal').modal('show');
-    });
-  
     // Inicialmente, aseguramos que el botón está deshabilitado
     verificarCondiciones();  // Se ejecuta inmediatamente cuando se carga la página
   });
@@ -496,7 +616,7 @@ function ObtenerDatosTurno(fechaYservicio) {
     let datos = {
       "ID_Trabajador": 1,  // Puedes cambiar esto según sea necesario
       "ID_Cliente": IDcliente,
-      "ID_Servicio": fechaYservicio[1],  // Asume que el servicio es 8, ajusta si es necesario
+      "ID_Servicio": fechaYservicio[1],
       "Fecha": fechaYservicio[0],
       "Hora": hora,
       "Confirmado": "Confirmado",  // Ajusta el estado según corresponda
@@ -519,8 +639,14 @@ function registrarTurno(event) {
   xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           console.log("datos: ", datos)
+          $('#confirmacionModal').modal('show');
+        }
+      if (this.readyState == 4 && this.status == 500) {
+          console.log("datos: ", datos)
+          $('#errorModal').modal('show');
       }
   }
+
   xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/agregarTurno");
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(JSON.stringify(datos));
@@ -552,8 +678,9 @@ function enviarCorreo(){
   xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           console.log("datos: ", datos_bd)
-      }
-  }
+        }
+    }
+
   xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/confirmacion/"+ correo);
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(JSON.stringify(datos_bd));
