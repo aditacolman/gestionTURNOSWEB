@@ -85,7 +85,7 @@ xhttp.onreadystatechange = function(e) {
     if (this.readyState == 4 && this.status == 200) {
         console.log("datos: ", xhttp.responseText)
         let datos =  JSON.parse(xhttp.responseText);
-        sessionStorage.setItem("id_sesion", JSON.stringify(datos["ID"]));
+        sessionStorage.setItem("Datos_Cliente", JSON.stringify(datos));
         sessionStorage.setItem("email_sesion", correo_telefono);
         if (sessionStorage.getItem("id_sesion")!=null){
             let btnRegistrarse =  document.getElementById("btnRegistrarse")
@@ -478,7 +478,8 @@ function ObtenerDatosTurno(fechaYservicio) {
     console.log(checkboxes);
     
     let hora = "";  // Aquí almacenaremos la hora seleccionada
-    let IDcliente = JSON.parse(sessionStorage.getItem("id_sesion"));
+    let DatosdelCliente =JSON.parse(sessionStorage.getItem("Datos_Cliente")); 
+    let IDcliente = DatosdelCliente["ID"];
     console.log("seleccionada hora");
   
     // Recorrer todos los checkboxes (radio buttons)
@@ -502,7 +503,7 @@ function ObtenerDatosTurno(fechaYservicio) {
     };
   
     // Almacenar los datos en sessionStorage para su posterior uso
-    sessionStorage.setItem("DatosCliente", JSON.stringify(datos));
+    sessionStorage.setItem("DatosTurno", JSON.stringify(datos));
     console.log("Datos cliente almacenados en sessionStorage:", datos);
   }
   
@@ -511,8 +512,8 @@ function ObtenerDatosTurno(fechaYservicio) {
 function registrarTurno(event) {
   event.preventDefault()
 
-  let datos =  JSON.parse(sessionStorage.getItem("DatosCliente"))
-  console.log("DatosCliente",datos);
+  let datos =  JSON.parse(sessionStorage.getItem("DatosTurno"))
+  console.log("DatosTurno",datos);
 
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -532,18 +533,25 @@ function registrarTurno(event) {
 
 function enviarCorreo(){
   let correo = sessionStorage.getItem("email_sesion")
-  let datos = JSON.parse(sessionStorage.getItem("DatosCliente"))
-  let fecha = datos["Fecha"]
-  let horario= datos["Hora"]
+  let DatosDelTurno = JSON.parse(sessionStorage.getItem("DatosTurno"))
+  let DatosDelCliente = JSON.parse(sessionStorage.getItem("Datos_Cliente"))
+  let fecha = DatosDelTurno["Fecha"]
+  let horario= DatosDelTurno["Hora"]
+  let direccion = "madero2660"
+  let nombre = DatosDelCliente["Nombre"]
+  let apellido = DatosDelCliente["Apellido"]
   let datos_bd={
     "fecha":fecha,
-    "horario":horario
+    "horario":horario,
+    "direccion":direccion,
+    "nombre":nombre,
+    "apellido":apellido
   }
 
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-          console.log("datos: ", datos)
+          console.log("datos: ", datos_bd)
       }
   }
   xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/confirmacion/"+ correo);
