@@ -153,6 +153,7 @@ function cerrarSesion() {
   sessionStorage.removeItem("id_sesion");
   sessionStorage.removeItem("Datos_Cliente");
   sessionStorage.removeItem("email_sesion");
+  sessionStorage.removeItem("DatosTurno");
 
   // Cerrar el modal de confirmación
   let modal = bootstrap.Modal.getInstance(document.getElementById('confirmLogoutModal'));
@@ -638,15 +639,24 @@ function registrarTurno(event) {
 
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
+
+      console.log("state",this.readyState)
+      console.log("status",this.status)
+
+      if (this.readyState == 4 ) {
+        if (this.status == 200){
+          console.log("primer modal")
           console.log("datos: ", datos)
           $('#confirmacionModal').modal('show');
           enviarCorreo()
         }
-        console.log("state",this.readyState)
-        console.log("status",this.status)
-      if (this.readyState == 4 && this.status == 500) {
-          console.log("datos: ", datos)
+        else if (datos == null) {
+        console.log("2do modal")
+          console.log("no hay una sesion iniciadaaaaaa")
+          $('#errorSesionModal').modal('show');
+        }
+      else{
+        console.log("3ero modal")
           $('#errorModal').modal('show');
       }
   }
@@ -654,6 +664,7 @@ function registrarTurno(event) {
   xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/agregarTurno");
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(JSON.stringify(datos));
+}
 }
 
 

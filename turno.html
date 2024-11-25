@@ -129,7 +129,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  No tienes una sesión iniciada, por lo cual no puedes sacar un turno. 
+                  Hubo un error al cargar tu turno :(, intenta más tarde. 
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -137,6 +137,25 @@
               </div>
             </div>
           </div>
+
+          <!-- Modal de no hay sesion iniciada -->
+          <div class="modal fade" id="errorSesionModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="errorModalLabel">No hay una sesión iniciada</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Inicie sesión antes de sacar un turno. 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
         </div>
       </div>
