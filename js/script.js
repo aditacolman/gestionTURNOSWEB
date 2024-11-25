@@ -1,4 +1,4 @@
-var fecha_seleccion=[];
+var fecha_seleccion=["1","1"];
 
 //Esconde widget de elfsight en la página principal
 document.addEventListener('DOMContentLoaded', function () {
@@ -302,7 +302,7 @@ function cargarServicios() {
                         radio.id = `radio-${nombre}-${index}`;
                         radio.name = "servicio";  // TODOS los radios tendrán el mismo nombre
                         radio.value = servicio.ID;  // Esto es opcional, puedes guardar el nombre o ID del servicio
-                        radio.addEventListener("change",function(){ fecha_seleccion.splice(1,1,radio.value);
+                        radio.addEventListener("change",function(){ fecha_seleccion.splice(1,1,radio.value),
                           listenerRadioFecha();
                           
                         });
@@ -621,6 +621,7 @@ function ObtenerDatosTurno(fechaYservicio) {
       "Hora": hora,
       "Confirmado": "Confirmado",  // Ajusta el estado según corresponda
     };
+    console.log(datos)
   
     // Almacenar los datos en sessionStorage para su posterior uso
     sessionStorage.setItem("DatosTurno", JSON.stringify(datos));
@@ -640,7 +641,10 @@ function registrarTurno(event) {
       if (this.readyState == 4 && this.status == 200) {
           console.log("datos: ", datos)
           $('#confirmacionModal').modal('show');
+          enviarCorreo()
         }
+        console.log("state",this.readyState)
+        console.log("status",this.status)
       if (this.readyState == 4 && this.status == 500) {
           console.log("datos: ", datos)
           $('#errorModal').modal('show');
@@ -650,7 +654,6 @@ function registrarTurno(event) {
   xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/agregarTurno");
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(JSON.stringify(datos));
-  enviarCorreo()
 }
 
 
