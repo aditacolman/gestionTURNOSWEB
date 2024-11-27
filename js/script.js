@@ -642,22 +642,18 @@ function registrarTurno(event) {
 
       console.log("state",this.readyState)
       console.log("status",this.status)
-
-      if (this.readyState == 4 ) {
-        if (this.status == 200){
-          console.log("primer modal")
-          console.log("datos: ", datos)
-          $('#confirmacionModal').modal('show');
-          enviarCorreo()
-        }
-        else if (datos == null) {
-        console.log("2do modal")
-          console.log("no hay una sesion iniciadaaaaaa")
-          $('#errorSesionModal').modal('show');
-        }
-      else{
-        console.log("3ero modal")
-          $('#errorModal').modal('show');
+ 
+      if (datos == null) {
+        $('#errorSesionModal').modal('show');
+      }
+      // Verificar si la consulta se mandó mal
+      else if (this.readyState == 4 && this.status == 500) {
+        $('#errorModal').modal('show');
+      }
+      // Si la consulta fue exitosa
+      else if (this.readyState == 4 && this.status == 200) {
+        $('#confirmacionModal').modal('show');
+        enviarCorreo();
       }
   }
 
@@ -665,7 +661,7 @@ function registrarTurno(event) {
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(JSON.stringify(datos));
 }
-}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
