@@ -343,12 +343,12 @@ const diaDeLaSemana = fechaObj.getDay();
 const dias =  new Array()//, Lunes[""], Martes[""], Miércoles[""], Jueves[""], Viernes[""], Sábado[""]];
 console.log("numindex",diaDeLaSemana)
 domingo=[""]
-lunes=["11:00", "12:00"]
-martes=["11:00", "12:00"]
-miercoles=["11:00", "12:00"]
-jueves=["11:00", "12:00"]
-viernes=["11:00", "12:00"]
-sabado=["11:00", "12:00"]
+lunes=["12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00"]
+martes=["08:00","09:00","10:00","11:00", "12:00"]
+miercoles=["12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00"]
+jueves=["08:00","09:00","10:00","11:00", "12:00"]
+viernes=["12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00"]
+sabado=[""]
 
 dias.push(lunes,martes,miercoles,jueves,viernes,sabado,domingo);
 
