@@ -19,8 +19,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
-    <!-- Primera sección con imagen de fondo, botón, iconos y modal de registro e inicio de sesión -->
-    <section>
+  <!-- Primera sección con imagen de fondo, botón, iconos y modal de registro e inicio de sesión -->
+  <section>
       <!-- DIV Fondo -->
       <div class="contenedor">
         <!-- DIV Iconos -->
@@ -48,7 +48,7 @@
           </ul>
         </div>
 
-        <!-- Contenido principal -->
+        
         <div class="contenido-principal">
           <div class="div-logo">
             <img src="./img/image.png" alt="Descripción de la imagen">
@@ -139,24 +139,25 @@
         </div>
       </div>
 
-      <!-- Modal de Confirmación para cerrar sesión -->
+      <!-- Modal de Confirmación de Cierre de Sesión -->
       <div class="modal fade" id="confirmLogoutModal" tabindex="-1" aria-labelledby="confirmLogoutModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="confirmLogoutModalLabel">¿Está seguro de que desea cerrar sesión?</h5>
+              <h5 class="modal-title" id="confirmLogoutModalLabel">¿Estás seguro de que deseas cerrar sesión?</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <p>Al cerrar sesión, se perderá cualquier información no guardada.</p>
+              Si cierras sesión, perderás el acceso a tu cuenta hasta que inicies sesión de nuevo.
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" onclick="cancelarCerrarSesion()">No</button>
-              <button type="button" class="btn btn-danger" onclick="cerrarSesion()">Sí</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger" onclick="cerrarSesion()">Cerrar sesión</button>
             </div>
           </div>
         </div>
       </div>
+
 
     </section>
     <section class="my-4" id="Servicios">
@@ -260,7 +261,7 @@
             <div class="card text-center mb-3 card-info">
               <div class="card-body">
                 <h5 class="card-titulo">Mi emprendimiento</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet. Id internos laudantium et aliquid recusandae eos maxime obcaecati ut quis repellendus. Id temporibus doloremque non quasi blanditiis est assumenda placeat qui illo nisi et quia magnam. Est repellat dolor et quia assumenda non illo voluptas cum ipsa voluptas ab reprehenderit voluptate. Est fuga quam qui accusamus eius quo commodi sint qui consequuntur adipisci vel corrupti aliquid quo maiores laudantium..</p>
+                <p class="card-text">"Soy manicurista con más de 8 años de experiencia en el rubro. Tras años trabajando en relación de dependencia, decidí emprender por mi cuenta desde casa. Gracias al esfuerzo y la dedicación, logré abrir mi propio local, y hoy en día sigo enfocada en hacer crecer mi emprendimiento, ya sea a través de cursos de perfeccionamiento o incorporando más profesionales a mi equipo."</p>
               </div>
             </div>
           </div>

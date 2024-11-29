@@ -80,23 +80,6 @@
     border-color: #a12138; /* Un color más oscuro para el hover */
 }
 
-
-#eapps-instagram-feed-1 a.eapps-instagram-feed-header-follow-button {
-    background: #a12138!important; 
-
-}
-
-.eapps-instagram-feed-posts-grid-load-more-text {
-    background-color: #a12138; /* Cambia esto por el color que desees */
-    color: white; /* Cambia el color del texto si es necesario */
-}
-
-/* Opcional: estilos al pasar el mouse */
-.eapps-instagram-feed-posts-grid-load-more-text:hover {
-    background-color: #8C1B2F;
-    border-color: #a12138; /* Un color más oscuro para el hover */
-}
-
 /*SECCIÓN PRINCIPAL*/
 .contenedor {
     position: relative;
@@ -548,29 +531,6 @@ label {
     font-size: 16px;
   }
 
-  .flecha {
-    width: 0; 
-    height: 0; 
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-right: 10px solid white;
-    margin-right: 5px;
-}
-
-.back {
-    width: 2.5rem; /* Ajusta el tamaño según sea necesario */
-    height: auto; /* Mantiene la proporción */
-    margin: 1rem;
-}
-
-.logo {
-    width: 5rem; /* Ajusta el tamaño según sea necesario */
-    height: auto; /* Mantiene la proporción */
-    margin: 0.5rem;
-    right: 0;
-    float: right;
-}
-
 label{
     background-color: transparent;
 }
@@ -591,11 +551,9 @@ label{
 }
 
 .img-nav{
-    width: 7.5rem;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 6.3rem;
+    height: auto;
+    margin-left: 1rem;
 }
 
 /* Estilos para el acordeón */

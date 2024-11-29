@@ -13,22 +13,31 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <script type="text/javascript" src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
 <body>
   <div class="container-fluid turno-nav">
     <div class="row">
       <div class="col-1">
-        <img class="img-nav" src="./img/versionfinal.png" alt="">
+        <img class="img-nav" src="./img/versionfinal.png" alt="Logo Fla Nails">
       </div>
       <div class="col-10">
       </div>
       <div class="col-1 nav"> 
         <ul class="icon">
           <li><a href="./index.html" title="Ir al inicio"><i class="bi bi-house-heart-fill"></i></a></li>
-          <li><a href="#" data-bs-toggle="dropdown" role="button" title="Visita nuestro sitio web"><i class="bi bi-person-circle"></i></a>
+          <li>
+            <a href="#" data-bs-toggle="dropdown" role="button" title="Iniciá sesión">
+              <i class="bi bi-person-circle"></i>
+            </a>
+            <!-- Dropdown para iniciar sesión o registrarse -->
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a></li>
-              <li id="btnRegistrarse"><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a></li>
+              <li id="btnSesion">
+                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
+              </li>
+              <li id="btnRegistrarse">
+                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -98,7 +107,7 @@
             </fieldset>
                     <!-- Botón de Confirmar Turno -->
           <div class="text-center my-4">
-            <button id="confirmar-turno-btn" class="btn btn-primary" disabled>Confirmar Turno</button>
+            <button onclick="registrarTurno(event)" id="confirmar-turno-btn" class="btn btn-primary" disabled>Confirmar Turno</button>
           </div>
 
           <!-- Modal de Confirmación -->
@@ -118,6 +127,44 @@
               </div>
             </div>
           </div>
+
+          <!-- Modal de Error -->
+          <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="errorModalLabel">Error</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Hubo un error al cargar tu turno :(, intenta más tarde. 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal de no hay sesion iniciada -->
+          <div class="modal fade" id="errorSesionModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="errorModalLabel">No hay una sesión iniciada</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Inicie sesión antes de sacar un turno. 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </div>
     </div>
