@@ -629,6 +629,18 @@ function ObtenerDatosTurno(fechaYservicio) {
     console.log("Datos cliente almacenados en sessionStorage:", datos);
   }
   
+function ModalIniciarSesion() {
+  let modal = new bootstrap.Modal(document.getElementById('errorSesionModal'));
+  let datos = JSON.parse(sessionStorage.getItem("Datos_Cliente")); 
+  if (datos == null) {// Si no hay datos en sessionStorage, mostrar el modal de error
+    modal.show()
+  }
+  else {
+    window.location.href = "./turno.html";
+  }
+  }
+
+
 
 
 function registrarTurno(event) {
@@ -643,11 +655,8 @@ function registrarTurno(event) {
       console.log("state",this.readyState)
       console.log("status",this.status)
  
-      if (datos == null) {
-        $('#errorSesionModal').modal('show');
-      }
       // Verificar si la consulta se mandó mal
-      else if (this.readyState == 4 && this.status == 500) {
+      if (this.readyState == 4 && this.status == 500) {
         $('#errorModal').modal('show');
       }
       // Si la consulta fue exitosa
