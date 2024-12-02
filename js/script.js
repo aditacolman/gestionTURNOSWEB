@@ -437,6 +437,10 @@ function formatear_fecha(dia, mes_year) {
 
 }
 
+function volverAIndex(){
+  window.location.href = "./index.html";
+}
+
 //turnos disponibles, cargar los horarios disponibles dependiendo del dia y retarle la duraion de los turnos seleccionados
 function mostrarTurnosDisponibles(fechaSeleccionada) {//agregar como variable el dia
   var xhttp = new XMLHttpRequest();
