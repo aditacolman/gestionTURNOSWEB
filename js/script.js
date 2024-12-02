@@ -470,9 +470,23 @@ function mostrarTurnosDisponibles(fechaSeleccionada) {//agregar como variable el
 }
 //
 
-//creo la lista de horarios disponibles
+function mostrarTurnosDeCliente() {//agregar como variable el dia
+  let idSession = JSON.parse(sessionStorage.getItem("id_sesion"))
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function (e) {
+    if (this.readyState == 4 && this.status == 200) {
+      //console.log(JSON.parse(xhttp.response))
+      let turnos = JSON.parse(xhttp.response)
+      console.log(turnos)
+    }else{
 
-
+    }
+      
+  };
+  xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verTurnoDeCliente/"+ idSession, true);
+  xhttp.send();
+  return turnos
+}
 
 //Calendario
 const daysTag = document.querySelector(".days");
@@ -728,3 +742,4 @@ function enviarCorreo() {
   xhttp.send(JSON.stringify(datos_bd));
 
 }
+
