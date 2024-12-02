@@ -84,7 +84,6 @@ function cerrarModalesActivos(){
   });
 }
 
-
 // Función para iniciar sesión en la WEB
 function iniciar_sesion(event) {
   event.preventDefault();
@@ -149,15 +148,24 @@ function iniciar_sesion(event) {
           perfilItem.innerHTML = '<a class="dropdown-item" href="/perfil">Mi perfil</a>';
 
           let misTurnos = document.createElement("li");
-          misTurnos.innerHTML = '<a class="dropdown-item" href="/turnos">Mis turnos</a>';
+          misTurnos.innerHTML = '<a class="dropdown-item" href="javascript:void(0)">Mis turnos</a>';
 
           let cerrarSesionItem = document.createElement("li");
-          cerrarSesionItem.innerHTML = '<a class="dropdown-item" href="javascript:void(0)" onclick="confirmarCerrarSesion()">Cerrar sesión</a>';
+          cerrarSesionItem.innerHTML = '<a class="dropdown-item" onclick="confirmarCerrarSesion()">Cerrar sesión</a>';
 
           // Agregar los nuevos elementos al dropdown
           dropdownMenu.appendChild(perfilItem);
           dropdownMenu.appendChild(misTurnos);
           dropdownMenu.appendChild(cerrarSesionItem);
+
+          document.getElementById("misTurnosLink").addEventListener("click", function() {
+            // Mostrar el modal
+            let turnoModal = new bootstrap.Modal(document.getElementById('turnoModal'));
+            turnoModal.show();
+        
+            // Llamar a la función para traer los turnos
+            traerTurnosDeCliente();
+          });
         }
       }
     }
@@ -166,6 +174,63 @@ function iniciar_sesion(event) {
   xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/login_web");
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(JSON.stringify(datos));
+}
+
+function traerTurnosDeCliente() {
+  let idSession = JSON.parse(sessionStorage.getItem("id_sesion"));
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function (e) {
+    if (this.readyState == 4 && this.status == 200) {
+      let turnos = JSON.parse(xhttp.responseText);
+      console.log("Turnos obtenidos:", turnos);  // Verifica que los datos sean correctos
+      mostrarTurnosEnModal(turnos);  // Mostrar turnos después de recibir los datos
+    } else if (this.status == 500) {
+      console.log("Error en el servidor", this.status);
+    }
+  };
+  xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verTurnoDeCliente/" + idSession, true);
+  xhttp.send();
+}
+
+function mostrarTurnosEnModal(turnos) {
+  // Obtener el cuerpo del modal
+  let modalBody = document.querySelector("#turnoModal .modal-body");
+  modalBody.innerHTML = "";  // Limpiar cualquier contenido previo
+
+  // Verificar si los turnos existen y están en el formato correcto
+  if (turnos && Array.isArray(turnos) && turnos.length > 0) {
+    console.log("Turnos recibidos:", turnos);  // Verifica si los turnos se recibieron correctamente
+
+    // Iterar sobre los turnos y crear una card para cada uno
+    turnos.forEach(turno => {
+      let card = document.createElement("div");
+      card.classList.add("card", "mb-3");
+      card.style.maxWidth = "18rem";  // Establecer un ancho máximo para las cards
+
+      let cardBody = document.createElement("div");
+      cardBody.classList.add("card-body");
+
+      let cardTitle = document.createElement("h5");
+      cardTitle.classList.add("card-title");
+      cardTitle.textContent = `${turno.Nombre_Cliente} ${turno.Apellido_Cliente} - ${turno.Servicio}`;
+
+      let cardText = document.createElement("p");
+      cardText.classList.add("card-text");
+      cardText.textContent = `Fecha: ${turno.Fecha} | Hora: ${turno.Hora}`;
+
+      cardBody.appendChild(cardTitle);
+      cardBody.appendChild(cardText);
+
+      card.appendChild(cardBody);
+      modalBody.appendChild(card);
+    });
+
+    // Ahora que los turnos están en el modal, lo mostramos
+    let turnoModal = new bootstrap.Modal(document.getElementById('turnoModal'));
+    turnoModal.show();
+  } else {
+    modalBody.innerHTML = "<p>No tienes turnos programados.</p>";
+  }
 }
 
 // Función para abrir el modal de confirmación de cierre de sesión
@@ -188,7 +253,7 @@ function cerrarSesion() {
   modal.hide();  // Esto cierra el modal de confirmación
 
   // Recargar la página para restaurar los elementos del dropdown
-  location.reload();  // Esto recarga la página para restaurar el estado original
+  location.reload(); 
 }
 
 // Función para cancelar el cierre de sesión
@@ -257,11 +322,7 @@ function checkSession() {
   }
 }
 
-// Llamar a checkSession() cuando se cargue la página
 window.onload = checkSession;
-
-
-// Después de cargar los servicios y agregar los elementos al acordeón, puedes hacer lo siguiente:
 
 function cargarServicios() {
   let xhttp = new XMLHttpRequest();
@@ -342,16 +403,11 @@ function cargarServicios() {
 
   xhttp.send();
 }
-  
+
   document.addEventListener("DOMContentLoaded", function() {
     cargarServicios();
   });
 
-
-//window.addEventListener("load", ()=>{
-//    obtenerDia("2024-10-21")
-//})
-//dice el dia actual
 function obtenerDia(fecha) {
   const fechaObj = new Date(fecha);
 
@@ -474,25 +530,6 @@ function mostrarTurnosDisponibles(fechaSeleccionada) {//agregar como variable el
   xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verTurnos", true);
   xhttp.send();
 }
-//
-
-function mostrarTurnosDeCliente() {//agregar como variable el dia
-  let idSession = JSON.parse(sessionStorage.getItem("id_sesion"))
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function (e) {
-    if (this.readyState == 4 && this.status == 200) {
-      //console.log(JSON.parse(xhttp.response))
-      let turnos = JSON.parse(xhttp.response)
-      console.log(turnos)
-    }else{
-
-    }
-      
-  };
-  xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verTurnoDeCliente/"+ idSession, true);
-  xhttp.send();
-  return turnos
-}
 
 //Calendario
 const daysTag = document.querySelector(".days");
@@ -534,7 +571,6 @@ const renderCalendar = () => {
 }
 renderCalendar();
 
-
 /*acciones de los dias del calendario*/
 function cambia_dia(fecha) {
 
@@ -554,7 +590,6 @@ function cambia_dia(fecha) {
   mostrarTurnosDisponibles(fechaSeleccionada);
   fecha_seleccion.splice(0, 1, fechaSeleccionada)
 }
-
 
 prevNextIcon.forEach(icon => { // getting prev and next icons
   icon.addEventListener("click", () => { // adding click event on both icons
@@ -626,8 +661,6 @@ document.addEventListener('DOMContentLoaded', function () {
   verificarCondiciones();  // Se ejecuta inmediatamente cuando se carga la página
 });
 
-
-
 //obtener datos de los checkbox 
 function ObtenerDatosTurno(fechaYservicio) {
   console.log(fechaYservicio)
@@ -648,7 +681,6 @@ function ObtenerDatosTurno(fechaYservicio) {
       //return hora
     }
   });
-
 
   // Crear el objeto de datos con la información relevante
   let datos = {
@@ -685,7 +717,6 @@ function ModalIniciarSesion() {
   }
 }
 
-
 function registrarTurno(event) {
   event.preventDefault()
 
@@ -714,11 +745,6 @@ function registrarTurno(event) {
   xhttp.send(JSON.stringify(datos));
 }
 
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 function enviarCorreo() {
   let correo = sessionStorage.getItem("email_sesion")
   let DatosDelTurno = JSON.parse(sessionStorage.getItem("DatosTurno"))
@@ -746,6 +772,4 @@ function enviarCorreo() {
   xhttp.open("POST", "https://gestionturnos.pythonanywhere.com/confirmacion/" + correo);
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(JSON.stringify(datos_bd));
-
 }
-

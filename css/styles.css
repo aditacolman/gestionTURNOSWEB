@@ -322,6 +322,22 @@
 
 /*¡VENTANA TURNOS!*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+.turno-nav{
+    font-family: "Montserrat", sans-serif;
+    color: #8C1B2F;
+    font-weight: 500;
+    line-height: 1.4;
+    box-shadow: 0 5px 10px -6px rgba(7, 0, 0, 0.1);
+    font-size: 1.35rem;
+}
+
+.img-nav{
+    width: 6.3rem;
+    height: auto;
+    margin-left: 1rem;
+}
+
+
 .texto-titulos{
     font-family: "Montserrat", Sans-serif;
     color: #8C1B2F;
@@ -560,49 +576,4 @@ label {
     font-size: 16px;
   }
 
-/*¡PREGUNTAS FRECUENTES!*/
-.text-faq {
-    text-align: center;
-    margin-top: 1.5rem;
-}
 
-.turno-nav{
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    color: #8C1B2F;
-    font-weight: 500;
-    line-height: 1.4;
-    box-shadow: 0 5px 10px -6px rgba(7, 0, 0, 0.1);
-    font-size: 1.35rem;
-}
-
-.img-nav{
-    width: 6.3rem;
-    height: auto;
-    margin-left: 1rem;
-}
-
-/* Estilos para el acordeón */
-.accordion-button{
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #464c5e;
-    height: 4.5rem;
-}
-
-.accordion-button:not(.collapsed) {
-    color: #a12138;
-    background-color: transparent;
-    box-shadow: none;
-}
-
-.accordion-body{
-    background-color: #f7f7f7;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-}
-
-.accordion-item {
-    border: none; /* Elimina el borde de cada ítem del acordeón */
-}
-
-/*font: "Open Sans", Helvetica, Arial, sans-serif*/
