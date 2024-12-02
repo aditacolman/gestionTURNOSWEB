@@ -255,103 +255,91 @@ function checkSession() {
 window.onload = checkSession;
 
 
+// Después de cargar los servicios y agregar los elementos al acordeón, puedes hacer lo siguiente:
+
 function cargarServicios() {
   let xhttp = new XMLHttpRequest();
 
-  // Configuramos la solicitud GET
   xhttp.open("GET", "https://gestionturnos.pythonanywhere.com/verServicios", true);
 
-  // Configuramos la función a ejecutar cuando la respuesta esté lista
-  xhttp.onreadystatechange = function () {
-    if (this.readyState === 4) {
-      if (this.status === 200) {
-        // Parseamos la respuesta JSON
-        let servicios = JSON.parse(this.responseText);
+  xhttp.onreadystatechange = function() {
+      if (this.readyState === 4) {
+          if (this.status === 200) {
+              let servicios = JSON.parse(this.responseText);
 
-        // Agrupar los servicios por su nombre
-        const serviciosAgrupados = servicios.reduce((acc, servicio) => {
-          if (!acc[servicio.Nombre]) {
-            acc[servicio.Nombre] = [];
+              const serviciosAgrupados = servicios.reduce((acc, servicio) => {
+                  if (!acc[servicio.Nombre]) {
+                      acc[servicio.Nombre] = [];
+                  }
+                  acc[servicio.Nombre].push(servicio);
+                  return acc;
+              }, {});
+
+              const contenedorServicios = document.getElementById("contenedor_servicios");
+
+              contenedorServicios.innerHTML = "";
+
+              for (let nombre in serviciosAgrupados) {
+                  const grupoDiv = document.createElement("div");
+                  grupoDiv.classList.add("accordion-item");
+
+                  const cardHeader = document.createElement("h2");
+                  cardHeader.classList.add("accordion-header");
+                  cardHeader.id = `heading-${nombre}`;
+
+                  const button = document.createElement("button");
+                  button.classList.add("accordion-button");
+                  button.setAttribute("type", "button");
+                  button.setAttribute("data-bs-toggle", "collapse");
+                  button.setAttribute("data-bs-target", `#collapse-${nombre}`);
+                  button.setAttribute("aria-expanded", "true");
+                  button.setAttribute("aria-controls", `collapse-${nombre}`);
+                  button.innerText = nombre;
+
+                  cardHeader.appendChild(button);
+                  grupoDiv.appendChild(cardHeader);
+
+                  const cardBody = document.createElement("div");
+                  cardBody.id = `collapse-${nombre}`;
+                  cardBody.classList.add("accordion-collapse", "collapse");
+                  cardBody.setAttribute("data-bs-parent", "#accordionExample");
+
+                  serviciosAgrupados[nombre].forEach((servicio, index) => {
+                      const tipoServicioDiv = document.createElement("div");
+
+                      const tipoLabel = document.createElement("label");
+                      tipoLabel.innerHTML = `${servicio.Tipo_servicio} - $${servicio.Precio}`;
+
+                      const radio = document.createElement("input");
+                      radio.type = "radio";
+                      radio.id = `radio-${nombre}-${index}`;
+                      radio.name = "servicio";
+                      radio.value = servicio.ID;
+
+                      tipoServicioDiv.appendChild(radio);
+                      tipoServicioDiv.appendChild(tipoLabel);
+                      cardBody.appendChild(tipoServicioDiv);
+
+                      // Cambiar el estilo del label dinámicamente
+                      tipoLabel.style.backgroundColor = "transparent";  // Fondo transparente
+                      tipoLabel.style.color = "#333";  // Asegurarse de que el color de texto sea legible
+                  });
+
+                  grupoDiv.appendChild(cardBody);
+                  contenedorServicios.appendChild(grupoDiv);
+              }
+          } else {
+              console.error("Error en la solicitud. Estado:", this.status);
           }
-          acc[servicio.Nombre].push(servicio);
-          return acc;
-        }, {});
-
-        // Seleccionamos el contenedor donde vamos a insertar los servicios
-        const contenedorServicios = document.getElementById("contenedor_servicios");
-
-        contenedorServicios.innerHTML = null;  // Limpiamos el contenedor
-
-        // Iteramos sobre los servicios agrupados
-        for (let nombre in serviciosAgrupados) {
-          // Crear el grupo de servicios para ese nombre
-          const grupoDiv = document.createElement("div");
-          grupoDiv.classList.add("card");
-
-          // Crear la cabecera del grupo (nombre del servicio)
-          const cardHeader = document.createElement("div");
-          cardHeader.classList.add("card-header");
-
-          const h2 = document.createElement("h2");
-          h2.classList.add("mb-0");
-
-          const button = document.createElement("button");
-          button.classList.add("btn", "btn-link");
-          button.setAttribute("type", "button");
-          button.setAttribute("data-toggle", "collapse");
-          button.setAttribute("data-target", `#collapse-${nombre}`);
-          button.setAttribute("aria-expanded", "true");
-          button.setAttribute("aria-controls", `collapse-${nombre}`);
-          button.innerText = nombre;
-
-          h2.appendChild(button);
-          cardHeader.appendChild(h2);
-          grupoDiv.appendChild(cardHeader);
-
-          // Crear el cuerpo del grupo (tipos de servicio)
-          const cardBody = document.createElement("div");
-          cardBody.id = `collapse-${nombre}`;
-          cardBody.classList.add("collapse");
-
-          // Iteramos sobre los servicios del mismo nombre (por ejemplo, diferentes tipos de "Esculpidas en gel")
-          serviciosAgrupados[nombre].forEach((servicio, index) => {
-            const tipoServicioDiv = document.createElement("div");
-
-            // Crear el tipo de servicio
-            const tipoLabel = document.createElement("label");
-            tipoLabel.innerHTML = `${servicio.Tipo_servicio} - $${servicio.Precio}`;
-
-            // Crear el radio para este servicio
-            const radio = document.createElement("input");
-            radio.type = "radio";
-            radio.id = `radio-${nombre}-${index}`;
-            radio.name = "servicio";  // TODOS los radios tendrán el mismo nombre
-            radio.value = servicio.ID;  // Esto es opcional, puedes guardar el nombre o ID del servicio
-            radio.addEventListener("change", function () {
-              fecha_seleccion.splice(1, 1, radio.value),
-              listenerRadioFecha();
-
-            });
-            tipoServicioDiv.appendChild(radio);
-            tipoServicioDiv.appendChild(tipoLabel);
-            cardBody.appendChild(tipoServicioDiv);
-          });
-          grupoDiv.appendChild(cardBody);
-          contenedorServicios.appendChild(grupoDiv);
-        }
-      } else {
-        console.error("Error en la solicitud. Estado:", this.status);
       }
-    }
   };
 
-  // Enviamos la solicitud
   xhttp.send();
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  cargarServicios();
-});
+  
+  document.addEventListener("DOMContentLoaded", function() {
+    cargarServicios();
+  });
 
 
 //window.addEventListener("load", ()=>{
