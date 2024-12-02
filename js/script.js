@@ -148,11 +148,15 @@ function iniciar_sesion(event) {
           let perfilItem = document.createElement("li");
           perfilItem.innerHTML = '<a class="dropdown-item" href="/perfil">Mi perfil</a>';
 
+          let misTurnos = document.createElement("li");
+          misTurnos.innerHTML = '<a class="dropdown-item" href="/turnos">Mis turnos</a>';
+
           let cerrarSesionItem = document.createElement("li");
           cerrarSesionItem.innerHTML = '<a class="dropdown-item" href="javascript:void(0)" onclick="confirmarCerrarSesion()">Cerrar sesión</a>';
 
           // Agregar los nuevos elementos al dropdown
           dropdownMenu.appendChild(perfilItem);
+          dropdownMenu.appendChild(misTurnos);
           dropdownMenu.appendChild(cerrarSesionItem);
         }
       }
@@ -194,8 +198,6 @@ function cancelarCerrarSesion() {
   modal.hide();
 }
 
-
-
 // Función para verificar si hay sesión activa y actualizar el dropdown
 function checkSession() {
   // Verificar si existe la sesión activa
@@ -213,11 +215,15 @@ function checkSession() {
       let perfilItem = document.createElement("li");
       perfilItem.innerHTML = '<a class="dropdown-item" href="/perfil">Mi perfil</a>';
 
+      let misTurnos = document.createElement("li");
+      misTurnos.innerHTML = '<a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#turnoModal">Mis turnos</a>';
+
       let cerrarSesionItem = document.createElement("li");
       cerrarSesionItem.innerHTML = '<a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#confirmLogoutModal">Cerrar sesión</a>';
 
       // Añadir los nuevos elementos al dropdown
       dropdownMenu.appendChild(perfilItem);
+      dropdownMenu.appendChild(misTurnos);
       dropdownMenu.appendChild(cerrarSesionItem);
     }
 
