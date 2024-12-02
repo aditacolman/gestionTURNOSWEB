@@ -1,359 +1,471 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Estética</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="shortcut icon" href="./img/pestana.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/utilities/font-size/font-size.css">
-    <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/utilities/padding/padding.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estética</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="shortcut icon" href="./img/pestana.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/utilities/font-size/font-size.css">
+  <link rel="stylesheet" href="https://unpkg.com/bs-brain@2.0.4/utilities/padding/padding.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
   <!-- Primera sección con imagen de fondo, botón, iconos y modal de registro e inicio de sesión -->
   <section>
-      <!-- DIV Fondo -->
-      <div class="contenedor">
-        <!-- DIV Iconos -->
-        <div class="nav">
-          <ul class="icon">
-            <li>
-              <a href="https://wa.me/541161710049" title="Visita nuestro sitio web">
-                <i class="bi bi-whatsapp color-icono"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" data-bs-toggle="dropdown" role="button" title="Iniciá sesión">
-                <i class="bi bi-person-circle color-icono"></i>
-              </a>
-              <!-- Dropdown para iniciar sesión o registrarse -->
-              <ul class="dropdown-menu">
-                <li id="btnSesion">
-                  <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
-                </li>
-                <li id="btnRegistrarse">
-                  <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+    <!-- DIV Fondo -->
+    <div class="contenedor">
+      <!-- DIV Iconos -->
+      <div class="nav">
+        <ul class="icon">
+          <li>
+            <a href="https://wa.me/541161710049" title="Visita nuestro sitio web">
+              <i class="bi bi-whatsapp color-icono"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-bs-toggle="dropdown" role="button" title="Iniciá sesión">
+              <i class="bi bi-person-circle color-icono"></i>
+            </a>
+            <!-- Dropdown para iniciar sesión o registrarse -->
+            <ul class="dropdown-menu">
+              <li id="btnSesion">
+                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
+              </li>
+              <li id="btnRegistrarse">
+                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
 
-        
-        <div class="contenido-principal">
-          <div class="div-logo">
-            <img src="./img/image.png" alt="Descripción de la imagen">
+
+      <div class="contenido-principal">
+        <div class="div-logo"><img src="./img/image.png" alt="Descripción de la imagen"></div>
+        <!-- DIV Botón -->
+        <div class="boton-turnos">
+          <a onclick="ModalIniciarSesion()" class="btn btn-outline-secondary">Sacar turno</a>
+        </div>
+        <div class="boton-servicios"><a href="#Servicios"><i class="bi bi-chevron-double-down color-icono"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de no hay sesion iniciada -->
+    <div class="modal fade" id="errorSesionModal" tabindex="-1" aria-labelledby="errorModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="errorModalLabel">No hay una sesión iniciada</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <!-- Botón para sacar turno -->
-          <div class="boton-turnos">
-            <a href="./turno.html" class="btn btn-outline-secondary">Sacar turno</a>
+          <div class="modal-body">
+            Inicie sesión antes de sacar un turno.
           </div>
-          <!-- Botón para ir a los servicios -->
-          <div class="boton-servicios">
-            <a href="#Servicios"><i class="bi bi-chevron-double-down color-icono"></i></a>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary" href="#" data-bs-toggle="modal"
+              data-bs-target="#loginModal">Iniciar sesión</button>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Modal de Iniciar Sesión -->
-      <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered custom-modal-width">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <!-- Formulario de inicio de sesión -->
-              <form id="loginForm">
-                <div class="mb-3">
-                  <label for="contact" class="form-label">Correo o Teléfono</label>
-                  <input type="text" class="form-control" id="valor" placeholder="Ingrese su correo o teléfono" required>
-                </div>
-                <div class="mb-3">
-                  <label for="loginPassword" class="form-label">Contraseña</label>
-                  <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su contraseña" required>
-                </div>
-                <div>
-                  <p>¿No tienes una cuenta? <a class="modal-title" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrate</a></p>
-                </div>
-                <div class="text-center boton-sesion">
-                  <button type="button" onclick="iniciar_sesion(event)" class="btn btn-primary">Iniciar sesión</button>
-                </div>
-              </form>
-              <!-- Mensaje de éxito -->
-              <div id="successMessage" style="display: none;">
-                <p>Inicio de sesión exitoso. ¡Bienvenido!</p>
+    <!-- Modal de la contraseña o el correo son incorrectos -->
+    <div class="modal fade" id="errorCorreoModal" tabindex="-1" aria-labelledby="errorModalLabel" >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="errorModalLabel">Error</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Contraseña o Correo incorrectos.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary" href="#" data-bs-toggle="modal"
+              data-bs-target="#loginModal">Iniciar sesión</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Iniciar Sesión -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" >
+      <div class="modal-dialog modal-dialog-centered custom-modal-width">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Formulario de inicio de sesión -->
+            <form id="loginForm">
+              <div class="mb-3">
+                <label for="contact" class="form-label">Correo o Teléfono</label>
+                <input type="text" class="form-control" id="valor" placeholder="Ingrese su correo o teléfono" required>
               </div>
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su contraseña"
+                  required>
+              </div>
+              <div>
+                <p>¿No tienes una cuenta? <a class="modal-title" href="#" data-bs-toggle="modal"
+                    data-bs-target="#registerModal">Registrate</a></p>
+              </div>
+              <div class="text-center boton-sesion">
+                <button type="button" onclick="iniciar_sesion(event)" class="btn btn-primary">Iniciar sesión</button>
+              </div>
+            </form>
+            <!-- Mensaje de éxito -->
+            <div id="successMessage" style="display: none;">
+              <p>Inicio de sesión exitoso. ¡Bienvenido!</p>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Modal de Registro -->
-      <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered custom-modal-width">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <!-- Formulario de registro -->
-              <form>
-                <div class="mb-3">
-                  <label for="nombre" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="nombre" placeholder="Ingrese su Nombre" required>
-                </div>
-                <div class="mb-3">
-                  <label for="apellido" class="form-label">Apellido</label>
-                  <input type="text" class="form-control" id="apellido" placeholder="Ingrese su Apellido" required>
-                </div>
-                <div class="mb-3">
-                  <label for="correo" class="form-label">Correo</label>
-                  <input type="text" class="form-control" id="correo" placeholder="Ingrese su correo" required>
-                </div>
-                <div class="mb-3">
-                  <label for="telefono" class="form-label">Teléfono</label>
-                  <input type="text" class="form-control" id="telefono" placeholder="Ingrese su teléfono" required>
-                </div>
-                <div class="mb-3">
-                  <label for="contrasena" class="form-label">Contraseña</label>
-                  <input type="password" class="form-control" id="contrasena2" placeholder="Ingrese una contraseña" required>
-                </div>
-                <div class="text-center boton-sesion">
-                  <button onclick="registrarse(event)" class="btn btn-primary">Registrarse</button>
-                </div>
-              </form>
-            </div>
+    <!-- Modal de Error -->
+    <div class="modal fade" id="errorModalServidor" tabindex="-1" aria-labelledby="errorModalLabel" >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="errorModalLabel">Error</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Hubo un error al cargar tu usuario :(, intenta más tarde.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Modal de Confirmación de Cierre de Sesión -->
-      <div class="modal fade" id="confirmLogoutModal" tabindex="-1" aria-labelledby="confirmLogoutModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="confirmLogoutModalLabel">¿Estás seguro de que deseas cerrar sesión?</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              Si cierras sesión, perderás el acceso a tu cuenta hasta que inicies sesión de nuevo.
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-danger" onclick="cerrarSesion()">Cerrar sesión</button>
-            </div>
+     <!-- Modal de registro correcto -->
+     <div class="modal fade" id="ModalRegistroCorrecto" tabindex="-1" aria-labelledby="errorModalLabel" >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="errorModalLabel">¡Bienvenido¡</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Su usuario fue registrado correctamente.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>
+    </div>
 
-
-    </section>
-    <section class="my-4" id="Servicios">
-      <div class="div-emprendimiento">
-        <h1 class="text-center nombre-emprendimiento">FLAFLA NAILS</h1>
-        <p class="text-center text-emprendimiento"> NUESTROS SERVICIOS</p>
-      </div>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-md-4">
-            <img class="img-servicio" src="./img/esculpidas.jpg" alt=""onclick="ampliarImagen(this)">
-            <div id="modal" class="modal-img-servicio" onclick="cerrarModal()">
-                <img class="imagen-ampliada" id="imagen-ampliada" alt="Descripción de la imagen">>
-            </div> 
-            <p class="text-servicio"> SERVICIO DE </p>
-            <p class="titulo-servicio">ESCULPIDAS EN GEL</p>
-            <div class="boton-servicio">
-              <a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-secondary">Ver más</a>
-              <div class="modal" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Esculpidas en gel</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
-                    <div class="modal-body">
-                      <p>Las uñas esculpidas son extensiones que se construyen a partir de la uña natural con material acrílico o gel. 
-                        Estas permiten restaurar y reconstruir uñas mordidas o simplemente, lucir uñas más largas. Algo que las hace sumamente atractivas, ya que se puede moldear la forma y longitud para obtener varios estilos.
-                      </p>
-                      <a href="./turno.html" class="btn btn-outline-secondary">Quiero pedir un turno</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <!-- Modal de Registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" >
+      <div class="modal-dialog modal-dialog-centered custom-modal-width">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="col-md-4">
-            <img class="img-servicio" src="./img/semi.jpg" alt="" onclick="ampliarImagen(this)">
-            <div id="modal" class="modal-img-servicio" onclick="cerrarModal()">
-                <img class="imagen-ampliada" id="imagen-ampliada" alt="Descripción de la imagen">>
-            </div>
-            <p class="text-servicio"> SERVICIO DE </p>
-            <p class="titulo-servicio">SEMIPERMANENTE</p>
-            <div class="boton-servicio">
-              <a href="#exampleModal2" data-bs-toggle="modal" data-bs-target="#exampleModal2" class="btn btn-outline-secondary">Ver más</a>
-              <div class="modal" tabindex="-1" id="exampleModal2" aria-labelledby="exampleModal2Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Esmaltado semipermanente</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <p>El servicio de esmaltado semipermanente de uñas es una técnica de manicura en la que se aplica un esmalte especial que combina la apariencia de un esmalte tradicional con la durabilidad de un gel. A diferencia de los esmaltes normales, el semipermanente se seca bajo una lámpara LED o UV, lo que lo hace más resistente a astillarse o descascararse. Este tipo de esmalte puede durar entre dos a tres semanas sin perder su brillo y color, ideal para personas que buscan una manicura duradera sin mantenimiento constante.</p>
-                      <a href="./turno.html" class="btn btn-outline-secondary">Quiero pedir un turno</a>
-                    </div>
-                  </div>
-                </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingrese su Nombre" required>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <img class="img-servicio" src="./img/kapping.jpg" alt="" onclick="ampliarImagen(this)">
-            <div id="modal" class="modal-img-servicio" onclick="cerrarModal()">
-              <img class="imagen-ampliada" id="imagen-ampliada" alt="Descripción de la imagen">>
-            </div>
-            <p class="text-servicio"> SERVICIO DE </p>
-            <p class="titulo-servicio">KAPPING GEL</p>
-            <div class="boton-servicio">
-              <a href="#exampleModal3" data-bs-toggle="modal" data-bs-target="#exampleModal3" class="btn btn-outline-secondary">Ver más</a>
-              <div class="modal" tabindex="-1" id="exampleModal3" aria-labelledby="exampleModal3Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Kapping gel</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <p>El servicio de kapping gel consiste en aplicar una capa de gel sobre la uña natural para fortalecerla y darle mayor durabilidad. A diferencia de la extensión de uñas, el kapping gel no alarga la uña, sino que protege y refuerza la uña natural, ayudando a evitar que se quiebre o debilite. El gel se seca bajo una lámpara LED o UV, y una vez endurecido, se puede esmaltar o decorar al gusto. Es ideal para quienes desean uñas naturales más resistentes sin recurrir a uñas postizas.</p>
-                      <a href="./turno.html" class="btn btn-outline-secondary">Quiero pedir un turno</a>
-                    </div>
-                  </div>
-                </div>
+              <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido" placeholder="Ingrese su Apellido" required>
               </div>
-            </div>  
+
+              <div class="mb-3">
+                <label for="correo" class="form-label">Correo</label>
+                <input type="text" class="form-control" id="correo" placeholder="Ingrese su correo" required>
+              </div>
+              <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="text" class="form-control" id="telefono" placeholder="Ingrese su teléfono" required>
+              </div>
+              <div class="mb-3">
+                <label for="contrasena" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="contrasena2" placeholder="Ingrese una contraseña"
+                  required>
+              </div>
+              <div class="text-center boton-sesion">
+                <button onclick="registrarse(event)" class="btn btn-primary">Registrarse</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="mt-sobre-nosotros">
-      <div class="container-fluid margin">
-        <div class="row g-0">
-          <div class="col-md-6 contenedor-info">
-            <div class="contenedor-circulo">
-              <img src="./img/lugartrabajo.jpg" alt="">
-            </div>
+    <!-- Modal de Confirmación de Cierre de Sesión -->
+    <div class="modal fade" id="confirmLogoutModal" tabindex="-1" aria-labelledby="confirmLogoutModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmLogoutModalLabel">¿Estás seguro de que deseas cerrar sesión?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="col-md-5">
-            <div class="card text-center mb-3 card-info">
-              <div class="card-body">
-                <h5 class="card-titulo">Mi emprendimiento</h5>
-                <p class="card-text">"Soy manicurista con más de 8 años de experiencia en el rubro. Tras años trabajando en relación de dependencia, decidí emprender por mi cuenta desde casa. Gracias al esfuerzo y la dedicación, logré abrir mi propio local, y hoy en día sigo enfocada en hacer crecer mi emprendimiento, ya sea a través de cursos de perfeccionamiento o incorporando más profesionales a mi equipo."</p>
-              </div>
-            </div>
+          <div class="modal-body">
+            Si cierras sesión, perderás el acceso a tu cuenta hasta que inicies sesión de nuevo.
           </div>
-          <div class="col-md-1 contenedor-info">
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" onclick="cerrarSesion()">Cerrar sesión</button>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="my-4" >
-      <div class="widget-container">
-        <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-        <div class="elfsight-app-120e6402-8c89-40bd-9f80-f6eea97ef185" data-elfsight-app-lazy></div>
-      </div>
-    </section>
-    
-    <!-- Footer 6 - Bootstrap Brain Component -->
-    <footer class="footer">
-      <div class="bg-light py-3 py-md-4 py-xl-8 border-top border-light-subtle">
-        <div class="container overflow-hidden">
-          <div class="row gy-3 gy-md-5 gy-xl-0 align-items-center">
-            
-            <!-- Columna del logo -->
-            <div class="col-xs-12 col-sm-6 col-xl-3 text-center text-sm-start">
-              <div class="contenedor-logo">
-                <a href="#!">
-                  <img src="./img/versionfinal.png" alt="">
-                </a>
-              </div>
-            </div>
-      
-            <!-- Columna de los enlaces, centrados -->
-            <div class="col-xs-12 col-sm-12 col-xl-6 text-center">
-              <ul class="ul-item justify-content-center">
-                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="./FAQ.html">FAQ</a></li>
-                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#!">Tutorial</a></li>
-                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#" data-bs-toggle="modal" data-bs-target="#localModal">Local</a></li>
-                <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#">Contacto</a></li>
-              </ul>
-            </div>
 
-            <!-- Modal de local -->
-            <div class="modal fade" id="localModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered custom-modal-width">
+  </section>
+  <section class="my-4" id="Servicios">
+    <div class="div-emprendimiento">
+      <h1 class="text-center nombre-emprendimiento">FLAFLA NAILS</h1>
+      <p class="text-center text-emprendimiento"> NUESTROS SERVICIOS</p>
+    </div>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-4">
+          <img class="img-servicio" src="./img/esculpidas.jpg" alt="" onclick="ampliarImagen(this)">
+          <div id="modal" class="modal-img-servicio" onclick="cerrarModal()">
+            <img class="imagen-ampliada" id="imagen-ampliada" alt="Descripción de la imagen">>
+          </div>
+          <p class="text-servicio"> SERVICIO DE </p>
+          <p class="titulo-servicio">ESCULPIDAS EN GEL</p>
+          <div class="boton-servicio">
+            <a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              class="btn btn-outline-secondary">Ver más</a>
+            <div class="modal" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel">
+              <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Nuestro Local</h5>
+                    <h5 class="modal-title">Esculpidas en gel</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+
+                  <div class="modal-body">
+                    <p>Las uñas esculpidas son extensiones que se construyen a partir de la uña natural con material
+                      acrílico o gel.
+                      Estas permiten restaurar y reconstruir uñas mordidas o simplemente, lucir uñas más largas. Algo
+                      que las hace sumamente atractivas, ya que se puede moldear la forma y longitud para obtener varios
+                      estilos.
+                    </p>
+                    <a onclick="ModalIniciarSesion()" class="btn btn-outline-secondary">Quiero pedir un turno</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img class="img-servicio" src="./img/semi.jpg" alt="" onclick="ampliarImagen(this)">
+          <div id="modal" class="modal-img-servicio" onclick="cerrarModal()">
+            <img class="imagen-ampliada" id="imagen-ampliada" alt="Descripción de la imagen">>
+          </div>
+          <p class="text-servicio"> SERVICIO DE </p>
+          <p class="titulo-servicio">SEMIPERMANENTE</p>
+          <div class="boton-servicio">
+            <a href="#exampleModal2" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+              class="btn btn-outline-secondary">Ver más</a>
+            <div class="modal" tabindex="-1" id="exampleModal2" aria-labelledby="exampleModal2Label">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Esmaltado semipermanente</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form>
-                      <div>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6562.2925133075705!2d-58.42929300000001!3d-34.676258!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccc70add5648b%3A0x7b1b94ac784a2f4b!2sPaseo%20De%20Compras%20Reina%20Del%20Mar%20Warnes%203788!5e0!3m2!1ses!2sar!4v1729253469700!5m2!1ses!2sar" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                      </div>
-                      <div class="d-flex justify-content-center"> 
-                        <a href="https://maps.app.goo.gl/CrLv64LwpXjdbeY9A" class="btn btn-primary" role="button">Ver Ubicación</a>                        
-                      </div>
-                    </form>
+                    <p>El servicio de esmaltado semipermanente de uñas es una técnica de manicura en la que se aplica un
+                      esmalte especial que combina la apariencia de un esmalte tradicional con la durabilidad de un gel.
+                      A diferencia de los esmaltes normales, el semipermanente se seca bajo una lámpara LED o UV, lo que
+                      lo hace más resistente a astillarse o descascararse. Este tipo de esmalte puede durar entre dos a
+                      tres semanas sin perder su brillo y color, ideal para personas que buscan una manicura duradera
+                      sin mantenimiento constante.</p>
+                    <a onclick="ModalIniciarSesion()" class="btn btn-outline-secondary">Quiero pedir un turno</a>
                   </div>
                 </div>
               </div>
             </div>
-            
-            <!-- Columna de los íconos de redes sociales -->
-            <div class="col-xs-12 col-sm-6 col-xl-3">
-              <div class="social-media-wrapper text-center text-sm-end">
-                <ul class="list-unstyled m-0 p-0 d-flex justify-content-center justify-content-sm-end ul-footer">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img class="img-servicio" src="./img/kapping.jpg" alt="" onclick="ampliarImagen(this)">
+          <div id="modal" class="modal-img-servicio" onclick="cerrarModal()">
+            <img class="imagen-ampliada" id="imagen-ampliada" alt="Descripción de la imagen">>
+          </div>
+          <p class="text-servicio"> SERVICIO DE </p>
+          <p class="titulo-servicio">KAPPING GEL</p>
+          <div class="boton-servicio">
+            <a href="#exampleModal3" data-bs-toggle="modal" data-bs-target="#exampleModal3"
+              class="btn btn-outline-secondary">Ver más</a>
+            <div class="modal" tabindex="-1" id="exampleModal3" aria-labelledby="exampleModal3Label">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Kapping gel</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>El servicio de kapping gel consiste en aplicar una capa de gel sobre la uña natural para
+                      fortalecerla y darle mayor durabilidad. A diferencia de la extensión de uñas, el kapping gel no
+                      alarga la uña, sino que protege y refuerza la uña natural, ayudando a evitar que se quiebre o
+                      debilite. El gel se seca bajo una lámpara LED o UV, y una vez endurecido, se puede esmaltar o
+                      decorar al gusto. Es ideal para quienes desean uñas naturales más resistentes sin recurrir a uñas
+                      postizas.</p>
+                    <a onclick="ModalIniciarSesion()" class="btn btn-outline-secondary">Quiero pedir un turno</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-sobre-nosotros">
+    <div class="container-fluid margin">
+      <div class="row g-0">
+        <div class="col-md-6 contenedor-info">
+          <div class="contenedor-circulo">
+            <img src="./img/lugartrabajo.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="card text-center mb-3 card-info">
+            <div class="card-body">
+              <h5 class="card-titulo">Mi emprendimiento</h5>
+              <p class="card-text">"Soy manicurista con más de 8 años de experiencia en el rubro. Tras años trabajando
+                en relación de dependencia, decidí emprender por mi cuenta desde casa. Gracias al esfuerzo y la
+                dedicación, logré abrir mi propio local, y hoy en día sigo enfocada en hacer crecer mi emprendimiento,
+                ya sea a través de cursos de perfeccionamiento o incorporando más profesionales a mi equipo."</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1 contenedor-info">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-4">
+    <div class="widget-container">
+      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+      <div class="elfsight-app-120e6402-8c89-40bd-9f80-f6eea97ef185" data-elfsight-app-lazy></div>
+    </div>
+  </section>
+
+  <!-- Footer 6 - Bootstrap Brain Component -->
+  <footer class="footer">
+    <div class="bg-light py-3 py-md-4 py-xl-8 border-top border-light-subtle">
+      <div class="container overflow-hidden">
+        <div class="row gy-3 gy-md-5 gy-xl-0 align-items-center">
+
+          <!-- Columna del logo -->
+          <div class="col-xs-12 col-sm-6 col-xl-3 text-center text-sm-start">
+            <div class="contenedor-logo">
+              <a href="#!">
+                <img src="./img/versionfinal.png" alt="">
+              </a>
+            </div>
+          </div>
+
+          <!-- Columna de los enlaces, centrados -->
+          <div class="col-xs-12 col-sm-12 col-xl-6 text-center">
+            <ul class="ul-item justify-content-center">
+              <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="./FAQ.html">FAQ</a></li>
+              <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#!">Tutorial</a></li>
+              <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#" data-bs-toggle="modal"
+                  data-bs-target="#localModal">Local</a></li>
+              <li class="nav-item"><a class="nav-link link-secondary px-2 px-md-3" href="#">Contacto</a></li>
+            </ul>
+          </div>
+
+          <!-- Modal de local -->
+          <div class="modal fade" id="localModal" tabindex="-1" aria-labelledby="loginModalLabel">
+            <div class="modal-dialog modal-dialog-centered custom-modal-width">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="loginModalLabel">Nuestro Local</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div>
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6562.2925133075705!2d-58.42929300000001!3d-34.676258!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccc70add5648b%3A0x7b1b94ac784a2f4b!2sPaseo%20De%20Compras%20Reina%20Del%20Mar%20Warnes%203788!5e0!3m2!1ses!2sar!4v1729253469700!5m2!1ses!2sar"
+                        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <a href="https://maps.app.goo.gl/CrLv64LwpXjdbeY9A" class="btn btn-primary" role="button">Ver
+                        Ubicación</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna de los íconos de redes sociales -->
+          <div class="col-xs-12 col-sm-6 col-xl-3">
+            <div class="social-media-wrapper text-center text-sm-end">
+              <ul class="list-unstyled m-0 p-0 d-flex justify-content-center justify-content-sm-end ul-footer">
                 <li>
                   <a href="https://wa.me/541161710049">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-whatsapp color-footer" viewBox="0 0 16 16">
-                      <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                      class="bi bi-whatsapp color-footer" viewBox="0 0 16 16">
+                      <path
+                        d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
                     </svg>
                   </a>
                 </li>
                 <li>
                   <a href="https://www.tiktok.com/@flafla.nails">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-tiktok color-footer" viewBox="0 0 16 16">
-                      <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                      class="bi bi-tiktok color-footer" viewBox="0 0 16 16">
+                      <path
+                        d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
                     </svg>
                   </a>
                 </li>
                 <li class="">
                   <a href="https://www.instagram.com/flafla_nails">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram color-footer" viewBox="0 0 16 16">
-                      <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                      class="bi bi-instagram color-footer" viewBox="0 0 16 16">
+                      <path
+                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
                     </svg>
                   </a>
                 </li>
                 <li>
                   <a href="https://web.facebook.com/profile.php?id=100026286372802">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="24" fill="currentColor" class="bi bi-facebook color-footer" viewBox="0 0 16 16">
-                      <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="24" fill="currentColor"
+                      class="bi bi-facebook color-footer" viewBox="0 0 16 16">
+                      <path
+                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
                     </svg>
                   </a>
                 </li>
@@ -372,16 +484,20 @@
               &copy; 2024. Todos los derechos reservados.
             </div>
             <div class="credits text-secondary text-center mt-2 fs-8">
-              Hecho por <a href="./img/DAC.png" class="link-secondary text-decoration-none">DAC</a> con <span class="color-footer">&#9829;</span>
+              Hecho por <a href="./img/DAC.png" class="link-secondary text-decoration-none">DAC</a> con <span
+                class="color-footer">&#9829;</span>
             </div>
           </div>
         </div>
       </div>
     </div>
   </footer>
-    
-    <!-- Scripts de Bootstrap -->
-     <script src="./js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+
+  <!-- Scripts de Bootstrap -->
+  <script src="./js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
