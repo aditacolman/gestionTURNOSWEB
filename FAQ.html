@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,28 @@
     <title>Preguntas Frecuentes</title>
 </head>
 <body>
+  <div class="container-fluid turno-nav">
+    <div class="row">
+      <div class="col-1">
+        <img class="img-nav" src="./img/versionfinal.png" alt="">
+      </div>
+      <div class="col-10">
+          <p class="text-faq"> Preguntas Frecuentes</p>
+      </div>
+      <div class="col-1 nav"> 
+        <ul class="icon">
+          <li><a href="./index.html" title="Ir al inicio"><i class="bi bi-house-heart-fill"></i></a></li>
+          <li><a href="#" data-bs-toggle="dropdown" role="button" title="Visita nuestro sitio web"><i class="bi bi-person-circle"></i></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a></li>
+              <li id="btnRegistrarse"><a class="dropdown-item dropdown" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
     <div class="container">
         <div class="row"> 
             <div class="col m-5">
@@ -240,4 +262,3 @@
 
 </body>
 </html>
-
